@@ -11,10 +11,13 @@
       <source src="video.mp4">
       <source src="video.webm">
     </video>
-    <div class="v-main-video_info">
+    <div class="v-main-video_info wrapper">
       <h1 class="v-main-video_header">
         Robust real estate
       </h1>
+      <h2 class="v-main-video_header2">
+        in the heart of England
+      </h2>
     </div>
   </header>
 </template>
@@ -26,14 +29,32 @@ export default {
 </script>
 
 <style scoped>
-  .v-main-video {
-    width: 100%;
-    object-fit: cover;
-    height: 60rem;
+  .v-main-video_wrap {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  .v-main-video_header {
+  .v-main-video {
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .v-main-video_header,
+  .v-main-video_header2 {
     font-family: var(--f-header);
-    font-weight: 700;
+    font-weight: normal;
     color: var(--c-white);
+    font-size: 10rem;
+    text-align: center;
+  }
+  .v-main-video_header2 {
+    font-size: 6rem;
+    padding-top: 2rem;
   }
 </style>

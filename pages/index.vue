@@ -46,4 +46,8 @@ export default {
   html {
     font-size: 62.5%;
   }
+  .wrapper {
+    max-width: 140rem;
+    margin: 0 auto;
+  }
 </style>
