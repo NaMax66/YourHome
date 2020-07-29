@@ -41,6 +41,7 @@ export default {
 .v-button {
   font-family: var(--f-header);
   display: inline-block;
+  cursor: pointer;
   &.__main_action_btn {
     font-size: 4rem;
     padding: 1rem 3rem;
@@ -49,6 +50,12 @@ export default {
     border: 1px solid var(--c-white);
     border-radius: 3px;
     outline: none;
+    transition: all .4s;
+    &:hover,
+    &:active {
+      background-color: var(--c-white);
+      color: var(--c-black);
+    }
   }
 }
 </style>

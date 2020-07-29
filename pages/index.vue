@@ -18,6 +18,7 @@ export default {
     --f-main: "Cardo", serif;
     --f-header: "Cinzel", serif;
     --c-white: #F5F5F5;
+    --c-black: #212121;
   }
   @font-face {
     font-family: "Cardo";
