@@ -18,13 +18,18 @@
       <h2 class="v-main-video_header2">
         in the heart of England
       </h2>
+      <v-button>Buy</v-button>
     </div>
   </header>
 </template>
 
 <script>
+import VButton from './VButton'
 export default {
-  name: 'VMainVideo'
+  name: 'VMainVideo',
+  components: {
+    VButton
+  }
 }
 </script>
 
@@ -35,6 +40,7 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
   }
   .v-main-video {
     z-index: -1;
