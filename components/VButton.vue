@@ -1,5 +1,10 @@
 <template>
-  <component :is="component" :[href]="link">
+  <component
+    :is="component"
+    class="v-button"
+    :class="{__main_action_btn: mainActionBtn}"
+    :[href]="link"
+  >
     <slot />
   </component>
 </template>
@@ -11,6 +16,10 @@ export default {
     link: {
       type: String,
       default: null
+    },
+    mainActionBtn: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
@@ -29,5 +38,17 @@ export default {
 </script>
 
 <style scoped>
-
+.v-button {
+  font-family: var(--f-header);
+  display: inline-block;
+  &.__main_action_btn {
+    font-size: 4rem;
+    padding: 1rem 3rem;
+    color: var(--c-white);
+    background-color: color-mod(var(--c-white) a(20%));
+    border: 1px solid var(--c-white);
+    border-radius: 3px;
+    outline: none;
+  }
+}
 </style>

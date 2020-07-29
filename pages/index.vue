@@ -15,8 +15,8 @@ export default {
 
 <style>
   :root {
-    --f-main: "Cardo";
-    --f-header: "Cinzel";
+    --f-main: "Cardo", serif;
+    --f-header: "Cinzel", serif;
     --c-white: #F5F5F5;
   }
   @font-face {
@@ -45,6 +45,11 @@ export default {
   }
   html {
     font-size: 62.5%;
+  }
+  body * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   .wrapper {
     max-width: 140rem;

@@ -60,5 +60,10 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    postcss: [
+      require('postcss-nested')(),
+      require('postcss-hexrgba')(),
+      require('postcss-color-mod-function')()
+    ]
   }
 }

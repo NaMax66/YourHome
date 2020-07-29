@@ -18,7 +18,9 @@
       <h2 class="v-main-video_header2">
         in the heart of England
       </h2>
-      <v-button>Buy</v-button>
+      <v-button main-action-btn>
+        make your choice
+      </v-button>
     </div>
   </header>
 </template>
@@ -41,6 +43,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 60rem;
   }
   .v-main-video {
     z-index: -1;
@@ -51,16 +54,25 @@ export default {
     top: 0;
     left: 0;
   }
+  .v-main-video_info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .v-main-video_header,
   .v-main-video_header2 {
     font-family: var(--f-header);
     font-weight: normal;
     color: var(--c-white);
     font-size: 10rem;
-    text-align: center;
+    line-height: 10rem;
   }
   .v-main-video_header2 {
     font-size: 6rem;
-    padding-top: 2rem;
+    line-height: 6rem;
+    margin-top: 2rem;
+  }
+  .v-button {
+    margin-top: 7rem;
   }
 </style>
