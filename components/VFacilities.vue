@@ -8,16 +8,47 @@
         <h2>Oakwood Park</h2> -->
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad culpa ea id illo incidunt ipsa laborum non quibusdam sint vero. Aliquam autem dignissimos dolore, eius ex explicabo fugiat, id impedit iure laborum libero necessitatibus nihil nisi placeat porro provident quaerat quibusdam quos recusandae sapiente sequi ut veritatis voluptatem? At autem beatae consequatur eius hic iste labore laudantium magnam modi molestiae nemo numquam obcaecati, placeat quis reiciendis repellat, sunt tempore voluptate voluptates voluptatibus. At debitis earum excepturi fuga illum inventore, provident quo similique. Culpa doloremque doloribus inventore neque repellat? Aspernatur earum ex facere harum impedit necessitatibus nemo nisi numquam sapiente voluptatem!</p>
       </div>
-      <div class="v-facilities_slider">
-        <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
+      <div class="v-facilities_swiper">
+        <swiper class="swiper" :options="swiperOption">
+          <swiper-slide>
+            <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
+          </swiper-slide>
+          <swiper-slide>Slide 2</swiper-slide>
+          <swiper-slide>Slide 3</swiper-slide>
+          <swiper-slide>Slide 4</swiper-slide>
+          <swiper-slide>Slide 5</swiper-slide>
+          <swiper-slide>Slide 6</swiper-slide>
+          <swiper-slide>Slide 7</swiper-slide>
+          <swiper-slide>Slide 8</swiper-slide>
+          <swiper-slide>Slide 9</swiper-slide>
+          <swiper-slide>Slide 10</swiper-slide>
+        </swiper>
+        <div>
+          <v-button slot="button-prev" class="swiper-button-prev">
+            Prev
+          </v-button>
+          <v-button slot="button-next" class="swiper-button-next">
+            Next
+          </v-button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import VButton from './VButton'
 export default {
-  name: 'VFacilities'
+  name: 'VFacilities',
+  components: { VButton },
+  data: () => ({
+    swiperOption: {
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    }
+  })
 }
 </script>
 
@@ -31,7 +62,7 @@ export default {
     display: flex;
   }
   .v-facilities_info {
-    flex-basis: 50%;
+    width: 50%;
     padding-right: 5rem;
     color: var(--c-black);
     & h2 {
@@ -43,12 +74,16 @@ export default {
       line-height: 2.8rem;
     }
   }
-  .v-facilities_slider {
-    flex-basis: 50%;
+  .v-facilities_swiper {
+    width: 50%;
+  }
+  .swiper {
+    width: 100%;
+    max-height: 60rem;
+    max-width: 70rem;
     & img {
       width: 100%;
       height: auto;
-      max-height: 60rem;
       border-radius: 3px;
     }
   }
