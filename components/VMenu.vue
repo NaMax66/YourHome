@@ -29,8 +29,8 @@ export default {
   position: fixed;
   z-index: 100;
   width: 100%;
-  color: var(--c-white);
-  background-color: var(--c-black);
+  color: var(--c-light-gray);
+  background-color: color-mod(var(--c-black) a(80%));
   padding: 1rem 0;
 }
 .v-menu_controls {
@@ -55,6 +55,7 @@ export default {
     margin: 0 5rem;
     line-height: 3rem;
     white-space: nowrap;
+    color: var(--c-white);
   }
 }
 </style>

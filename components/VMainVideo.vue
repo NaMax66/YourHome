@@ -38,12 +38,12 @@ export default {
 <style scoped>
   .v-main-video_wrap {
     position: relative;
-    height: 80vh;
+    height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 60rem;
+    min-height: 70rem;
   }
   .v-main-video {
     z-index: -1;

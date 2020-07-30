@@ -21,6 +21,7 @@ export default {
     --f-main: "Lato", sans-serif;
     --f-header: "Cinzel", serif;
     --c-white: #F5F5F5;
+    --c-light-gray: #BDBDBD;
     --c-black: #212121;
   }
   @font-face {
