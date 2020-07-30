@@ -2,6 +2,7 @@
   <div class="">
     <v-menu />
     <v-main-video />
+    <v-neighbourhood id="neighbourhood" />
     <v-facilities id="facilities" />
     <v-footer />
   </div>
@@ -10,11 +11,13 @@
 <script>
 import VMainVideo from '../components/VMainVideo'
 import VMenu from '../components/VMenu'
+import VNeighbourhood from '../components/VNeighbourhood'
 import VFacilities from '../components/VFacilities'
 import VFooter from '../components/VFooter'
 export default {
   components: {
     VMenu,
+    VNeighbourhood,
     VMainVideo,
     VFacilities,
     VFooter
@@ -62,11 +65,14 @@ export default {
   html {
     font-size: 62.5%;
     font-family: var(--f-main);
+    scroll-behavior: smooth;
   }
-  body * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  body {
+    & * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
   }
   ul {
     list-style: none;

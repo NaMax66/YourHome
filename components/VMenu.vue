@@ -3,7 +3,7 @@
     <div class="wrapper v-menu_controls">
       <ul class="v-menu_left-list">
         <li><a href="#facilities">facilities</a></li>
-        <li><a href="#neighbours">neighbours</a></li>
+        <li><a href="#neighbourhood">neighbourhood</a></li>
         <li><a href="#inside">inside</a></li>
       </ul>
       <div class="v-menu_label">

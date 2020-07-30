@@ -42,7 +42,7 @@
 <script>
 import VButton from './VButton'
 export default {
-  name: 'VFacilities',
+  name: 'VNeighborhood',
   components: { VButton },
   data: () => ({
     swiperOption: {
