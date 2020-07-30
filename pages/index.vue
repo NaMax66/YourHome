@@ -2,16 +2,19 @@
   <div class="">
     <v-menu />
     <v-main-video />
+    <v-facilities />
   </div>
 </template>
 
 <script>
 import VMainVideo from '../components/VMainVideo'
 import VMenu from '../components/VMenu'
+import VFacilities from '../components/VFacilities'
 export default {
   components: {
     VMenu,
-    VMainVideo
+    VMainVideo,
+    VFacilities
   }
 }
 </script>
@@ -23,6 +26,7 @@ export default {
     --c-white: #F5F5F5;
     --c-light-gray: #BDBDBD;
     --c-black: #212121;
+    --v-dark-blue: #001235;
   }
   @font-face {
     font-family: "Lato";
@@ -61,12 +65,6 @@ export default {
     margin: 0;
     padding: 0;
   }
-  .wrapper {
-    max-width: 140rem;
-    margin: 0 auto;
-    padding: 0 2rem;
-    box-sizing: content-box;
-  }
   ul {
     list-style: none;
   }
@@ -74,4 +72,11 @@ export default {
     color: inherit;
     text-decoration: none;
   }
+  .wrapper {
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: content-box;
+  }
+
 </style>

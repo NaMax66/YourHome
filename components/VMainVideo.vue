@@ -19,7 +19,7 @@
         in the heart of England
       </h2>
       <v-button main-action-btn>
-        book viewing
+        book your viewing
       </v-button>
     </div>
   </header>
