@@ -27,11 +27,11 @@ export default {
       return this.link ? 'href' : null
     },
     component () {
-      let c = 'button'
+      let componentName = 'button'
       if (this.link) {
-        c = 'a'
+        componentName = 'a'
       }
-      return c
+      return componentName
     }
   }
 }

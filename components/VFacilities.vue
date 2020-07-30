@@ -23,16 +23,17 @@
           <swiper-slide>Slide 9</swiper-slide>
           <swiper-slide>Slide 10</swiper-slide>
         </swiper>
-        <div>
-          <v-button slot="button-prev" class="swiper-button-prev">
+        <div class="v-facilities_swiper_controls">
+          <v-button class="v-facilities_swiper_controls-prev">
             Prev
           </v-button>
-          <v-button slot="button-next" class="swiper-button-next">
+          <v-button class="v-facilities_swiper_controls-next">
             Next
           </v-button>
         </div>
       </div>
     </div>
+    <v-button />
   </div>
 </template>
 
@@ -44,11 +45,13 @@ export default {
   data: () => ({
     swiperOption: {
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.v-facilities_swiper_controls-next',
+        prevEl: '.v-facilities_swiper_controls-prev'
       }
     }
-  })
+  }),
+  methods: {
+  }
 }
 </script>
 
@@ -86,5 +89,10 @@ export default {
       height: auto;
       border-radius: 3px;
     }
+  }
+  .v-facilities_swiper_controls {
+    height: 3rem;
+    position: relative;
+    z-index: 10;
   }
 </style>
