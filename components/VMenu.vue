@@ -56,11 +56,13 @@ export default {
 }
 .v-menu_label {
   & > a {
+    display: block;
     font-size: 3rem;
     margin: 0 5rem;
     line-height: 3rem;
     white-space: nowrap;
     color: var(--c-white);
+    transition: all .3s;
   }
 }
 </style>

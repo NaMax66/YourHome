@@ -2,7 +2,8 @@
   <div class="">
     <v-menu />
     <v-main-video />
-    <v-facilities />
+    <v-facilities id="facilities" />
+    <v-footer />
   </div>
 </template>
 
@@ -10,11 +11,13 @@
 import VMainVideo from '../components/VMainVideo'
 import VMenu from '../components/VMenu'
 import VFacilities from '../components/VFacilities'
+import VFooter from '../components/VFooter'
 export default {
   components: {
     VMenu,
     VMainVideo,
-    VFacilities
+    VFacilities,
+    VFooter
   }
 }
 </script>
