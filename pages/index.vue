@@ -2,8 +2,8 @@
   <div class="">
     <v-menu />
     <v-main-video />
-    <v-neighbourhood id="neighbourhood" />
-    <v-facilities id="facilities" />
+    <v-info-slider theme="dark" direction="ltr" />
+    <v-info-slider theme="light" direction="ltr"/>
     <v-footer />
   </div>
 </template>
@@ -11,15 +11,13 @@
 <script>
 import VMainVideo from '../components/VMainVideo'
 import VMenu from '../components/VMenu'
-import VNeighbourhood from '../components/VNeighbourhood'
-import VFacilities from '../components/VFacilities'
 import VFooter from '../components/VFooter'
+import VInfoSlider from '../components/VInfoSlider'
 export default {
   components: {
+    VInfoSlider,
     VMenu,
-    VNeighbourhood,
     VMainVideo,
-    VFacilities,
     VFooter
   }
 }

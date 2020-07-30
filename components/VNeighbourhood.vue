@@ -9,7 +9,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad culpa ea id illo incidunt ipsa laborum non quibusdam sint vero. Aliquam autem dignissimos dolore, eius ex explicabo fugiat, id impedit iure laborum libero necessitatibus nihil nisi placeat porro provident quaerat quibusdam quos recusandae sapiente sequi ut veritatis voluptatem? At autem beatae consequatur eius hic iste labore laudantium magnam modi molestiae nemo numquam obcaecati, placeat quis reiciendis repellat, sunt tempore voluptate voluptates voluptatibus. At debitis earum excepturi fuga illum inventore, provident quo similique. Culpa doloremque doloribus inventore neque repellat? Aspernatur earum ex facere harum impedit necessitatibus nemo nisi numquam sapiente voluptatem!</p>
       </div>
       <div class="v-facilities_swiper">
-        <swiper class="swiper" :options="swiperOption">
+        <swiper ref="sw1" class="swiper" :options="swiperOption">
           <swiper-slide>
             <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
           </swiper-slide>
