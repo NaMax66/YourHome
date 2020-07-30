@@ -64,6 +64,8 @@ export default {
   .wrapper {
     max-width: 140rem;
     margin: 0 auto;
+    padding: 0 2rem;
+    box-sizing: content-box;
   }
   ul {
     list-style: none;

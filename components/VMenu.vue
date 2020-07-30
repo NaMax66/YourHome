@@ -3,16 +3,16 @@
     <div class="wrapper v-menu_controls">
       <ul class="v-menu_left-list">
         <li><a href="#facilities">facilities</a></li>
-        <li><a href="#neighbors">neighbors</a></li>
-        <li><a href="#location">location</a></li>
+        <li><a href="#neighbours">neighbours</a></li>
+        <li><a href="#inside">inside</a></li>
       </ul>
       <div class="v-menu_label">
         <a href="https://www.growyourhouse.uk/" target="_blank">GrowYourHouse Co.</a>
       </div>
       <ul class="v-menu_right-list">
-        <li><a href="#inside">inside</a></li>
         <li><a href="#outside">outside</a></li>
         <li><a href="#location">layout</a></li>
+        <li><a href="#location">location</a></li>
       </ul>
     </div>
   </div>
@@ -47,6 +47,11 @@ export default {
     font-size: 2rem;
     text-transform: uppercase;
     line-height: 2rem;
+    transition: color .3s;
+    &:hover,
+    &:focus {
+      color: var(--c-white);
+    }
   }
 }
 .v-menu_label {
