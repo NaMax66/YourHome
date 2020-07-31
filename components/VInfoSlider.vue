@@ -15,13 +15,10 @@
           :options="swiperOption"
         >
           <swiper-slide>
-            <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
+            <img src="../static/img/hans-m-C5ORgbT2kGk-unsplash.jpg" alt="">
           </swiper-slide>
-          <swiper-slide>
-            <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
-          </swiper-slide>
-          <swiper-slide>
-            <img src="../static/img/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg" alt="">
+          <swiper-slide v-for="slide in slides" :key="slide.id">
+            <img :src="`img/${slide.img}`" alt="">
           </swiper-slide>
         </swiper>
         <div ref="nextEl" class="swiper-button-next" />
@@ -35,6 +32,10 @@
 export default {
   name: 'VInfoSlider',
   props: {
+    slides: {
+      type: Array,
+      required: true
+    },
     theme: {
       type: String,
       required: true
