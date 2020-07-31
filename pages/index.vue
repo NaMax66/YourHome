@@ -2,8 +2,8 @@
   <div class="">
     <v-menu />
     <v-main-video />
-    <v-info-slider theme="dark" direction="ltr" />
-    <v-info-slider theme="light" direction="ltr"/>
+    <v-info-slider theme="dark" direction="rtl" />
+    <v-info-slider theme="light" direction="ltr" />
     <v-footer />
   </div>
 </template>

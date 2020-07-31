@@ -1,7 +1,7 @@
 <template>
-  <div class="v-info-slider_background">
-    <div class="wrapper v-info-slider_wrap">
-      <div class="v-info-slider_info">
+  <div class="v-info-slider_background" :class="theme">
+    <div class="wrapper v-info-slider_wrap" :class="[direction, theme]">
+      <div class="v-info-slider_info" :class="direction">
         <h2>Hello Slider</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem doloribus illo illum, impedit maxime perferendis. Ad, aliquid beatae corporis est illo incidunt iste necessitatibus nisi perferendis, quae quasi quis.
@@ -63,17 +63,34 @@ export default {
 
 <style scoped>
   .v-info-slider_background {
-    background-color: var(--c-white);
+    &.light {
+      background-color: var(--c-white);
+    }
+    &.dark {
+      background-color: var(--c-black);
+    }
   }
   .v-info-slider_wrap {
     padding-top: 5rem;
     height: 53rem;
     display: flex;
+    &.rtl {
+      flex-direction: row-reverse;
+    }
+    &.dark {
+      color: var(--c-light-gray);
+    }
+    &.light {
+      color: var(--c-black);
+    }
   }
   .v-info-slider_info {
     width: 50%;
     padding-right: 5rem;
-    color: var(--c-black);
+    &.rtl {
+      padding-right: 0;
+      padding-left: 5rem;
+    }
     & h2 {
       font-size: 2.8rem;
     }
