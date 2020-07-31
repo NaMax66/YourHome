@@ -18,5 +18,25 @@ export default {
       text: 'Connection with the history of the city and the contemporary approach to architecture and engineering, safe area and excellent surrounding infrastructure - all components complement each other.',
       img: 'christian-koch-D_4R9CcYZOk-unsplash.jpg'
     }
+  ],
+  facilities: [
+    {
+      id: 1,
+      header: 'Nice park',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'katerina-kerdi-W1C0WrlYrfw-unsplash.jpg'
+    },
+    {
+      id: 2,
+      header: 'Good school',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'ryan-jacobson-cXUOQWdRV4I-unsplash.jpg'
+    },
+    {
+      id: 3,
+      header: 'Excellent gum',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'danielle-cerullo-CQfNt66ttZM-unsplash.jpg'
+    }
   ]
 }

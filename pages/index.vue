@@ -6,7 +6,7 @@
       <v-info-slider theme="dark" direction="rtl" :slides="neighbourhoodSlides" />
     </div>
     <div id="facilities">
-      <v-info-slider theme="light" direction="ltr" :slides="neighbourhoodSlides" />
+      <v-info-slider theme="light" direction="ltr" :slides="facilitiesSlides" />
     </div>
     <v-footer />
   </div>
@@ -28,6 +28,9 @@ export default {
   computed: {
     neighbourhoodSlides () {
       return info.neighbourhood
+    },
+    facilitiesSlides () {
+      return info.facilities
     }
   }
 }
@@ -37,5 +40,8 @@ export default {
   @import "../assets/main.css";
   #neighbourhood > .v-info-slider_background {
     padding-top: 10rem;
+  }
+  #facilities > .v-info-slider_background {
+    padding-top: 8rem;
   }
 </style>
