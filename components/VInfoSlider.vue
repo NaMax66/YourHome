@@ -1,10 +1,16 @@
 <template>
   <div class="v-info-slider_background" :class="theme">
     <div class="wrapper v-info-slider_wrap" :class="[direction, theme]">
-      <div class="v-info-slider_info" :class="direction">
-        <h2>Hello Slider</h2>
+      <div
+        v-if="currentSlide"
+        class="v-info-slider_info"
+        :class="[!isTransitioning ? '__visible' : '', direction]"
+      >
+        <h2>
+          {{ currentSlide.header }}
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad autem doloribus illo illum, impedit maxime perferendis. Ad, aliquid beatae corporis est illo incidunt iste necessitatibus nisi perferendis, quae quasi quis.
+          {{ currentSlide.text }}
         </p>
       </div>
       <div class="v-info-slider_swiper">
@@ -14,6 +20,8 @@
           class="swiper"
           :options="swiperOption"
           @slideChange="setCurrentSlide"
+          @slideChangeTransitionStart="isTransitioning = true"
+          @slideChangeTransitionEnd="isTransitioning = false"
         >
           <swiper-slide v-for="slide in slides" :key="slide.id">
             <img :src="`img/${slide.img}`" alt="">
@@ -44,6 +52,7 @@ export default {
     }
   },
   data: () => ({
+    isTransitioning: false,
     isReady: false,
     currentSlide: null,
     swiperOption: {
@@ -103,17 +112,24 @@ export default {
   .v-info-slider_info {
     width: 50%;
     padding-right: 5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .1s;
+    &.__visible {
+      opacity: 1;
+      visibility: visible;
+    }
     &.rtl {
       padding-right: 0;
       padding-left: 5rem;
     }
     & h2 {
-      font-size: 2.8rem;
+      font-size: 3.8rem;
     }
     & p {
       margin-top: 2rem;
-      font-size: 2rem;
-      line-height: 2.8rem;
+      font-size: 3rem;
+      line-height: 4rem;
     }
   }
   .v-info-slider_swiper {

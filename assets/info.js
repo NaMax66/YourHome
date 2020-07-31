@@ -2,35 +2,20 @@ export default {
   neighbourhood: [
     {
       id: 1,
-      header: 'Nice neighbours',
-      text: `Features:\n' +
-        'Exterior is both traditional and contemporary\n' +
-        'Garden door in kitchen\n' +
-        'Brick exterior walls\n' +
-        'Exhaust fans in kitchen and washrooms \n' +
-        'Peaceful community`,
+      header: 'Picturesque place',
+      text: 'The elite complex of SwanLake apartments is located in one of the most picturesque places in the central part of the city. ',
       img: 'terrah-holly-pmhdkgRCbtE-unsplash.jpg'
     },
     {
       id: 2,
-      header: 'Healthy environment',
-      text: `Features:\n' +
-        'Exterior is both traditional and contemporary\n' +
-        'Garden door in kitchen\n' +
-        'Brick exterior walls\n' +
-        'Exhaust fans in kitchen and washrooms \n' +
-        'Peaceful community`,
+      header: 'Premium lifestyle',
+      text: 'It most fully meets modern requirements for premium real estate: unique location and characteristics',
       img: 'hans-m-C5ORgbT2kGk-unsplash.jpg'
     },
     {
       id: 3,
-      header: 'Friendly wife',
-      text: `Features:\n' +
-        'Exterior is both traditional and contemporary\n' +
-        'Garden door in kitchen\n' +
-        'Brick exterior walls\n' +
-        'Exhaust fans in kitchen and washrooms \n' +
-        'Peaceful community`,
+      header: 'Safe area',
+      text: 'Connection with the history of the city and the contemporary approach to architecture and engineering, safe area and excellent surrounding infrastructure - all components complement each other.',
       img: 'christian-koch-D_4R9CcYZOk-unsplash.jpg'
     }
   ]
