@@ -12,18 +12,19 @@
       <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
     </div>
     <div id="visual_choice">
-      <v-visual-choice />
+      <v-visual-choice :visual-data="visualData" />
     </div>
     <v-footer />
   </div>
 </template>
 
 <script>
+import info from '../assets/info'
+import visualData from '../assets/visualData'
 import VMainVideo from '../components/VMainVideo'
 import VMenu from '../components/VMenu'
 import VFooter from '../components/VFooter'
 import VInfoSlider from '../components/VInfoSlider'
-import info from '../assets/info'
 import VVisualChoice from '../components/VVisualChoice'
 export default {
   components: {
@@ -42,6 +43,9 @@ export default {
     },
     interiorSlides () {
       return info.interior
+    },
+    visualData () {
+      return visualData
     }
   }
 }

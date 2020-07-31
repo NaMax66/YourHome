@@ -9,7 +9,19 @@
     <div class="v-visual-choice_info_plan_wrap">
       <div class="v-visual-choice_info_plan_img_wrap">
         <img class="v-visual-choice_info_plan_img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
-        <svg class="v-visual-choice_info_plan_view_box"></svg>
+        <svg
+          class="v-visual-choice_info_plan_view_box"
+          :viewBox="visualData.viewBox"
+        >
+          <a
+            v-for="item in visualData.houses"
+            :key="item.id"
+            class="v-visual-choice_info_plan_item"
+            @click="console.log(item)"
+            v-html="item.path"
+          >
+          </a>
+        </svg>
       </div>
     </div>
   </div>
@@ -51,9 +63,25 @@ export default {
   width: 50%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 .v-visual-choice_info_plan_img {
   width: 100%;
   height: auto;
+  margin-bottom: -2px;
+}
+.v-visual-choice_info_plan_view_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.v-visual-choice_info_plan_item {
+  fill: transparent;
+  transition: all .2s;
+  &:hover {
+    fill: color-mod(var(--c-white) a(50%));
+  }
 }
 </style>
