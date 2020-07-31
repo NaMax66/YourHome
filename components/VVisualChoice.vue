@@ -9,6 +9,7 @@
     <div class="v-visual-choice_info_plan_wrap">
       <div class="v-visual-choice_info_plan_img_wrap">
         <img class="v-visual-choice_info_plan_img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
+        <svg class="v-visual-choice_info_plan_view_box"></svg>
       </div>
     </div>
   </div>
@@ -16,7 +17,13 @@
 
 <script>
 export default {
-  name: 'VVisualChoice'
+  name: 'VVisualChoice',
+  props: {
+    visualData: {
+      type: Object,
+      required: true
+    }
+  }
 }
 </script>
 
