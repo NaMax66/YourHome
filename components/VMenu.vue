@@ -11,7 +11,7 @@
       </div>
       <ul class="v-menu_right-list">
         <li><a href="#outside">outside</a></li>
-        <li><a href="#location">layout</a></li>
+        <li><a href="#visual_choice">visual choice</a></li>
         <li><a href="#location">location</a></li>
       </ul>
     </div>

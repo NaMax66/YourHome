@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <v-menu />
     <v-main-video />
     <div id="neighbourhood">
@@ -11,6 +11,9 @@
     <div id="interior">
       <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
     </div>
+    <div id="visual_choice">
+      <v-visual-choice />
+    </div>
     <v-footer />
   </div>
 </template>
@@ -21,8 +24,10 @@ import VMenu from '../components/VMenu'
 import VFooter from '../components/VFooter'
 import VInfoSlider from '../components/VInfoSlider'
 import info from '../assets/info'
+import VVisualChoice from '../components/VVisualChoice'
 export default {
   components: {
+    VVisualChoice,
     VInfoSlider,
     VMenu,
     VMainVideo,
