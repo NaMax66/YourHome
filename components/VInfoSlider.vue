@@ -13,10 +13,8 @@
           ref="swiper"
           class="swiper"
           :options="swiperOption"
+          @slideChange="setCurrentSlide"
         >
-          <swiper-slide>
-            <img src="../static/img/hans-m-C5ORgbT2kGk-unsplash.jpg" alt="">
-          </swiper-slide>
           <swiper-slide v-for="slide in slides" :key="slide.id">
             <img :src="`img/${slide.img}`" alt="">
           </swiper-slide>
@@ -47,7 +45,10 @@ export default {
   },
   data: () => ({
     isReady: false,
+    currentSlide: null,
     swiperOption: {
+      spaceBetween: 40,
+      loop: true,
       navigation: {
         nextEl: null,
         prevEl: null
@@ -55,9 +56,24 @@ export default {
     }
   }),
   mounted () {
-    this.swiperOption.navigation.nextEl = this.$refs.nextEl
-    this.swiperOption.navigation.prevEl = this.$refs.prevEl
-    this.isReady = true
+    this.setInitialSlide()
+    this.setSwiperControls()
+  },
+  methods: {
+    setInitialSlide () {
+      if (this.slides.length) {
+        this.currentSlide = this.slides[0]
+      }
+    },
+    setSwiperControls () {
+      this.swiperOption.navigation.nextEl = this.$refs.nextEl
+      this.swiperOption.navigation.prevEl = this.$refs.prevEl
+      this.isReady = true
+    },
+    setCurrentSlide () {
+      const id = this.$refs.swiper.$swiper.realIndex
+      this.currentSlide = this.slides[id]
+    }
   }
 }
 </script>
@@ -72,7 +88,6 @@ export default {
     }
   }
   .v-info-slider_wrap {
-    padding-top: 5rem;
     height: 53rem;
     display: flex;
     &.rtl {
