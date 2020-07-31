@@ -44,19 +44,19 @@ export default {
       id: 1,
       header: 'Сozy bedroom',
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
-      img: 'minh-pham-7pCFUybP_P8-unsplash.jpg'
+      img: 'chastity-cortijo-R-w5Q-4Mqm0-unsplash.jpg'
     },
     {
       id: 2,
-      header: 'Spacious bedrooml',
+      header: 'Spacious living room',
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
-      img: 'roberto-nickson-rEJxpBskj3Q-unsplash.jpg'
+      img: 'toa-heftiba-FV3GConVSss-unsplash.jpg'
     },
     {
       id: 3,
-      header: 'Welcoming hallway',
+      header: 'Kitchen where you want to cook',
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
-      img: 'sonnie-hiles-L0BaowhFe4c-unsplash.jpg'
+      img: 'ralph-ravi-kayden-JDBVXignFdA-unsplash.jpg'
     }
   ]
 }
