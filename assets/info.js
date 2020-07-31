@@ -38,5 +38,25 @@ export default {
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
       img: 'danielle-cerullo-CQfNt66ttZM-unsplash.jpg'
     }
+  ],
+  interior: [
+    {
+      id: 1,
+      header: 'Сozy bedroom',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'minh-pham-7pCFUybP_P8-unsplash.jpg'
+    },
+    {
+      id: 2,
+      header: 'Spacious bedrooml',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'roberto-nickson-rEJxpBskj3Q-unsplash.jpg'
+    },
+    {
+      id: 3,
+      header: 'Welcoming hallway',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      img: 'sonnie-hiles-L0BaowhFe4c-unsplash.jpg'
+    }
   ]
 }

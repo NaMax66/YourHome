@@ -97,7 +97,6 @@ export default {
     }
   }
   .v-info-slider_wrap {
-    height: 53rem;
     display: flex;
     &.rtl {
       flex-direction: row-reverse;

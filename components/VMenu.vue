@@ -4,7 +4,7 @@
       <ul class="v-menu_left-list">
         <li><a href="#neighbourhood">neighbourhood</a></li>
         <li><a href="#facilities">facilities</a></li>
-        <li><a href="#inside">inside</a></li>
+        <li><a href="#interior">interior</a></li>
       </ul>
       <div class="v-menu_label">
         <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
