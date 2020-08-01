@@ -1,9 +1,18 @@
 <template>
   <div class="v-visual-choice_background">
     <div class="wrapper v-visual-choice_info_wrap">
-      <div class="v-visual-choice_info">
-        <h2>Nice two bedroom house</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto consequuntur dolor earum, est eveniet ipsam iste, iure laboriosam maiores quas quod sunt? At commodi maiores minima minus sed suscipit voluptatibus!</p>
+      <div v-if="currentSlide" class="v-visual-choice_info">
+        <h2>No. {{ currentSlide.number }}</h2>
+        <h2>price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
+        <h2>{{ currentSlide.bedroom }} bedrooms</h2>
+        <h2>{{ currentSlide.square }} m²</h2>
+        <div class="v-visual-choice_info_layout_wrap">
+          <img
+            class="v-visual-choice_info_layout"
+            :src="`../img/layout/${currentSlide.planImg}`"
+            alt=""
+          >
+        </div>
       </div>
     </div>
     <div class="v-visual-choice_info_plan_wrap">
@@ -13,14 +22,16 @@
           class="v-visual-choice_info_plan_view_box"
           :viewBox="visualData.viewBox"
         >
+          <!-- eslint-disable vue/no-v-html -->
           <a
             v-for="item in visualData.houses"
             :key="item.id"
             class="v-visual-choice_info_plan_item"
-            @click="console.log(item)"
+            :class="{__active: currentSlide.id === item.id, __fixed: isCurrentSlideFixed && currentSlide.id === item.id}"
+            @click.prevent="toggleFixSlide(item)"
+            @mouseover="setCurrentSlide(item)"
             v-html="item.path"
-          >
-          </a>
+          />
         </svg>
       </div>
     </div>
@@ -34,6 +45,30 @@ export default {
     visualData: {
       type: Object,
       required: true
+    }
+  },
+  data: () => ({
+    isCurrentSlideFixed: false,
+    currentSlide: null
+  }),
+  created () {
+    if (this.visualData.houses && this.visualData.houses.length) {
+      this.setCurrentSlide(this.visualData.houses[0])
+    }
+  },
+  methods: {
+    setCurrentSlide (item) {
+      if (this.isCurrentSlideFixed) {
+        return
+      }
+      this.currentSlide = item
+    },
+    toggleFixSlide (item) {
+      if (item.id === this.currentSlide.id) {
+        this.isCurrentSlideFixed = !this.isCurrentSlideFixed
+      } else {
+        this.currentSlide = item
+      }
     }
   }
 }
@@ -52,7 +87,13 @@ export default {
   transform: translateX(-50%);
 }
 .v-visual-choice_info {
+  padding-top: 3rem;
   width: 50%;
+  & h2 {
+    font-family: var(--f-header);
+    font-size: 3rem;
+    line-height: 3.4rem;
+  }
 }
 .v-visual-choice_info_plan_wrap {
   display: flex;
@@ -80,8 +121,19 @@ export default {
 .v-visual-choice_info_plan_item {
   fill: transparent;
   transition: all .2s;
+  &.__active,
   &:hover {
     fill: color-mod(var(--c-white) a(50%));
   }
+  &.__fixed {
+    fill: color-mod(var(--c-white) a(80%));
+  }
+}
+.v-visual-choice_info_layout_wrap {
+  height: 35rem;
+}
+.v-visual-choice_info_layout {
+  width: 100%;
+  max-height: 100%;
 }
 </style>
