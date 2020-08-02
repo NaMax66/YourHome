@@ -28,13 +28,13 @@ export default {
     },
     {
       id: 2,
-      header: 'Good school',
+      header: 'Fine school',
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
       img: 'ryan-jacobson-cXUOQWdRV4I-unsplash.jpg'
     },
     {
       id: 3,
-      header: 'Excellent gum',
+      header: 'Excellent gym',
       text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
       img: 'danielle-cerullo-CQfNt66ttZM-unsplash.jpg'
     }

@@ -2,7 +2,7 @@
   <component
     :is="component"
     class="v-button"
-    :class="{__main_action_btn: mainActionBtn}"
+    :class="{__main_action_btn: mainActionBtn, __table_btn: tableButton}"
     :[href]="link"
   >
     <slot />
@@ -18,6 +18,10 @@ export default {
       default: null
     },
     mainActionBtn: {
+      type: Boolean,
+      default: false
+    },
+    tableButton: {
       type: Boolean,
       default: false
     }
@@ -45,6 +49,22 @@ export default {
   &.__main_action_btn {
     font-size: 4rem;
     padding: 1rem 3rem;
+    color: var(--c-white);
+    background-color: color-mod(var(--c-white) a(20%));
+    border: 1px solid var(--c-white);
+    border-radius: 3px;
+    outline: none;
+    transition: all .4s;
+    &:hover,
+    &:active {
+      background-color: var(--c-white);
+      color: var(--c-black);
+    }
+  }
+  &.__table_btn {
+    font-family: var(--f-main);
+    font-size: 2rem;
+    padding: 1rem 2rem;
     color: var(--c-white);
     background-color: color-mod(var(--c-white) a(20%));
     border: 1px solid var(--c-white);

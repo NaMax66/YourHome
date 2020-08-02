@@ -3,16 +3,16 @@
     <v-menu />
     <v-main-video />
     <div id="neighbourhood">
-      <v-info-slider theme="dark" direction="rtl" :slides="neighbourhoodSlides" />
+      <v-info-slider theme="light" direction="ltr" :slides="neighbourhoodSlides" />
     </div>
     <div id="facilities">
-      <v-info-slider theme="light" direction="ltr" :slides="facilitiesSlides" />
-    </div>
-    <div id="interior">
-      <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
+      <v-info-slider theme="dark" direction="rtl" :slides="facilitiesSlides" />
     </div>
     <div id="visual_choice">
       <v-visual-choice :visual-data="visualData" />
+    </div>
+    <div id="interior">
+      <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
     </div>
     <div id="house_list">
       <v-filter :filterData="visualData" />

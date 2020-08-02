@@ -57,7 +57,8 @@ export default {
       {
         id: 2,
         title: 'Price',
-        objectKey: 'price'
+        objectKey: 'price',
+        units: '£'
       },
       {
         id: 3,
@@ -67,7 +68,12 @@ export default {
       {
         id: 4,
         title: 'Total area',
-        objectKey: 'totalArea'
+        objectKey: 'totalArea',
+        units: 'm²'
+      },
+      {
+        id: 5,
+        isButton: true
       }
     ],
     options: {
@@ -93,16 +99,20 @@ export default {
 <style scoped>
   .v-filter_background {
     background-color: var(--c-white);
-    height: 70rem;
   }
   .v-filter_wrap {
     display: flex;
+    align-items: flex-start;
+    height: 100%;
   }
   .v-filter_list {
     width: 50%;
   }
   .v-filter_controls {
     width: 50%;
+    height: auto;
+    position: sticky;
+    top: 6rem;
   }
 
 </style>
