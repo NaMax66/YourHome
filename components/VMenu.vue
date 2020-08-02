@@ -10,7 +10,7 @@
         <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
       </div>
       <ul class="v-menu_right-list">
-        <li><a href="#outside">outside</a></li>
+        <li><a href="#house_list">house list</a></li>
         <li><a href="#visual_choice">visual choice</a></li>
         <li><a href="#location">location</a></li>
       </ul>

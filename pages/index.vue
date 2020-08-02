@@ -14,6 +14,9 @@
     <div id="visual_choice">
       <v-visual-choice :visual-data="visualData" />
     </div>
+    <div id="house_list">
+      <v-filter />
+    </div>
     <v-footer />
   </div>
 </template>
@@ -26,13 +29,15 @@ import VMenu from '../components/VMenu'
 import VFooter from '../components/VFooter'
 import VInfoSlider from '../components/VInfoSlider'
 import VVisualChoice from '../components/VVisualChoice'
+import VFilter from '../components/VFilter'
 export default {
   components: {
     VVisualChoice,
     VInfoSlider,
     VMenu,
     VMainVideo,
-    VFooter
+    VFooter,
+    VFilter
   },
   computed: {
     neighbourhoodSlides () {

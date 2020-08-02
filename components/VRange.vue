@@ -43,8 +43,14 @@ export default {
       type: Boolean,
       default: false
     },
-    value: { type: Array },
-    interval: { type: Array },
+    value: {
+      type: Array,
+      required: true
+    },
+    interval: {
+      type: Array,
+      required: true
+    },
     step: { type: [String, Number], default: '1' }
   },
   data () {
