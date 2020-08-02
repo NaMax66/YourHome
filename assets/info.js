@@ -22,20 +22,20 @@ export default {
   facilities: [
     {
       id: 1,
-      header: 'Nice park',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      header: 'Local park',
+      text: 'Our park is the perfect place to get your friends and family to get active with outdoor fun and games. This space is ideal for free physical activities, for all ages and fitness levels.',
       img: 'katerina-kerdi-W1C0WrlYrfw-unsplash.jpg'
     },
     {
       id: 2,
-      header: 'Fine school',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      header: 'Top school',
+      text: 'Within a walking distance you will find one of top ranked schools of our town',
       img: 'ryan-jacobson-cXUOQWdRV4I-unsplash.jpg'
     },
     {
       id: 3,
-      header: 'Excellent gym',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      header: 'Luxury fitness club',
+      text: 'Going alone in the gym needs a huge amount of not only confidence but also motivation to really push yourself to go to the limit. With a fitness club, there are set daily and weekly classes that members can sign up to.',
       img: 'danielle-cerullo-CQfNt66ttZM-unsplash.jpg'
     }
   ],
@@ -43,19 +43,19 @@ export default {
     {
       id: 1,
       header: 'Сozy bedroom',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      text: 'Combination of delicate prints and soft colours with natural materials creates a bedroom filled with cozy comforts.',
       img: 'chastity-cortijo-R-w5Q-4Mqm0-unsplash.jpg'
     },
     {
       id: 2,
       header: 'Spacious living room',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      text: 'A big space in the living room allows you to decorate and add furniture as you need.',
       img: 'toa-heftiba-FV3GConVSss-unsplash.jpg'
     },
     {
       id: 3,
-      header: 'Kitchen where you want to cook',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam amet eius et illum ipsam laudantium obcaecati odio quidem quis quo recusandae, repudiandae similique sint tempora tempore ullam voluptate, voluptatum! Est?',
+      header: 'Contemporary kitchen',
+      text: 'Kitchens are designed to increase functionality and available space, and define the home owners’ individuality.',
       img: 'ralph-ravi-kayden-JDBVXignFdA-unsplash.jpg'
     }
   ]
