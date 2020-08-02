@@ -8,7 +8,7 @@
         </div>
         <div class="v-visual-choice_info_second">
           <h2>{{ currentSlide.bedroom }} bedrooms</h2>
-          <h2>total area: {{ currentSlide.square }} m²</h2>
+          <h2>total area: {{ currentSlide.totalArea }} m²</h2>
         </div>
 
         <div class="v-visual-choice_info_layout_wrap">

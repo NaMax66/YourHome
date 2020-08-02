@@ -15,7 +15,7 @@
       <v-visual-choice :visual-data="visualData" />
     </div>
     <div id="house_list">
-      <v-filter />
+      <v-filter :filterData="visualData" />
     </div>
     <v-footer />
   </div>
@@ -36,8 +36,8 @@ export default {
     VInfoSlider,
     VMenu,
     VMainVideo,
-    VFooter,
-    VFilter
+    VFilter,
+    VFooter
   },
   computed: {
     neighbourhoodSlides () {
@@ -67,6 +67,10 @@ export default {
     padding-bottom: 8rem;
   }
   #interior > .v-info-slider_background {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  #house_list > .v-filter_background {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }

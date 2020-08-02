@@ -7,7 +7,7 @@ export default {
       number: '101',
       price: 580000,
       bedroom: 2,
-      square: '240',
+      totalArea: 240,
       planImg: 'plan3.svg'
     },
     {
@@ -16,7 +16,7 @@ export default {
       number: '202',
       price: 720000,
       bedroom: 4,
-      square: 240,
+      totalArea: 240,
       planImg: 'plan3.svg'
     },
     {
@@ -25,7 +25,7 @@ export default {
       number: '303',
       price: 490000,
       bedroom: 2,
-      square: 320,
+      totalArea: 320,
       planImg: 'plan2.svg'
     },
     {
@@ -34,7 +34,7 @@ export default {
       number: '404',
       price: 950000,
       bedroom: 5,
-      square: 320,
+      totalArea: 320,
       planImg: 'plan4.svg'
     },
     {
@@ -43,7 +43,7 @@ export default {
       number: '505',
       price: 600000,
       bedroom: 3,
-      square: 240,
+      totalArea: 240,
       planImg: 'plan5.svg'
     },
     {
@@ -52,7 +52,7 @@ export default {
       number: '606',
       price: 600000,
       bedroom: 2,
-      square: 320,
+      totalArea: 320,
       planImg: 'plan1.svg'
     },
     {
@@ -61,7 +61,7 @@ export default {
       number: '707',
       price: 600000,
       bedroom: 2,
-      square: 320,
+      totalArea: 320,
       planImg: 'plan2.svg'
     }
   ]

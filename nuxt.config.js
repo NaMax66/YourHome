@@ -61,10 +61,13 @@ export default {
   ** See https://nuxtjs.org/api/configuration-build/
   */
   build: {
+    vendor: ['vue-awesome-swiper'],
     postcss: [
       require('postcss-nested')(),
       require('postcss-hexrgba')(),
-      require('postcss-color-mod-function')()
+      require('postcss-color-mod-function')({
+        importFrom: 'assets/main.css'
+      })
     ]
   }
 }
