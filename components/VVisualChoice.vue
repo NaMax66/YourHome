@@ -2,10 +2,15 @@
   <div class="v-visual-choice_background">
     <div class="wrapper v-visual-choice_info_wrap">
       <div v-if="currentSlide" class="v-visual-choice_info">
-        <h2>No. {{ currentSlide.number }}</h2>
-        <h2>price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
-        <h2>{{ currentSlide.bedroom }} bedrooms</h2>
-        <h2>{{ currentSlide.square }} m²</h2>
+        <div class="v-visual-choice_info_first">
+          <h2>No. {{ currentSlide.number }}</h2>
+          <h2>price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
+        </div>
+        <div class="v-visual-choice_info_second">
+          <h2>{{ currentSlide.bedroom }} bedrooms</h2>
+          <h2>total area: {{ currentSlide.square }} m²</h2>
+        </div>
+
         <div class="v-visual-choice_info_layout_wrap">
           <img
             class="v-visual-choice_info_layout"
@@ -130,10 +135,19 @@ export default {
   }
 }
 .v-visual-choice_info_layout_wrap {
+  margin-top: 2rem;
   height: 35rem;
 }
 .v-visual-choice_info_layout {
   width: 100%;
   max-height: 100%;
+}
+.v-visual-choice_info_first,
+.v-visual-choice_info_second {
+  display: flex;
+  justify-content: space-between;
+  & h2 {
+    width: 50%;
+  }
 }
 </style>

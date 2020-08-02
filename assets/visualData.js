@@ -7,8 +7,8 @@ export default {
       number: '101',
       price: 580000,
       bedroom: 2,
-      square: 320,
-      planImg: 'plan1.svg'
+      square: '240',
+      planImg: 'plan3.svg'
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ export default {
       number: '202',
       price: 720000,
       bedroom: 4,
-      square: 320,
+      square: 240,
       planImg: 'plan3.svg'
     },
     {
@@ -43,7 +43,7 @@ export default {
       number: '505',
       price: 600000,
       bedroom: 3,
-      square: 320,
+      square: 240,
       planImg: 'plan5.svg'
     },
     {
