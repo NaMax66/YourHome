@@ -15,7 +15,7 @@
       <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
     </div>
     <div id="house_list">
-      <v-filter :filterData="visualData" />
+      <v-filter :filter-data="visualData" />
     </div>
     <v-footer />
   </div>

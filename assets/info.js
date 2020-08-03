@@ -34,7 +34,7 @@ export default {
     },
     {
       id: 3,
-      header: 'Luxury fitness club',
+      header: 'Luxe fitness club',
       text: 'Going alone in the gym needs a huge amount of not only confidence but also motivation to really push yourself to go to the limit. With a fitness club, there are set daily and weekly classes that members can sign up to.',
       img: 'danielle-cerullo-CQfNt66ttZM-unsplash.jpg'
     }

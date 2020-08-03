@@ -82,6 +82,7 @@ export default {
 <style scoped>
 .v-visual-choice_background {
   position: relative;
+  background-color: var(--c-white);
 }
 .v-visual-choice_info_wrap {
   display: flex;
