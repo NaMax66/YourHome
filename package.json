@@ -27,10 +27,10 @@
     "babel-jest": "^26.1.0",
     "eslint": "^7.5.0",
     "eslint-plugin-nuxt": "^1.0.0",
+    "jest": "^26.1.0",
     "postcss-color-mod-function": "^3.0.3",
     "postcss-hexrgba": "^2.0.0",
     "postcss-nested": "^4.2.1",
-    "jest": "^26.1.0",
     "vue-jest": "^3.0.4",
     "vue-slider-component": "^3.2.2"
   }

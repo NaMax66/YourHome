@@ -13,16 +13,16 @@
             <label for="4"><input id="4" v-model="checkedBedrooms" value="4" type="checkbox"></label>
           </div>
           <VueSliderComponent
-            v-model="priceRange"
-            :options="options"
-            :value="options.value"
-            @dragging="setRange"
+            v-if="priceRangeOptions"
+            v-bind="priceRangeOptions"
+            :value="priceRangeOptions.value"
+            @dragging="setPriceRange"
           />
           <VueSliderComponent
-            v-model="areaRange"
-            :options="options"
-            :value="options.value"
-            @dragging="setRange"
+            v-if="areaRangeOptions"
+            v-bind="areaRangeOptions"
+            :value="areaRangeOptions.value"
+            @dragging="setAreaRange"
           />
         </div>
       </div>
@@ -32,6 +32,7 @@
 
 <script>
 import VTable from './VTable'
+
 const components = {}
 if (process.client) {
   components.VueSliderComponent = require('vue-slider-component')
@@ -52,8 +53,6 @@ export default {
   data: () => ({
     houses: null,
     checkedBedrooms: [],
-    priceRange: [1, 100],
-    areaRange: [1, 50],
     tableHead: [
       {
         id: 1,
@@ -82,35 +81,45 @@ export default {
         isButton: true
       }
     ],
-    options: {
-      min: 0,
-      max: 0,
-      interval: 1,
-      fixed: false,
-      processDragable: true,
-      dotSize: 16,
-      height: 2,
-      clickable: false
-    }
+    priceRangeOptions: null,
+    areaRangeOptions: null
   }),
   created () {
     this.houses = this.filterData.houses
     this.initFilterRange()
   },
   methods: {
-    setRange (value) {
+    setPriceRange (value) {
+    },
+    setAreaRange (value) {
     },
     initFilterRange () {
-      this.options.min = this.houses[0].price
-      this.options.max = this.houses[0].price
-      this.houses.map((el) => {
-        if (el.price < this.options.min) {
-          this.options.min = el.price
-        }
-        if (el.price > this.options.max) {
-          this.options.max = el.price
-        }
-      })
+      const priceRange = this.getRange('price', this.houses)
+      const areaRange = this.getRange('totalArea', this.houses)
+      this.setRangeOptions('priceRangeOptions', priceRange, 1000)
+      this.setRangeOptions('areaRangeOptions', areaRange)
+    },
+    setRangeOptions (key, range, interval = 1) {
+      this[key] = {
+        value: range,
+        min: range[0],
+        max: range[1],
+        interval,
+        fixed: false,
+        processDragable: true,
+        dotSize: 16,
+        height: 2,
+        clickable: false
+      }
+    },
+    getRange (key, array) {
+      const minPrice = array.reduce((prev, cur) => {
+        return (prev[key] < cur[key]) ? prev : cur
+      })[key]
+      const maxPrice = array.reduce((prev, cur) => {
+        return (prev[key] > cur[key]) ? prev : cur
+      })[key]
+      return [minPrice, maxPrice]
     }
   }
 }
