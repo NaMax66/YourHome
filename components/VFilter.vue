@@ -28,7 +28,7 @@
               v-if="priceRangeOptions"
               v-bind="priceRangeOptions"
               :value="priceRangeOptions.value"
-              @dragging="setPriceRange"
+              @dragging="filterHouses"
             />
             <h3 class="v-filter_price_header">
               Price, £
@@ -39,7 +39,7 @@
               v-if="areaRangeOptions"
               v-bind="areaRangeOptions"
               :value="areaRangeOptions.value"
-              @dragging="setAreaRange"
+              @dragging="filterHouses"
             />
             <h3 class="v-filter_area_header">
               Total area, m²
@@ -105,6 +105,11 @@ export default {
     priceRangeOptions: null,
     areaRangeOptions: null
   }),
+  watch: {
+    checkedBedrooms () {
+      this.filterHouses()
+    }
+  },
   created () {
     this.houses = this.filterData.houses
     this.initFilterRange()
@@ -113,6 +118,26 @@ export default {
     setPriceRange (value) {
     },
     setAreaRange (value) {
+    },
+    filterByBedrooms (arr, key) {
+      let filteredHouses = []
+      if (key.length) {
+        key.map((roomSize) => {
+          arr.map((house) => {
+            if (house.bedroom === +roomSize) {
+              filteredHouses.push(house)
+            }
+          })
+        })
+      } else {
+        filteredHouses = arr
+      }
+      return filteredHouses
+    },
+    filterHouses () {
+      let filteredFlats = JSON.parse(JSON.stringify(this.filterData.houses))
+      filteredFlats = this.filterByBedrooms(filteredFlats, this.checkedBedrooms)
+      this.houses = filteredFlats
     },
     initFilterRange () {
       const priceRange = this.getRange('price', this.houses)
@@ -195,12 +220,12 @@ export default {
     font-size: 1.8rem;
     font-weight: bold;
     cursor: pointer;
-    color: var(--c-white);
-    background-color: var(--c-black);
+    color: var(--c-black);
     border: 1px solid var(--c-black);
     border-radius: 3px;
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
     transition: all .3s;
     &:hover {
       opacity: .8;
@@ -211,8 +236,8 @@ export default {
   }
   .v-filter_checkbox_input:checked {
     & + .v-filter_checkbox_item {
-      background-color: var(--c-white);
-      color: var(--c-black);
+      background-color: var(--c-black);
+      color: var(--c-white);
     }
   }
 
