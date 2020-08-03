@@ -2,8 +2,13 @@
   <div class="v-filter_background">
     <div class="wrapper">
       <div class="v-filter_wrap">
-        <div v-if="houses" class="v-filter_list">
+        <div v-if="houses && houses.length" class="v-filter_list">
           <v-table :head="tableHead" :body="houses" />
+        </div>
+        <div v-else class="v-filter_list_msg">
+          <h2>
+            No matching
+          </h2>
         </div>
         <div class="v-filter_controls">
           <div class="v-filter_checkbox_wrap">
@@ -144,7 +149,7 @@ export default {
       return filteredArray
     },
     filterHouses () {
-      let filteredFlats = JSON.parse(JSON.stringify(this.filterData.houses))
+      let filteredFlats = this.filterData.houses
       filteredFlats = this.filterByBedrooms(filteredFlats, this.checkedBedrooms)
       filteredFlats = this.filterByRange('price', filteredFlats, this.priceRange)
       filteredFlats = this.filterByRange('totalArea', filteredFlats, this.areaRange)
@@ -203,6 +208,13 @@ export default {
   }
   .v-filter_list {
     width: 50%;
+  }
+  .v-filter_list_msg {
+    width: 50%;
+    height: 9rem;
+    text-align: center;
+    font-size: 3rem;
+    font-family: var(--f-header);
   }
   .v-filter_controls {
     width: 30rem;
