@@ -26,6 +26,7 @@
           <div class="v-filter_price">
             <VueSliderComponent
               v-if="priceRangeOptions"
+              v-model="priceRange"
               v-bind="priceRangeOptions"
               :value="priceRangeOptions.value"
               @dragging="filterHouses"
@@ -37,6 +38,7 @@
           <div class="v-filter_area">
             <VueSliderComponent
               v-if="areaRangeOptions"
+              v-model="areaRange"
               v-bind="areaRangeOptions"
               :value="areaRangeOptions.value"
               @dragging="filterHouses"
@@ -73,6 +75,8 @@ export default {
   },
   data: () => ({
     houses: null,
+    priceRange: null,
+    areaRange: null,
     checkedBedrooms: [],
     tableHead: [
       {
@@ -115,28 +119,35 @@ export default {
     this.initFilterRange()
   },
   methods: {
-    setPriceRange (value) {
-    },
-    setAreaRange (value) {
-    },
     filterByBedrooms (arr, key) {
-      let filteredHouses = []
+      let filteredArray = []
       if (key.length) {
         key.map((roomSize) => {
           arr.map((house) => {
             if (house.bedroom === +roomSize) {
-              filteredHouses.push(house)
+              filteredArray.push(house)
             }
           })
         })
       } else {
-        filteredHouses = arr
+        filteredArray = arr
       }
-      return filteredHouses
+      return filteredArray
+    },
+    filterByRange (objectKey, arr, key) {
+      const filteredArray = []
+      arr.map((el) => {
+        if (el[objectKey] >= key[0] && el[objectKey] <= key[1]) {
+          filteredArray.push(el)
+        }
+      })
+      return filteredArray
     },
     filterHouses () {
       let filteredFlats = JSON.parse(JSON.stringify(this.filterData.houses))
       filteredFlats = this.filterByBedrooms(filteredFlats, this.checkedBedrooms)
+      filteredFlats = this.filterByRange('price', filteredFlats, this.priceRange)
+      filteredFlats = this.filterByRange('totalArea', filteredFlats, this.areaRange)
       this.houses = filteredFlats
     },
     initFilterRange () {
@@ -144,6 +155,8 @@ export default {
       const areaRange = this.getRange('totalArea', this.houses)
       this.setRangeOptions('priceRangeOptions', priceRange, 1000)
       this.setRangeOptions('areaRangeOptions', areaRange)
+      this.priceRange = this.priceRangeOptions.value
+      this.areaRange = this.areaRangeOptions.value
     },
     setRangeOptions (key, range, interval = 1) {
       this[key] = {
