@@ -2,22 +2,24 @@
   <div class="v-filter_background">
     <div class="wrapper">
       <div class="v-filter_wrap">
-        <div class="v-filter_list">
-          <v-table :head="tableHead" :body="filterData.houses" />
+        <div v-if="houses" class="v-filter_list">
+          <v-table :head="tableHead" :body="houses" />
         </div>
         <div class="v-filter_controls">
           <div class="v-filter_checkbox_wrap">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
+            <label for="1"><input id="1" v-model="checkedBedrooms" value="1" type="checkbox"></label>
+            <label for="2"><input id="2" v-model="checkedBedrooms" value="2" type="checkbox"></label>
+            <label for="3"><input id="3" v-model="checkedBedrooms" value="3" type="checkbox"></label>
+            <label for="4"><input id="4" v-model="checkedBedrooms" value="4" type="checkbox"></label>
           </div>
           <VueSliderComponent
+            v-model="priceRange"
             :options="options"
             :value="options.value"
             @dragging="setRange"
           />
           <VueSliderComponent
+            v-model="areaRange"
             :options="options"
             :value="options.value"
             @dragging="setRange"
@@ -48,6 +50,10 @@ export default {
     }
   },
   data: () => ({
+    houses: null,
+    checkedBedrooms: [],
+    priceRange: [1, 100],
+    areaRange: [1, 50],
     tableHead: [
       {
         id: 1,
@@ -77,9 +83,8 @@ export default {
       }
     ],
     options: {
-      value: [1, 30],
       min: 0,
-      max: 100,
+      max: 0,
       interval: 1,
       fixed: false,
       processDragable: true,
@@ -88,9 +93,24 @@ export default {
       clickable: false
     }
   }),
+  created () {
+    this.houses = this.filterData.houses
+    this.initFilterRange()
+  },
   methods: {
     setRange (value) {
-      console.log(value)
+    },
+    initFilterRange () {
+      this.options.min = this.houses[0].price
+      this.options.max = this.houses[0].price
+      this.houses.map((el) => {
+        if (el.price < this.options.min) {
+          this.options.min = el.price
+        }
+        if (el.price > this.options.max) {
+          this.options.max = el.price
+        }
+      })
     }
   }
 }
