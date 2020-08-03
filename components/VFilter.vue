@@ -7,23 +7,44 @@
         </div>
         <div class="v-filter_controls">
           <div class="v-filter_checkbox_wrap">
-            <label for="1"><input id="1" v-model="checkedBedrooms" value="1" type="checkbox"></label>
-            <label for="2"><input id="2" v-model="checkedBedrooms" value="2" type="checkbox"></label>
-            <label for="3"><input id="3" v-model="checkedBedrooms" value="3" type="checkbox"></label>
-            <label for="4"><input id="4" v-model="checkedBedrooms" value="4" type="checkbox"></label>
+            <label for="2">
+              <input id="2" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="2" type="checkbox">
+              <span class="v-filter_checkbox_item">2</span>
+            </label>
+            <label for="3">
+              <input id="3" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="3" type="checkbox">
+              <span class="v-filter_checkbox_item">3</span>
+            </label>
+            <label for="4">
+              <input id="4" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="4" type="checkbox">
+              <span class="v-filter_checkbox_item">4</span>
+            </label>
+            <h3 class="v-filter_bedrooms_header">
+              Bedrooms
+            </h3>
           </div>
-          <VueSliderComponent
-            v-if="priceRangeOptions"
-            v-bind="priceRangeOptions"
-            :value="priceRangeOptions.value"
-            @dragging="setPriceRange"
-          />
-          <VueSliderComponent
-            v-if="areaRangeOptions"
-            v-bind="areaRangeOptions"
-            :value="areaRangeOptions.value"
-            @dragging="setAreaRange"
-          />
+          <div class="v-filter_price">
+            <VueSliderComponent
+              v-if="priceRangeOptions"
+              v-bind="priceRangeOptions"
+              :value="priceRangeOptions.value"
+              @dragging="setPriceRange"
+            />
+            <h3 class="v-filter_price_header">
+              Price, £
+            </h3>
+          </div>
+          <div class="v-filter_area">
+            <VueSliderComponent
+              v-if="areaRangeOptions"
+              v-bind="areaRangeOptions"
+              :value="areaRangeOptions.value"
+              @dragging="setAreaRange"
+            />
+            <h3 class="v-filter_area_header">
+              Total area, m²
+            </h3>
+          </div>
         </div>
       </div>
     </div>
@@ -108,8 +129,16 @@ export default {
         fixed: false,
         processDragable: true,
         dotSize: 16,
-        height: 2,
-        clickable: false
+        height: 3,
+        clickable: false,
+        processStyle: {
+          backgroundColor: '#212121'
+        },
+        dotStyle: {
+          backgroundColor: '#F5F5F5',
+          border: '2px solid #212121',
+          boxShadow: 'none'
+        }
       }
     },
     getRange (key, array) {
@@ -138,10 +167,53 @@ export default {
     width: 50%;
   }
   .v-filter_controls {
-    width: 50%;
+    width: 30rem;
     height: auto;
     position: sticky;
     top: 6rem;
+    border-radius: 3px;
+    border: 1px solid var(--c-black);
+    padding: 2rem;
+  }
+  .v-filter_price {
+    margin-top: 5rem;
+    margin-bottom: 3rem;
+  }
+  .v-filter_area {
+    margin-top: 5rem;
+  }
+  .v-filter_price_header,
+  .v-filter_area_header,
+  .v-filter_bedrooms_header {
+    margin-top: 1rem;
+    font-size: 1.8rem;
+  }
+  .v-filter_checkbox_item {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--c-white);
+    background-color: var(--c-black);
+    border: 1px solid var(--c-black);
+    border-radius: 3px;
+    width: 3rem;
+    height: 3rem;
+    transition: all .3s;
+    &:hover {
+      opacity: .8;
+    }
+  }
+  .v-filter_checkbox_input {
+    display: none;
+  }
+  .v-filter_checkbox_input:checked {
+    & + .v-filter_checkbox_item {
+      background-color: var(--c-white);
+      color: var(--c-black);
+    }
   }
 
 </style>
