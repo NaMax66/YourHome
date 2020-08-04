@@ -4,6 +4,7 @@
     class="v-button"
     :class="{__main_action_btn: mainActionBtn, __table_btn: tableButton}"
     :[href]="link"
+    :target="link ? '_blank': null"
   >
     <slot />
   </component>

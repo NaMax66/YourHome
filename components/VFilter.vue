@@ -224,6 +224,8 @@ export default {
     border-radius: 3px;
     border: 1px solid var(--c-black);
     padding: 2rem;
+    margin-top: 4.2rem;
+    margin-bottom: .9rem;
   }
   .v-filter_price {
     margin-top: 5rem;

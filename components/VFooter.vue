@@ -2,9 +2,12 @@
   <div class="v-footer_background">
     <div class="wrapper">
       <div class="v-footer-info">
-        <p>Made by NaMax66</p>
-        <p>Copyright</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A assumenda beatae blanditiis culpa eius, est fugiat itaque iure maxime molestiae provident quam quas quibusdam repudiandae tempore temporibus vel, vitae voluptatum?</p>
+        <p>&copy; made by Max Naidovich</p>
+        <div class="v-footer_social">
+          <a href=""><img src="/icons/telegram.svg" alt=""></a>
+          <a href=""></a>
+          <a href=""></a>
+        </div>
       </div>
     </div>
   </div>
@@ -18,12 +21,11 @@ export default {
 
 <style scoped>
   .v-footer_background {
-    background-color: var(--c-black);
+    background-color: var(--c-white);
   }
   .v-footer-info {
     font-size: 2rem;
-    color: var(--c-white);
-    height: 30rem;
+    color: var(--c-black);
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
