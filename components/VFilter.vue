@@ -211,6 +211,7 @@ export default {
   }
   .v-filter_list_msg {
     width: 50%;
+    margin-top: 3rem;
     height: 9rem;
     text-align: center;
     font-size: 3rem;

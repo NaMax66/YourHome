@@ -18,19 +18,43 @@
       <h2 class="v-main-video_header2">
         in the heart of England
       </h2>
-      <v-button main-action-btn>
+      <v-button main-action-btn @click="openModal">
         book your viewing
       </v-button>
     </div>
+    <v-modal v-show="isModalOpen" @close="closeModal">
+      <template v-slot:info>
+        <h2>Please, enter your name and phone so we could contact with you</h2>
+        <input type="text">
+        <input type="text">
+      </template>
+      <template v-slot:button>
+        book
+      </template>
+    </v-modal>
   </header>
 </template>
 
 <script>
 import VButton from './VButton'
+import VModal from './VModal'
 export default {
   name: 'VMainVideo',
   components: {
+    VModal,
     VButton
+  },
+  data: () => ({
+    isModalOpen: false
+  }),
+  methods: {
+    closeModal () {
+      this.isModalOpen = false
+    },
+    openModal () {
+      console.log('hello')
+      this.isModalOpen = true
+    }
   }
 }
 </script>

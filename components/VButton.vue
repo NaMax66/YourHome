@@ -2,9 +2,10 @@
   <component
     :is="component"
     class="v-button"
-    :class="{__main_action_btn: mainActionBtn, __table_btn: tableButton}"
+    :class="{__main_action_btn: mainActionBtn, __table_btn: tableButton, __empty: empty}"
     :[href]="link"
     :target="link ? '_blank': null"
+    @click="$emit('click')"
   >
     <slot />
   </component>
@@ -23,6 +24,10 @@ export default {
       default: false
     },
     tableButton: {
+      type: Boolean,
+      default: false
+    },
+    empty: {
       type: Boolean,
       default: false
     }
@@ -77,6 +82,10 @@ export default {
       background-color: var(--c-white);
       color: var(--c-black);
     }
+  }
+  &.__empty {
+    background: transparent;
+    border: none;
   }
 }
 </style>

@@ -115,7 +115,7 @@ export default {
 .v-visual-choice_info_plan_img {
   width: 100%;
   height: auto;
-  margin-bottom: -2px;
+  margin-bottom: -3px;
 }
 .v-visual-choice_info_plan_view_box {
   position: absolute;
@@ -137,7 +137,7 @@ export default {
 }
 .v-visual-choice_info_layout_wrap {
   margin-top: 2rem;
-  height: 35rem;
+  margin-right: 5rem;
 }
 .v-visual-choice_info_layout {
   width: 100%;
