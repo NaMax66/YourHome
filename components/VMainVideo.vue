@@ -25,7 +25,8 @@
     <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
       <template v-slot:info>
         <p class="v-main-video_modal_info">
-          Please, enter your name and phone so we could contact you
+          Please, enter your name and phone<br>
+          so we could contact you
         </p>
         <input type="text" placeholder="Your name" class="v-main-video_modal_input">
         <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-main-video_modal_input">

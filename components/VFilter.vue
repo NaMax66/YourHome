@@ -62,7 +62,8 @@
           <br> With the price: {{ currentHouse.price.toLocaleString('en') }} £
         </h2>
         <p class="v-filter_modal_info">
-          Please, enter your name and phone so we could contact you
+          Please, enter your name and phone<br>
+          so we could contact you
         </p>
         <input type="text" placeholder="Your name" class="v-filter_modal_input">
         <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-filter_modal_input">

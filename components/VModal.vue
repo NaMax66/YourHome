@@ -73,5 +73,6 @@ export default {
   }
   .v-modal_action_btn {
     align-self: center;
+    margin-top: 2rem;
   }
 </style>
