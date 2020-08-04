@@ -41,6 +41,7 @@ export default {
   width: 50%;
   background-color: color-mod(var(--c-black) a(50%));
   padding: 4rem 3rem;
+  border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;

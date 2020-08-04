@@ -93,7 +93,7 @@ export default {
   transform: translateX(-50%);
 }
 .v-visual-choice_info {
-  padding-top: 3rem;
+  padding-top: 6rem;
   width: 50%;
   & h2 {
     font-family: var(--f-header);
