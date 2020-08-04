@@ -3,7 +3,7 @@
     <div class="wrapper">
       <div class="v-filter_wrap">
         <div v-if="houses && houses.length" class="v-filter_list">
-          <v-table :head="tableHead" :body="houses" />
+          <v-table :head="tableHead" :body="houses" @buy="handleBuy" />
         </div>
         <div v-else class="v-filter_list_msg">
           <h2>
@@ -55,11 +55,33 @@
         </div>
       </div>
     </div>
+    <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
+      <template v-slot:info>
+        <h2 v-if="currentHouse" class="v-filter_modal_header">
+          You choose house No. {{ currentHouse.number }}
+          <br> With the price: {{ currentHouse.price.toLocaleString('en') }} £
+        </h2>
+        <p class="v-filter_modal_info">
+          Please, enter your name and phone so we could contact you
+        </p>
+        <input type="text" placeholder="Your name" class="v-filter_modal_input">
+        <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-filter_modal_input">
+      </template>
+      <template v-slot:button>
+        Submit
+      </template>
+      <template v-slot:thanks>
+        <p class="v-filter_modal_info">
+          Thank you. We will call you soon!
+        </p>
+      </template>
+    </v-modal>
   </div>
 </template>
 
 <script>
 import VTable from './VTable'
+import VModal from './VModal'
 
 const components = {}
 if (process.client) {
@@ -70,6 +92,7 @@ export default {
   name: 'VFilter',
   components: {
     VTable,
+    VModal,
     ...components
   },
   props: {
@@ -79,6 +102,8 @@ export default {
     }
   },
   data: () => ({
+    isModalOpen: false,
+    isSuccessShown: false,
     houses: null,
     priceRange: null,
     areaRange: null,
@@ -112,7 +137,8 @@ export default {
       }
     ],
     priceRangeOptions: null,
-    areaRangeOptions: null
+    areaRangeOptions: null,
+    currentHouse: null
   }),
   watch: {
     checkedBedrooms () {
@@ -192,6 +218,24 @@ export default {
         return (prev[key] > cur[key]) ? prev : cur
       })[key]
       return [minPrice, maxPrice]
+    },
+    handleBuy (item) {
+      this.currentHouse = item
+      this.openModal()
+    },
+    closeModal () {
+      this.isModalOpen = false
+      this.isSuccessShown = false
+    },
+    openModal () {
+      this.isModalOpen = true
+    },
+    submitModal () {
+      this.isSuccessShown = true
+      setTimeout(() => {
+        this.isSuccessShown = false
+        this.isModalOpen = false
+      }, 5000)
     }
   }
 }
@@ -268,5 +312,25 @@ export default {
       color: var(--c-white);
     }
   }
-
+  .v-filter_modal_info {
+    font-size: 2.5rem;
+    line-height: 3.2rem;
+    margin-bottom: 2rem;
+  }
+  .v-filter_modal_input {
+    height: 4rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    &:last-child {
+      margin-bottom: 4rem;
+    }
+  }
+  .v-filter_modal_header {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
 </style>
