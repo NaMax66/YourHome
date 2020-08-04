@@ -17,6 +17,7 @@
     <div id="house_list">
       <v-filter :filter-data="visualData" />
     </div>
+    <v-feedback />
     <div id="location">
       <v-location />
     </div>
@@ -34,8 +35,10 @@ import VInfoSlider from '../components/VInfoSlider'
 import VVisualChoice from '../components/VVisualChoice'
 import VFilter from '../components/VFilter'
 import VLocation from '../components/VLocation'
+import VFeedback from '../components/VFeedback'
 export default {
   components: {
+    VFeedback,
     VLocation,
     VVisualChoice,
     VInfoSlider,
