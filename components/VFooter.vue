@@ -7,7 +7,7 @@
           <a class="v-footer_social-link" href="https://t.me/namax66" target="_blank">
             <v-sprite icon="telegram" />
           </a>
-          <a class="v-footer_social-link" href="https://github.com/NaMax66"  target="_blank">
+          <a class="v-footer_social-link" href="https://github.com/NaMax66" target="_blank">
             <v-sprite icon="github" />
           </a>
           <a class="v-footer_social-link" href="https://www.linkedin.com/in/max-naydovich" target="_blank">

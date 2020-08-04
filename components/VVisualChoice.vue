@@ -97,10 +97,17 @@ export default {
   padding-top: 6rem;
   width: 50%;
   height: 100%;
+  @media (max-width: 1320px) {
+    padding-top: 3rem;
+  }
   & h2 {
     font-family: var(--f-header);
     font-size: 3rem;
     line-height: 3.4rem;
+    @media (max-width: 1320px) {
+      font-size: 2.5rem;
+      line-height: 3rem;
+    }
   }
 }
 .v-visual-choice_info_plan_wrap {
@@ -144,6 +151,18 @@ export default {
 .v-visual-choice_info_layout {
   width: 100%;
   max-height: 100%;
+  @media (max-width: 1620px) {
+    max-height: 40rem;
+  }
+  @media (max-width: 1520px) {
+    max-height: 36rem;
+  }
+  @media (max-width: 1420px) {
+    max-height: 32rem;
+  }
+  @media (max-width: 1320px) {
+    max-height: 28rem;
+  }
 }
 .v-visual-choice_info_first,
 .v-visual-choice_info_second {
