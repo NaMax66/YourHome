@@ -22,14 +22,21 @@
         book your viewing
       </v-button>
     </div>
-    <v-modal v-show="isModalOpen" @close="closeModal">
+    <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
       <template v-slot:info>
-        <h2>Please, enter your name and phone so we could contact with you</h2>
-        <input type="text">
-        <input type="text">
+        <p class="v-main-video_modal_info">
+          Please, enter your name and phone so we could contact with you
+        </p>
+        <input type="text" placeholder="Your name" class="v-main-video_modal_input">
+        <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-main-video_modal_input">
       </template>
       <template v-slot:button>
         book
+      </template>
+      <template v-slot:thanks>
+        <p class="v-main-video_modal_info">
+          Thank you. We will contact you soon!
+        </p>
       </template>
     </v-modal>
   </header>
@@ -45,15 +52,23 @@ export default {
     VButton
   },
   data: () => ({
-    isModalOpen: false
+    isModalOpen: false,
+    isSuccessShown: false
   }),
   methods: {
     closeModal () {
       this.isModalOpen = false
+      this.isSuccessShown = false
     },
     openModal () {
-      console.log('hello')
       this.isModalOpen = true
+    },
+    submitModal () {
+      this.isSuccessShown = true
+      setTimeout(() => {
+        this.isSuccessShown = false
+        this.isModalOpen = false
+      }, 5000)
     }
   }
 }
@@ -98,5 +113,22 @@ export default {
   }
   .v-button {
     margin-top: 7rem;
+  }
+  .v-main-video_modal_info {
+    font-size: 2.5rem;
+    line-height: 3.2rem;
+    margin-bottom: 2rem;
+  }
+  .v-main-video_modal_input {
+    height: 4rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+    padding-left: 1rem;
+    &:last-child {
+      margin-bottom: 4rem;
+    }
   }
 </style>

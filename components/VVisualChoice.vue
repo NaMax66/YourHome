@@ -88,6 +88,7 @@ export default {
   display: flex;
   position: absolute;
   width: 100%;
+  height: 100%;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -95,6 +96,7 @@ export default {
 .v-visual-choice_info {
   padding-top: 6rem;
   width: 50%;
+  height: 100%;
   & h2 {
     font-family: var(--f-header);
     font-size: 3rem;

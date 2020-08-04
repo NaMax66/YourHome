@@ -5,10 +5,13 @@
         <v-sprite icon="cross" />
       </v-button>
       <div class="v-modal_content">
-        <slot name="info" />
-        <v-button class="v-modal_action_btn" table-button>
+        <slot v-if="!isSuccessShown" name="info" />
+        <v-button v-if="!isSuccessShown" class="v-modal_action_btn" table-button @click="$emit('submit')">
           <slot name="button" />
         </v-button>
+        <div v-if="isSuccessShown">
+          <slot name="thanks" />
+        </div>
       </div>
     </div>
   </div>
@@ -19,7 +22,13 @@ import VButton from './VButton'
 import VSprite from './VSprite'
 export default {
   name: 'VModal',
-  components: { VSprite, VButton }
+  components: { VSprite, VButton },
+  props: {
+    isSuccessShown: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
