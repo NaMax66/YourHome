@@ -2,25 +2,40 @@
   <div class="v-menu_wrap">
     <div class="wrapper v-menu_controls">
       <ul class="v-menu_left-list">
-        <li><a href="#neighbourhood">neighbourhood</a></li>
-        <li><a href="#facilities">facilities</a></li>
-        <li><a href="#interior">interior</a></li>
+        <li v-if="screenWidth > 930">
+          <a href="#neighbourhood">neighbourhood</a>
+        </li>
+        <li v-if="screenWidth >= 770">
+          <a href="#facilities">facilities</a>
+        </li>
+        <li v-if="screenWidth > 440">
+          <a href="#interior">interior</a>
+        </li>
       </ul>
       <div class="v-menu_label">
         <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
       </div>
       <ul class="v-menu_right-list">
-        <li><a href="#house_list">house list</a></li>
-        <li><a href="#visual_choice">visual choice</a></li>
-        <li><a href="#location">location</a></li>
+        <li v-if="screenWidth >= 770">
+          <a href="#house_list">house list</a>
+        </li>
+        <li v-if="screenWidth > 440">
+          <a href="#visual_choice">visual choice</a>
+        </li>
+        <li v-if="screenWidth > 930">
+          <a href="#location">location</a>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+import { screenWidth } from '../assets/mixins'
+
 export default {
-  name: 'VMenu'
+  name: 'VMenu',
+  mixins: [screenWidth]
 }
 </script>
 
@@ -43,6 +58,9 @@ export default {
   justify-content: space-between;
   align-items: center;
   flex-basis: 36%;
+  @media (max-width: 770px) {
+    justify-content: center;
+  }
   & a {
     font-size: 2rem;
     text-transform: uppercase;

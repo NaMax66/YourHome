@@ -29,7 +29,7 @@
             </h3>
           </div>
           <div class="v-filter_price">
-            <VueSliderComponent
+            <vue-slider-component
               v-if="priceRangeOptions"
               v-model="priceRange"
               v-bind="priceRangeOptions"
@@ -41,7 +41,7 @@
             </h3>
           </div>
           <div class="v-filter_area">
-            <VueSliderComponent
+            <vue-slider-component
               v-if="areaRangeOptions"
               v-model="areaRange"
               v-bind="areaRangeOptions"

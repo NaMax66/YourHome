@@ -3,12 +3,20 @@
     <div class="wrapper v-visual-choice_info_wrap">
       <div v-if="currentSlide" class="v-visual-choice_info">
         <div class="v-visual-choice_info_first">
-          <h2 class="v-visual-choice_info_primary_header">No. {{ currentSlide.number }}</h2>
-          <h2 class="v-visual-choice_info_primary_header">price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
+          <h2 class="v-visual-choice_info_primary_header">
+            No. {{ currentSlide.number }}
+          </h2>
+          <h2 class="v-visual-choice_info_primary_header">
+            price: {{ currentSlide.price.toLocaleString('en') }} £
+          </h2>
         </div>
         <div class="v-visual-choice_info_second">
-          <h2 class="v-visual-choice_info_secondary_header">{{ currentSlide.bedroom }} bedrooms</h2>
-          <h2 class="v-visual-choice_info_secondary_header">total area: {{ currentSlide.totalArea }} m²</h2>
+          <h2 class="v-visual-choice_info_secondary_header">
+            {{ currentSlide.bedroom }} bedrooms
+          </h2>
+          <h2 class="v-visual-choice_info_secondary_header">
+            total area: {{ currentSlide.totalArea }} m²
+          </h2>
         </div>
 
         <div class="v-visual-choice_info_layout_wrap">
