@@ -104,12 +104,10 @@ export default {
     font-family: var(--f-header);
     font-weight: normal;
     color: var(--c-white);
-    font-size: 10rem;
-    line-height: 10rem;
+    font-size: 8rem;
   }
   .v-main-video_header2 {
-    font-size: 6rem;
-    line-height: 6rem;
+    font-size: 5rem;
     margin-top: 2rem;
   }
   .v-button {

@@ -53,8 +53,8 @@ export default {
   display: inline-block;
   cursor: pointer;
   &.__main_action_btn {
-    font-size: 4rem;
-    padding: 1rem 3rem;
+    font-size: 3rem;
+    padding: 1rem 2.5rem;
     color: var(--c-white);
     background-color: color-mod(var(--c-white) a(20%));
     border: 1px solid var(--c-white);

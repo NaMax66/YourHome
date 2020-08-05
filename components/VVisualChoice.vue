@@ -3,12 +3,12 @@
     <div class="wrapper v-visual-choice_info_wrap">
       <div v-if="currentSlide" class="v-visual-choice_info">
         <div class="v-visual-choice_info_first">
-          <h2>No. {{ currentSlide.number }}</h2>
-          <h2>price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
+          <h2 class="v-visual-choice_info_primary_header">No. {{ currentSlide.number }}</h2>
+          <h2 class="v-visual-choice_info_primary_header">price: {{ currentSlide.price.toLocaleString('en') }} £</h2>
         </div>
         <div class="v-visual-choice_info_second">
-          <h2>{{ currentSlide.bedroom }} bedrooms</h2>
-          <h2>total area: {{ currentSlide.totalArea }} m²</h2>
+          <h2 class="v-visual-choice_info_secondary_header">{{ currentSlide.bedroom }} bedrooms</h2>
+          <h2 class="v-visual-choice_info_secondary_header">total area: {{ currentSlide.totalArea }} m²</h2>
         </div>
 
         <div class="v-visual-choice_info_layout_wrap">
@@ -100,15 +100,6 @@ export default {
   @media (max-width: 1320px) {
     padding-top: 3rem;
   }
-  & h2 {
-    font-family: var(--f-header);
-    font-size: 3rem;
-    line-height: 3.4rem;
-    @media (max-width: 1320px) {
-      font-size: 2.5rem;
-      line-height: 3rem;
-    }
-  }
 }
 .v-visual-choice_info_plan_wrap {
   display: flex;
@@ -168,8 +159,19 @@ export default {
 .v-visual-choice_info_second {
   display: flex;
   justify-content: space-between;
-  & h2 {
-    width: 50%;
+}
+.v-visual-choice_info_primary_header,
+.v-visual-choice_info_secondary_header {
+  font-family: var(--f-header);
+  font-size: 3rem;
+  line-height: 3.4rem;
+  width: 50%;
+  @media (max-width: 1320px) {
+    font-size: 2.5rem;
+    line-height: 3rem;
   }
+}
+.v-visual-choice_info_secondary_header {
+  font-size: 2.2rem;
 }
 </style>
