@@ -41,6 +41,9 @@ export default {
     height: 100vh;
     background-color: color-mod(var(--c-black) a(90%));
     z-index: 200;
+    @media (max-width: 700px) {
+      height: 110vh;
+    }
   }
   .v-modal_content_wrap {
     position: relative;
@@ -52,6 +55,18 @@ export default {
     border: 1px solid var(--c-white);
     padding: 2rem;
     border-radius: 3px;
+    @media (max-width: 1500px) {
+      width: 40%;
+    }
+    @media (max-width: 900px) {
+      width: 50%;
+    }
+    @media (max-width: 700px) {
+      width: 60%;
+    }
+    @media (max-width: 580px) {
+      width: 90%;
+    }
   }
   .v-sprite {
     width: 2rem;
