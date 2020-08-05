@@ -10,7 +10,7 @@ export default {
       id: 2,
       header: 'Premium lifestyle',
       text: 'It most fully meets modern requirements for premium real estate: unique location and characteristics',
-      img: 'hans-m-C5ORgbT2kGk-unsplash.jpg'
+      img: 'malik-sy-GMZ2Kf1mhIg-unsplash.jpg'
     },
     {
       id: 3,
