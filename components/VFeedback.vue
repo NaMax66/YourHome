@@ -45,6 +45,9 @@ export default {
 <style scoped>
   .v-feedback_background {
     background-color: var(--c-black);
+    @media (max-width: 420px) {
+      display: none;
+    }
   }
   .v-feedback_modal_input {
     height: 4rem;

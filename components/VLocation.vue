@@ -45,11 +45,18 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 }
 .v-location_info_txt {
   font-size: 2.5rem;
   line-height: 3.2rem;
   color: var(--c-white);
+  @media (max-width: 420px) {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
 }
 .v-button {
   margin-top: 3rem;

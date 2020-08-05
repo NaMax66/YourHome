@@ -253,6 +253,10 @@ export default {
   }
   .v-filter_list {
     width: 50%;
+    @media (max-width: 1400px) {
+      width: auto;
+      margin-right: 3rem;
+    }
   }
   .v-filter_list_msg {
     width: 50%;
