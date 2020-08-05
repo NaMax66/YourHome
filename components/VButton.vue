@@ -66,6 +66,13 @@ export default {
       background-color: var(--c-white);
       color: var(--c-black);
     }
+    @media (max-width: 800px) {
+      font-size: 2rem;
+      padding: 1rem 2rem;
+    }
+    @media (max-width: 380px) {
+      font-size: 1.6rem;
+    }
   }
   &.__table_btn {
     font-family: var(--f-main);

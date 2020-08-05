@@ -105,13 +105,34 @@ export default {
     font-weight: normal;
     color: var(--c-white);
     font-size: 8rem;
+    @media (max-width: 800px) {
+      font-size: 5rem;
+    }
+    @media (max-width: 500px) {
+      font-size: 4rem;
+    }
+    @media (max-width: 380px) {
+      font-size: 3rem;
+    }
   }
   .v-main-video_header2 {
     font-size: 5rem;
     margin-top: 2rem;
+    @media (max-width: 800px) {
+      font-size: 3rem;
+    }
+    @media (max-width: 500px) {
+      font-size: 2.5rem;
+    }
+    @media (max-width: 380px) {
+      font-size: 2rem;
+    }
   }
   .v-button {
     margin-top: 7rem;
+    @media (max-width: 800px) {
+      margin-top: 4rem;
+    }
   }
   .v-main-video_modal_info {
     font-size: 2.5rem;
