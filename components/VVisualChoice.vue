@@ -18,7 +18,6 @@
             total area: {{ currentSlide.totalArea }} m²
           </h2>
         </div>
-
         <div class="v-visual-choice_info_layout_wrap">
           <img
             class="v-visual-choice_info_layout"
@@ -29,7 +28,30 @@
       </div>
     </div>
     <div class="v-visual-choice_info_plan_wrap">
-      <div class="v-visual-choice_info_plan_img_wrap">
+      <div class="v-visual-choice_plan_mobile_info">
+        <div class="v-visual-choice_plan_mobile_info_left">
+          <h2 class="v-visual-choice_plan_mobile_header">
+            No. {{ currentSlide.number }}
+          </h2>
+          <h2 class="v-visual-choice_plan_mobile_header">
+            price: {{ currentSlide.price.toLocaleString('en') }} £
+          </h2>
+          <h2 class="v-visual-choice_plan_mobile_header">
+            {{ currentSlide.bedroom }} bedrooms
+          </h2>
+          <h2 class="v-visual-choice_plan_mobile_header">
+            total area: {{ currentSlide.totalArea }} m²
+          </h2>
+        </div>
+        <div class="v-visual-choice_plan_mobile_info_right">
+          <img
+            class="v-visual-choice_plan_mobile_info_right_img"
+            :src="`../img/layout/${currentSlide.planImg}`"
+            alt=""
+          >
+        </div>
+      </div>
+      <div class="v-visual-choice_plan_img_wrap">
         <img class="v-visual-choice_info_plan_img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
         <svg
           class="v-visual-choice_info_plan_view_box"
@@ -100,6 +122,9 @@ export default {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  @media (max-width: 750px) {
+    display: none;
+  }
 }
 .v-visual-choice_info {
   padding-top: 6rem;
@@ -113,12 +138,71 @@ export default {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
+  @media (max-width: 750px) {
+    flex-direction: column;
+  }
 }
-.v-visual-choice_info_plan_img_wrap {
+.v-visual-choice_plan_img_wrap {
   width: 50%;
   height: 100%;
   overflow: hidden;
   position: relative;
+  @media (max-width: 750px) {
+    width: 100%;
+    background-position: center;
+  }
+}
+.v-visual-choice_plan_mobile_info {
+  display: none;
+  @media (max-width: 750px) {
+    display: flex;
+    padding: 5rem 0 2rem;
+  }
+  @media (max-width: 420px) {
+    flex-direction: column;
+    padding: 3rem 0 1rem;
+  }
+}
+.v-visual-choice_plan_mobile_info_left,
+.v-visual-choice_plan_mobile_info_right {
+  width: 50%;
+  margin: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.v-visual-choice_plan_mobile_info_left {
+  @media (max-width: 420px) {
+    width: 90%;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+.v-visual-choice_plan_mobile_info_right {
+  @media (max-width: 420px) {
+    height: 18rem;
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+}
+.v-visual-choice_plan_mobile_info_right_img {
+  max-height: 25rem;
+  @media (max-width: 420px) {
+    max-height: 20rem;
+  }
+}
+.v-visual-choice_plan_mobile_header {
+  font-family: var(--f-header);
+  font-size: 2.5rem;
+  line-height: 3rem;
+  @media (max-width: 600px) {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  @media (max-width: 420px) {
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
 }
 .v-visual-choice_info_plan_img {
   width: 100%;
@@ -161,6 +245,9 @@ export default {
   }
   @media (max-width: 1320px) {
     max-height: 28rem;
+  }
+  @media (max-width: 900px) {
+    max-height: 22rem;
   }
 }
 .v-visual-choice_info_first,
