@@ -100,17 +100,41 @@ export default {
     display: flex;
     &.rtl {
       flex-direction: row-reverse;
+      @media (max-width: 900px) {
+        flex-direction: column-reverse;
+      }
     }
     &.dark {
       color: var(--c-light-gray);
     }
     &.light {
       color: var(--c-black);
+      @media (max-width: 900px) {
+        & .swiper-button-next,
+        & .swiper-button-prev {
+          color: var(--c-black);
+        }
+      }
+      @media (max-width: 640px) {
+        & .swiper-button-next,
+        & .swiper-button-prev {
+          color: var(--c-white);
+        }
+      }
+    }
+    @media (max-width: 900px) {
+      flex-direction: column;
     }
   }
   .v-info-slider_info {
     width: 50%;
     padding-right: 5rem;
+    @media (max-width: 900px) {
+      width: 90%;
+      padding-right: 0;
+      padding-bottom: 4rem;
+
+    }
     opacity: 0;
     visibility: hidden;
     transition: opacity .1s;
@@ -121,6 +145,12 @@ export default {
     &.rtl {
       padding-right: 0;
       padding-left: 5rem;
+      @media (max-width: 900px) {
+        width: 90%;
+        padding-left: 0;
+        padding-top: 4rem;
+
+      }
     }
     & h2 {
       font-size: 3.8rem;
@@ -134,6 +164,9 @@ export default {
   .v-info-slider_swiper {
     position: relative;
     width: 50%;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
   }
   .swiper {
     width: 100%;
