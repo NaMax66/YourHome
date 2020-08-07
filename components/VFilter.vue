@@ -272,6 +272,10 @@ export default {
     text-align: center;
     font-size: 3rem;
     font-family: var(--f-header);
+    @media (max-width: 600px) {
+      font-size: 2.4rem;
+      width: 100%;
+    }
   }
   .v-filter_controls {
     width: 30rem;

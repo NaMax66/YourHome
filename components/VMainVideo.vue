@@ -106,29 +106,11 @@ export default {
     font-family: var(--f-header);
     font-weight: normal;
     color: var(--c-white);
-    font-size: 8rem;
-    @media (max-width: 800px) {
-      font-size: 5rem;
-    }
-    @media (max-width: 500px) {
-      font-size: 4rem;
-    }
-    @media (max-width: 380px) {
-      font-size: 3.8rem;
-    }
+    font-size: calc(30px + (80 - 30) * ((100vw - 320px) / (1920 - 320)));
   }
   .v-main-video_header2 {
-    font-size: 5rem;
+    font-size: calc(20px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
     margin-top: 2rem;
-    @media (max-width: 800px) {
-      font-size: 3rem;
-    }
-    @media (max-width: 500px) {
-      font-size: 2.5rem;
-    }
-    @media (max-width: 380px) {
-      font-size: 2rem;
-    }
   }
   .v-button {
     margin-top: 7rem;
