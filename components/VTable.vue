@@ -9,10 +9,10 @@
         </tr>
       </thead>
       <tbody class="v-table_body">
-        <tr v-for="row in body" :key="row.id" class="v-table_body_row">
+        <tr v-for="row in body" :key="row.id" class="v-table_body_row" @click="$emit('buy', row)">
           <td v-for="item in head" :key="item.id" class="v-table_body_cell">
             {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
-            <v-button v-if="item.isButton" table-button @click="$emit('buy', row)">
+            <v-button v-if="item.isButton && screenWidth >= 600" table-button>
               Buy
             </v-button>
           </td>
@@ -23,7 +23,9 @@
 </template>
 
 <script>
+import { screenWidth } from '../assets/mixins'
 import VButton from './VButton'
+
 export default {
   name: 'VTable',
   components: { VButton },
@@ -35,6 +37,7 @@ export default {
       return value
     }
   },
+  mixins: [screenWidth],
   props: {
     head: {
       type: Array,
@@ -52,15 +55,37 @@ export default {
 .v-table_wrap {
   height: 100%;
   overflow: auto;
+  @media (max-width: 400px) {
+    width: 100%;
+  }
 }
 .v-table_table {
   border-spacing: 0 1rem;
+  width: 100%;
 }
 .v-table_head_row {
   font-size: 2rem;
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 400px) {
+    font-size: 1rem;
+  }
+}
+.v-table_body {
+  width: 100%;
 }
 .v-table_body_row {
   font-size: 2.5rem;
+  @media (max-width: 600px) {
+    font-size: 1.8rem;
+    & .v-table_body_cell:last-child {
+      display: none;
+    }
+  }
+  @media (max-width: 400px) {
+    font-size: 1.4rem;
+  }
   color: var(--c-white);
   background-color: var(--c-black);
   &:hover {

@@ -123,7 +123,7 @@ export default {
       }
     }
     @media (max-width: 900px) {
-      flex-direction: column;
+      flex-direction: column-reverse;
     }
   }
   .v-info-slider_info {
@@ -132,7 +132,7 @@ export default {
     @media (max-width: 900px) {
       width: 90%;
       padding-right: 0;
-      padding-bottom: 4rem;
+      padding-top: 4rem;
 
     }
     opacity: 0;

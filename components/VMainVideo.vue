@@ -84,6 +84,7 @@ export default {
     justify-content: center;
     align-items: center;
     min-height: 70rem;
+    overflow: hidden;
   }
   .v-main-video {
     z-index: -1;
@@ -101,6 +102,7 @@ export default {
   }
   .v-main-video_header,
   .v-main-video_header2 {
+    white-space: nowrap;
     font-family: var(--f-header);
     font-weight: normal;
     color: var(--c-white);
@@ -112,7 +114,7 @@ export default {
       font-size: 4rem;
     }
     @media (max-width: 380px) {
-      font-size: 3rem;
+      font-size: 3.8rem;
     }
   }
   .v-main-video_header2 {

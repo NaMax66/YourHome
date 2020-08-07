@@ -250,12 +250,19 @@ export default {
     display: flex;
     align-items: flex-start;
     height: 100%;
+    @media (max-width: 820px) {
+      flex-direction: column-reverse;
+    }
   }
   .v-filter_list {
     width: 50%;
     @media (max-width: 1400px) {
       width: auto;
       margin-right: 3rem;
+    }
+    @media (max-width: 400px) {
+      width: 100%;
+      margin-right: 0;
     }
   }
   .v-filter_list_msg {
@@ -276,13 +283,26 @@ export default {
     padding: 2rem;
     margin-top: 4.2rem;
     margin-bottom: .9rem;
+    @media (max-width: 820px) {
+      margin-top: 0;
+      width: 100%;
+      max-width: 51rem;
+      position: relative;
+      margin-bottom: 9rem;
+    }
   }
   .v-filter_price {
     margin-top: 5rem;
     margin-bottom: 3rem;
+    @media (max-width: 820px) {
+      margin-top: 1rem;
+    }
   }
   .v-filter_area {
     margin-top: 5rem;
+    @media (max-width: 820px) {
+      margin-top: 1rem;
+    }
   }
   .v-filter_price_header,
   .v-filter_area_header,

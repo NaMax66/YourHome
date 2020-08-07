@@ -81,8 +81,8 @@ export default {
   #house_list > .v-filter_background {
     padding-top: 8rem;
     padding-bottom: 8rem;
-    @media (max-width: 820px) {
-      display: none;
+    @media (max-width: 600px) {
+      padding-top: 0;
     }
   }
 </style>
