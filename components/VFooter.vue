@@ -2,7 +2,7 @@
   <div class="v-footer_background">
     <div class="wrapper">
       <div class="v-footer-info">
-        <p>&copy; This is a sample website by Max Naidovich</p>
+        <p>&copy; This is a sample website by <br> Max Naidovich</p>
         <div class="v-footer_social">
           <a class="v-footer_social-link" href="https://t.me/namax66" target="_blank">
             <v-sprite icon="telegram" />
@@ -39,13 +39,13 @@ export default {
     align-items: center;
     padding: 2rem 0;
     @media (max-width: 600px) {
-      font-size: 1.2rem;
+      padding: 1rem 0;
     }
     & p {
       flex-basis: 30%;
       @media (max-width: 600px) {
-        flex-basis: 40%;
-        margin-right: 2rem;
+        flex-basis: 45%;
+        margin-right: 1rem;
       }
     }
   }
