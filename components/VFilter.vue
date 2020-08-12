@@ -256,9 +256,9 @@ export default {
   }
   .v-filter_list {
     width: 50%;
+    margin-right: 3rem;
     @media (max-width: 1400px) {
       width: auto;
-      margin-right: 3rem;
     }
     @media (max-width: 400px) {
       width: 100%;
