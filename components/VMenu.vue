@@ -47,6 +47,7 @@ export default {
   color: var(--c-light-gray);
   background-color: color-mod(var(--c-black) a(80%));
   padding: 1rem 0;
+  backdrop-filter: saturate(180%) blur(5px);
 }
 .v-menu_controls {
   display: flex;
