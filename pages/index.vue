@@ -3,7 +3,7 @@
     <v-menu />
     <v-main-video />
     <div id="neighbourhood">
-      <v-info-slider theme="light" direction="ltr" :slides="neighbourhoodSlides" />
+      <v-info-slider class="pt-10 pb-8" theme="light" direction="ltr" :slides="neighbourhoodSlides" />
     </div>
     <div id="facilities">
       <v-info-slider theme="dark" direction="rtl" :slides="facilitiesSlides" />
@@ -12,10 +12,10 @@
       <v-visual-choice :visual-data="visualData" />
     </div>
     <div id="interior">
-      <v-info-slider theme="dark" direction="rtl" :slides="interiorSlides" />
+      <v-info-slider class="pb-8 pt-8" theme="dark" direction="rtl" :slides="interiorSlides" />
     </div>
     <div id="house_list">
-      <v-filter :filter-data="visualData" />
+      <v-filter class="pb-8 pt-8" :filter-data="visualData" />
     </div>
     <v-feedback />
     <div id="location">
@@ -36,7 +36,10 @@ import VVisualChoice from '../components/VVisualChoice'
 import VFilter from '../components/VFilter'
 import VLocation from '../components/VLocation'
 import VFeedback from '../components/VFeedback'
+
 export default {
+  name: 'Index',
+
   components: {
     VFeedback,
     VLocation,
@@ -65,24 +68,5 @@ export default {
 </script>
 
 <style>
-  @import "../assets/main.css";
-  #neighbourhood > .v-info-slider_background {
-    padding-top: 10rem;
-    padding-bottom: 8rem;
-  }
-  #facilities > .v-info-slider_background {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-  #interior > .v-info-slider_background {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-  #house_list > .v-filter_background {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    @media (max-width: 600px) {
-      padding-top: 0;
-    }
-  }
+  @import "assets/main.css";
 </style>
