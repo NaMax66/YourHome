@@ -13,6 +13,10 @@
     "test": "jest",
     "img:sprite": "svg-sprite --log=info --symbol --symbol-dest=static --symbol-sprite=sprite.svg static/icons/*.svg"
   },
+  "engines" : {
+    "npm" : "~6",
+    "node" : "~14"
+  },
   "dependencies": {
     "nuxt": "^2.14.0",
     "swiper": "^5.4.5",
