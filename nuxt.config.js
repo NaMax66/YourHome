@@ -70,4 +70,11 @@ export default {
       })
     ]
   }
+  /* postcss: {
+      'postcss-nested': {},
+      'postcss-hexrgba': {},
+      'postcss-color-mod-function': {
+        importFrom: 'assets/main.css'
+      }
+    } */
 }
