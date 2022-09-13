@@ -36,7 +36,10 @@ import VVisualChoice from '../components/VVisualChoice'
 import VFilter from '../components/VFilter'
 import VLocation from '../components/VLocation'
 import VFeedback from '../components/VFeedback'
+
 export default {
+  name: 'Index',
+
   components: {
     VFeedback,
     VLocation,
