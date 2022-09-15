@@ -57,7 +57,7 @@ export default {
     font-size: 3rem;
     padding: 1rem 2.5rem;
     color: var(--c-white);
-    background-color: color(var(--c-white) a(20%));
+    background-color: var(--c-white-a20);
     border: 1px solid var(--c-white);
     border-radius: 3px;
     outline: none;
@@ -84,7 +84,7 @@ export default {
     font-size: 2rem;
     padding: 1rem 2rem;
     color: var(--c-white);
-    background-color: color(var(--c-white) a(20%));
+    background-color: var(--c-white-a20);
     border: 1px solid var(--c-white);
     border-radius: 3px;
     outline: none;

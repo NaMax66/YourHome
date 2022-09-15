@@ -41,7 +41,7 @@ export default {
 
 .v-location_info {
   width: 50%;
-  background-color: color(var(--c-black) a(50%));
+  background-color: var(--c-black-a50);
   padding: 4rem 3rem;
   border-radius: 3px;
   display: flex;

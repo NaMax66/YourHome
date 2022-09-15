@@ -244,11 +244,11 @@ export default {
 
   &.active,
   &:hover {
-    fill: color(var(--c-white) a(50%));
+    fill: var(--c-white-a50);
   }
 
   &.fixed {
-    fill: color(var(--c-white) a(80%));
+    fill: var(--c-white-a80);
   }
 }
 

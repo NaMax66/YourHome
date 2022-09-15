@@ -39,7 +39,7 @@ export default {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: color(var(--c-black) a(90%));
+    background-color: var(--c-black-a90);
     z-index: 200;
 
     @media (max-width: 700px) {
