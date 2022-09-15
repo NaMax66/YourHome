@@ -14,7 +14,7 @@
         </p>
       </div>
       <div class="v-info-slider_swiper">
-        <swiper
+        <Swiper
           v-if="isReady"
           ref="swiper"
           class="swiper"
@@ -23,10 +23,10 @@
           @slideChangeTransitionStart="isTransitioning = true"
           @slideChangeTransitionEnd="isTransitioning = false"
         >
-          <swiper-slide v-for="slide in slides" :key="slide.id">
+          <SwiperSlide v-for="slide in slides" :key="slide.id">
             <img :src="`img/${slide.img}`" alt="">
-          </swiper-slide>
-        </swiper>
+          </SwiperSlide>
+        </Swiper>
         <div ref="nextEl" class="swiper-button-next" />
         <div ref="prevEl" class="swiper-button-prev" />
       </div>
@@ -35,18 +35,12 @@
 </template>
 
 <script>
-// import { Swiper, SwiperSlide } from 'swiper/vue'
-
-const components = {}
-if (process.client) {
-  components.Swiper = require('swiper/vue/swiper.js')
-  components.SwiperSlide = require('swiper/vue/swiper-slide.js')
-}
+import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'VInfoSlider',
   components: {
-    ...components
+    Swiper, SwiperSlide
   },
   props: {
     slides: {
@@ -67,8 +61,10 @@ export default {
     isReady: false,
     currentSlide: null,
     swiperOption: {
+      direction: 'horizontal',
+      slidesPerView: 1,
       spaceBetween: 40,
-      loop: true,
+      // loop: true,
       navigation: {
         nextEl: null,
         prevEl: null

@@ -1,7 +1,7 @@
 <template>
-  <div class="v-menu_wrap">
+  <div class="menu_wrap">
     <div class="wrapper v-menu_controls">
-      <ul class="v-menu_left-list">
+      <ul class="menu_left-list">
         <li v-if="screenWidth > 930">
           <a href="#neighbourhood">neighbourhood</a>
         </li>
@@ -15,7 +15,7 @@
       <div class="menu-label">
         <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
       </div>
-      <ul class="v-menu_right-list">
+      <ul class="menu_right-list">
         <li v-if="screenWidth >= 770">
           <a href="#house_list">house list</a>
         </li>
@@ -40,12 +40,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-menu_wrap {
+.menu_wrap {
   position: fixed;
   z-index: 100;
   width: 100%;
   color: var(--c-light-gray);
-  background-color: color(var(--c-black));
+  background-color: var(--c-black-a90);
   padding: 1rem 0;
   backdrop-filter: saturate(180%) blur(5px);
 }
@@ -67,8 +67,8 @@ export default {
   }
 }
 
-.v-menu_left-list,
-.v-menu_right-list {
+.menu_left-list,
+.menu_right-list {
   display: flex;
   justify-content: space-between;
   align-items: center;

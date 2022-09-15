@@ -1,8 +1,8 @@
 <template>
   <div>
-    <v-header />
-    <nuxt />
-    <v-footer />
+    <VHeader />
+    <Nuxt />
+    <VFooter />
   </div>
 </template>
 
