@@ -13,35 +13,36 @@
           {{ currentSlide.text }}
         </p>
       </div>
-      <div class="v-info-slider_swiper">
-        <Swiper
-          v-if="isReady"
-          ref="swiper"
-          class="swiper"
-          :options="swiperOption"
-          @slideChange="setCurrentSlide"
-          @slideChangeTransitionStart="isTransitioning = true"
-          @slideChangeTransitionEnd="isTransitioning = false"
-        >
-          <SwiperSlide v-for="slide in slides" :key="slide.id">
-            <img :src="`img/${slide.img}`" alt="">
-          </SwiperSlide>
-        </Swiper>
-        <div ref="nextEl" class="swiper-button-next" />
-        <div ref="prevEl" class="swiper-button-prev" />
+      <div :id="id" class="v-info-slider_swiper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div v-for="slide in slides" :key="slide.id" class="swiper-slide">
+              <img class="img-class" :src="`img/${slide.img}`" alt="">
+            </div>
+          </div>
+          <div class="swiper-button-prev" />
+          <div class="swiper-button-next" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
+let Swiper = null
+const swiperModules = {
+  Navigation: null
+}
+
+if (process.client) {
+  const swiper = require('swiper')
+  Swiper = swiper.Swiper
+  swiperModules.Navigation = swiper.Navigation
+}
 
 export default {
   name: 'VInfoSlider',
-  components: {
-    Swiper, SwiperSlide
-  },
+
   props: {
     slides: {
       type: Array,
@@ -54,47 +55,68 @@ export default {
     direction: {
       type: String,
       required: true
+    },
+    id: {
+      type: String,
+      required: true
     }
   },
+
   data: () => ({
     isTransitioning: false,
-    isReady: false,
+
     currentSlide: null,
+
     swiperOption: {
-      direction: 'horizontal',
-      slidesPerView: 1,
       spaceBetween: 40,
-      // loop: true,
+      loop: true,
       navigation: {
-        nextEl: null,
-        prevEl: null
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      },
+      scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true
       }
     }
   }),
+
   mounted () {
     this.setInitialSlide()
-    this.setSwiperControls()
+    if (Swiper) { this.initSwiper() }
   },
+
   methods: {
+    initSwiper () {
+      const { Navigation } = swiperModules
+
+      const swiper = new Swiper('.swiper', {
+        ...this.swiperOption,
+        modules: [Navigation]
+      })
+
+      swiper.on('slideChange', this.setCurrentSlide)
+      swiper.on('slideChangeTransitionStart', () => { this.isTransitioning = true })
+      swiper.on('slideChangeTransitionEnd', () => { this.isTransitioning = false })
+    },
+
     setInitialSlide () {
       if (this.slides.length) {
         this.currentSlide = this.slides[0]
       }
     },
-    setSwiperControls () {
-      this.swiperOption.navigation.nextEl = this.$refs.nextEl
-      this.swiperOption.navigation.prevEl = this.$refs.prevEl
-      this.isReady = true
-    },
-    setCurrentSlide () {
-      const id = this.$refs.swiper.$swiper.realIndex
-      this.currentSlide = this.slides[id]
+
+    setCurrentSlide (swiper) {
+      this.currentSlide = this.slides[swiper.realIndex]
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+  @import 'swiper/swiper.min.css';
+  @import 'swiper/modules/navigation/navigation.min.css';
+
   .v-info-slider_background {
     &.light {
       background-color: var(--c-white);
