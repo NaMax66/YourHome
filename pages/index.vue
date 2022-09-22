@@ -1,18 +1,30 @@
 <template>
   <div>
     <v-main-video />
-    <div id="neighbourhood">
-      <v-info-slider id="neighbourhood" class="pt-10 pb-8" theme="light" direction="ltr" :slides="neighbourhoodSlides" />
-    </div>
-    <div id="facilities">
-      <!--      <v-info-slider theme="dark" direction="rtl" :slides="facilitiesSlides" />-->
-    </div>
+    <v-info-slider
+      id="neighbourhood"
+      class="pt-10 pb-8"
+      theme="light"
+      direction="ltr"
+      :slides="neighbourhoodSlides"
+    />
+    <v-info-slider
+      id="facilities"
+      class="pt-10 pb-8"
+      theme="dark"
+      direction="rtl"
+      :slides="facilitiesSlides"
+    />
     <div id="visual_choice">
       <v-visual-choice :visual-data="visualData" />
     </div>
-    <div id="interior">
-      <!--      <v-info-slider class="pb-8 pt-8" theme="dark" direction="rtl" :slides="interiorSlides" />-->
-    </div>
+    <v-info-slider
+      id="interior"
+      class="pb-8 pt-8"
+      theme="dark"
+      direction="rtl"
+      :slides="interiorSlides"
+    />
     <div id="house_list">
       <v-filter class="pb-8 pt-8" :filter-data="visualData" />
     </div>

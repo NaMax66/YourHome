@@ -15,6 +15,7 @@ module.exports = {
   plugins: [
   ],
   rules: {
+    'vue/max-attributes-per-line': ['warn', { singleline: 3, multiline: 1 }],
     'vue/multi-word-component-names': ['error', {
       ignores: ['default']
     }]

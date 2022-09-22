@@ -1,5 +1,9 @@
 <template>
-  <div class="v-info-slider_background" :class="theme">
+  <div
+    :id="id"
+    class="v-info-slider_background"
+    :class="theme"
+  >
     <div class="wrapper v-info-slider_wrap" :class="[direction, theme]">
       <div
         v-if="currentSlide"
@@ -16,8 +20,16 @@
       <div :id="id" class="v-info-slider_swiper">
         <div class="swiper">
           <div class="swiper-wrapper">
-            <div v-for="slide in slides" :key="slide.id" class="swiper-slide">
-              <img class="img-class" :src="`img/${slide.img}`" alt="">
+            <div
+              v-for="slide in slides"
+              :key="slide.id"
+              class="swiper-slide"
+            >
+              <img
+                class="img-class"
+                :src="`img/${slide.img}`"
+                alt=""
+              >
             </div>
           </div>
           <div class="swiper-button-prev" />
@@ -90,7 +102,7 @@ export default {
     initSwiper () {
       const { Navigation } = swiperModules
 
-      const swiper = new Swiper('.swiper', {
+      const swiper = new Swiper(`#${this.id} .swiper`, {
         ...this.swiperOption,
         modules: [Navigation]
       })
