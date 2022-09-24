@@ -42,6 +42,7 @@
 
 <script>
 let Swiper = null
+
 const swiperModules = {
   Navigation: null
 }
@@ -53,7 +54,7 @@ if (process.client) {
 }
 
 export default {
-  name: 'VInfoSlider',
+  name: 'InfoSlider',
 
   props: {
     slides: {

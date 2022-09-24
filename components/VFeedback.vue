@@ -3,7 +3,13 @@
     <div class="wrapper">
       <div class="v-feedback_controls">
         <input type="text" placeholder="Your name" class="v-feedback_modal_input">
-        <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-feedback_modal_input">
+        <input
+          type="tel"
+          pattern="[0-9]*"
+          placeholder="Your phone"
+          novalidate
+          class="v-feedback_modal_input"
+        >
         <v-button class="v-feedback_action-btn" table-button @click="handleSubmit">
           contact us
         </v-button>
