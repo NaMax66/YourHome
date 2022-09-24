@@ -1,14 +1,14 @@
 <template>
   <div
     :id="id"
-    class="v-info-slider_background"
+    class="slider-background"
     :class="theme"
   >
-    <div class="wrapper v-info-slider_wrap" :class="[direction, theme]">
+    <div class="wrapper slider-wrap" :class="[direction, theme]">
       <div
         v-if="currentSlide"
-        class="v-info-slider_info"
-        :class="[!isTransitioning ? 'visible' : '', direction]"
+        class="slider-info"
+        :class="[!isTransitioning ? 'slider-info--visible' : '', direction]"
       >
         <h2>
           {{ currentSlide.header }}
@@ -17,7 +17,7 @@
           {{ currentSlide.text }}
         </p>
       </div>
-      <div :id="id" class="v-info-slider_swiper">
+      <div :id="id" class="slider-swiper">
         <div class="swiper">
           <div class="swiper-wrapper">
             <div
@@ -129,7 +129,7 @@ export default {
   @import 'swiper/swiper.min.css';
   @import 'swiper/modules/navigation/navigation.min.css';
 
-  .v-info-slider_background {
+  .slider-background {
     &.light {
       background-color: var(--c-white);
     }
@@ -139,7 +139,7 @@ export default {
     }
   }
 
-  .v-info-slider_wrap {
+  .slider-wrap {
     display: flex;
 
     &.rtl {
@@ -177,7 +177,7 @@ export default {
     }
   }
 
-  .v-info-slider_info {
+  .slider-info {
     width: 50%;
     padding-right: 5rem;
 
@@ -191,7 +191,7 @@ export default {
     visibility: hidden;
     transition: opacity 0.1s;
 
-    &.visible {
+    &--visible {
       opacity: 1;
       visibility: visible;
     }
@@ -218,7 +218,7 @@ export default {
     }
   }
 
-  .v-info-slider_swiper {
+  .slider-swiper {
     position: relative;
     width: 50%;
 
