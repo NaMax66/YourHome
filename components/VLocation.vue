@@ -24,40 +24,46 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .v-location_wrap {
   background-image: url("/img/sarah-doffman-u44HcmdG0Oo-unsplash.jpg");
   background-size: cover;
   background-position: center;
   height: 60rem;
 }
+
 .v-location_info_wrap {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   height: 100%;
 }
+
 .v-location_info {
   width: 50%;
-  background-color: color-mod(var(--c-black) a(50%));
+  background-color: var(--c-black-a50);
   padding: 4rem 3rem;
   border-radius: 3px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   @media (max-width: 800px) {
     width: 100%;
   }
 }
+
 .v-location_info_txt {
   font-size: 2.5rem;
   line-height: 3.2rem;
   color: var(--c-white);
+
   @media (max-width: 420px) {
     font-size: 2rem;
     line-height: 2.5rem;
   }
 }
+
 .v-button {
   margin-top: 3rem;
 }

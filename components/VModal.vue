@@ -32,19 +32,21 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .v-modal_background {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: color-mod(var(--c-black) a(90%));
+    background-color: var(--c-black-a90);
     z-index: 200;
+
     @media (max-width: 700px) {
       height: 110vh;
     }
   }
+
   .v-modal_content_wrap {
     position: relative;
     width: 30%;
@@ -55,37 +57,46 @@ export default {
     border: 1px solid var(--c-white);
     padding: 2rem;
     border-radius: 3px;
+
     @media (max-width: 1500px) {
       width: 40%;
     }
+
     @media (max-width: 900px) {
       width: 50%;
     }
+
     @media (max-width: 700px) {
       width: 60%;
     }
+
     @media (max-width: 580px) {
       width: 90%;
     }
   }
+
   .v-sprite {
     width: 2rem;
     height: 2rem;
     fill: var(--c-white);
+
     &:hover {
       fill: var(--c-light-gray);
     }
   }
+
   .v-modal_close-btn {
     position: absolute;
     top: 2rem;
     right: 2rem;
   }
+
   .v-modal_content {
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
   }
+
   .v-modal_action_btn {
     align-self: center;
     margin-top: 2rem;

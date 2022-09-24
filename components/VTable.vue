@@ -51,43 +51,55 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .v-table_wrap {
   height: 100%;
   overflow: auto;
+
   @media (max-width: 400px) {
     width: 100%;
   }
 }
+
 .v-table_table {
   border-spacing: 0 1rem;
   width: 100%;
 }
+
 .v-table_head_row {
   font-size: 2rem;
+
   @media (max-width: 600px) {
     font-size: 1.5rem;
   }
+
   @media (max-width: 400px) {
     font-size: 1rem;
   }
 }
+
 .v-table_body {
   width: 100%;
 }
+
 .v-table_body_row {
   font-size: 2.5rem;
+
   @media (max-width: 600px) {
     font-size: 1.8rem;
+
     & .v-table_body_cell:last-child {
       display: none;
     }
   }
+
   @media (max-width: 400px) {
     font-size: 1.4rem;
   }
+
   color: var(--c-white);
   background-color: var(--c-black);
+
   &:hover {
     & .v-button {
       visibility: visible;
@@ -95,9 +107,11 @@ export default {
     }
   }
 }
+
 .v-table_body_cell {
   padding: 2rem 3rem;
 }
+
 .v-button {
   visibility: hidden;
   opacity: 0;

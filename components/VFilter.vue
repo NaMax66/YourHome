@@ -1,34 +1,52 @@
 <template>
-  <div class="v-filter_background">
+  <div class="filter-background">
     <div class="wrapper">
-      <div class="v-filter_wrap">
-        <div v-if="houses && houses.length" class="v-filter_list">
+      <div class="filter-wrap">
+        <div v-if="houses && houses.length" class="filter-list">
           <v-table :head="tableHead" :body="houses" @buy="handleBuy" />
         </div>
-        <div v-else class="v-filter_list_msg">
+        <div v-else class="placeholder">
           <h2>
             No matching
           </h2>
         </div>
-        <div class="v-filter_controls">
-          <div class="v-filter_checkbox_wrap">
+        <div class="filter-controls">
+          <div class="checkbox-wrap">
             <label for="2">
-              <input id="2" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="2" type="checkbox">
-              <span class="v-filter_checkbox_item">2</span>
+              <input
+                id="2"
+                v-model="checkedBedrooms"
+                class="checkbox-input"
+                value="2"
+                type="checkbox"
+              >
+              <span class="checkbox-item">2</span>
             </label>
             <label for="3">
-              <input id="3" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="3" type="checkbox">
-              <span class="v-filter_checkbox_item">3</span>
+              <input
+                id="3"
+                v-model="checkedBedrooms"
+                class="checkbox-input"
+                value="3"
+                type="checkbox"
+              >
+              <span class="checkbox-item">3</span>
             </label>
             <label for="4">
-              <input id="4" v-model="checkedBedrooms" class="v-filter_checkbox_input" value="4" type="checkbox">
-              <span class="v-filter_checkbox_item">4</span>
+              <input
+                id="4"
+                v-model="checkedBedrooms"
+                class="checkbox-input"
+                value="4"
+                type="checkbox"
+              >
+              <span class="checkbox-item">4</span>
             </label>
-            <h3 class="v-filter_bedrooms_header">
+            <h3 class="bedrooms-header">
               Bedrooms
             </h3>
           </div>
-          <div class="v-filter_price">
+          <div class="price">
             <vue-slider-component
               v-if="priceRangeOptions"
               v-model="priceRange"
@@ -36,11 +54,11 @@
               :value="priceRangeOptions.value"
               @dragging="filterHouses"
             />
-            <h3 class="v-filter_price_header">
+            <h3 class="price-header">
               Price, £
             </h3>
           </div>
-          <div class="v-filter_area">
+          <div class="area">
             <vue-slider-component
               v-if="areaRangeOptions"
               v-model="areaRange"
@@ -48,31 +66,42 @@
               :value="areaRangeOptions.value"
               @dragging="filterHouses"
             />
-            <h3 class="v-filter_area_header">
+            <h3 class="area-header">
               Total area, m²
             </h3>
           </div>
         </div>
       </div>
     </div>
-    <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
-      <template v-slot:info>
-        <h2 v-if="currentHouse" class="v-filter_modal_header">
+    <v-modal
+      v-show="isModalOpen"
+      :is-success-shown="isSuccessShown"
+      @close="closeModal"
+      @submit="submitModal"
+    >
+      <template #info>
+        <h2 v-if="currentHouse" class="modal-header">
           You choose house No. {{ currentHouse.number }}
           <br> With the price: {{ currentHouse.price.toLocaleString('en') }} £
         </h2>
-        <p class="v-filter_modal_info">
+        <p class="modal-info">
           Please, enter your name and phone<br>
           so we could contact you
         </p>
-        <input type="text" placeholder="Your name" class="v-filter_modal_input">
-        <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-filter_modal_input">
+        <input type="text" placeholder="Your name" class="modal-input">
+        <input
+          type="tel"
+          pattern="[0-9]*"
+          placeholder="Your phone"
+          novalidate
+          class="modal-input"
+        >
       </template>
-      <template v-slot:button>
+      <template #button>
         Submit
       </template>
-      <template v-slot:thanks>
-        <p class="v-filter_modal_info">
+      <template #thanks>
+        <p class="modal-info">
           Thank you. We will call you soon!
         </p>
       </template>
@@ -154,8 +183,8 @@ export default {
     filterByBedrooms (arr, key) {
       let filteredArray = []
       if (key.length) {
-        key.map((roomSize) => {
-          arr.map((house) => {
+        key.forEach((roomSize) => {
+          arr.forEach((house) => {
             if (house.bedroom === +roomSize) {
               filteredArray.push(house)
             }
@@ -168,7 +197,7 @@ export default {
     },
     filterByRange (objectKey, arr, key) {
       const filteredArray = []
-      arr.map((el) => {
+      arr.forEach((el) => {
         if (el[objectKey] >= key[0] && el[objectKey] <= key[1]) {
           filteredArray.push(el)
         }
@@ -242,42 +271,50 @@ export default {
 }
 </script>
 
-<style scoped>
-  .v-filter_background {
+<style lang="scss" scoped>
+  .filter-background {
     background-color: var(--c-white);
   }
-  .v-filter_wrap {
+
+  .filter-wrap {
     display: flex;
     align-items: flex-start;
     height: 100%;
+
     @media (max-width: 820px) {
       flex-direction: column-reverse;
     }
   }
-  .v-filter_list {
+
+  .filter-list {
     width: 50%;
     margin-right: 3rem;
+
     @media (max-width: 1400px) {
       width: auto;
     }
+
     @media (max-width: 400px) {
       width: 100%;
       margin-right: 0;
     }
   }
-  .v-filter_list_msg {
+
+  .placeholder {
     width: 50%;
     margin-top: 3rem;
     height: 9rem;
     text-align: center;
     font-size: 3rem;
     font-family: var(--f-header);
+
     @media (max-width: 600px) {
       font-size: 2.4rem;
       width: 100%;
     }
   }
-  .v-filter_controls {
+
+  .filter-controls {
     width: 30rem;
     height: auto;
     position: sticky;
@@ -286,7 +323,8 @@ export default {
     border: 1px solid var(--c-black);
     padding: 2rem;
     margin-top: 4.2rem;
-    margin-bottom: .9rem;
+    margin-bottom: 0.9rem;
+
     @media (max-width: 820px) {
       margin-top: 0;
       width: 100%;
@@ -295,26 +333,32 @@ export default {
       margin-bottom: 9rem;
     }
   }
-  .v-filter_price {
+
+  .price {
     margin-top: 5rem;
     margin-bottom: 3rem;
+
     @media (max-width: 820px) {
       margin-top: 1rem;
     }
   }
-  .v-filter_area {
+
+  .area {
     margin-top: 5rem;
+
     @media (max-width: 820px) {
       margin-top: 1rem;
     }
   }
-  .v-filter_price_header,
-  .v-filter_area_header,
-  .v-filter_bedrooms_header {
+
+  .price-header,
+  .area-header,
+  .bedrooms-header {
     margin-top: 1rem;
     font-size: 1.8rem;
   }
-  .v-filter_checkbox_item {
+
+  .checkbox-item {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -327,26 +371,31 @@ export default {
     width: 5rem;
     height: 5rem;
     margin-right: 1rem;
-    transition: all .3s;
+    transition: all 0.3s;
+
     &:hover {
-      opacity: .8;
+      opacity: 0.8;
     }
   }
-  .v-filter_checkbox_input {
+
+  .checkbox-input {
     display: none;
   }
-  .v-filter_checkbox_input:checked {
-    & + .v-filter_checkbox_item {
+
+  .checkbox-input:checked {
+    & + .checkbox-item {
       background-color: var(--c-black);
       color: var(--c-white);
     }
   }
-  .v-filter_modal_info {
+
+  .modal-info {
     font-size: 2.5rem;
     line-height: 3.2rem;
     margin-bottom: 2rem;
   }
-  .v-filter_modal_input {
+
+  .modal-input {
     height: 4rem;
     font-size: 2rem;
     line-height: 2rem;
@@ -354,11 +403,13 @@ export default {
     border-radius: 3px;
     margin-bottom: 2rem;
     padding-left: 1rem;
+
     &:last-child {
       margin-bottom: 4rem;
     }
   }
-  .v-filter_modal_header {
+
+  .modal-header {
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }

@@ -1,7 +1,7 @@
 <template>
-  <div class="v-menu_wrap">
+  <div class="menu_wrap">
     <div class="wrapper v-menu_controls">
-      <ul class="v-menu_left-list">
+      <ul class="menu_left-list">
         <li v-if="screenWidth > 930">
           <a href="#neighbourhood">neighbourhood</a>
         </li>
@@ -12,10 +12,10 @@
           <a href="#interior">interior</a>
         </li>
       </ul>
-      <div class="v-menu_label">
+      <div class="menu-label">
         <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
       </div>
-      <ul class="v-menu_right-list">
+      <ul class="menu_right-list">
         <li v-if="screenWidth >= 770">
           <a href="#house_list">house list</a>
         </li>
@@ -31,49 +31,31 @@
 </template>
 
 <script>
-import { screenWidth } from '../assets/mixins'
+import { screenWidth } from '~/assets/mixins'
 
 export default {
-  name: 'VMenu',
+  name: 'VHeader',
   mixins: [screenWidth]
 }
 </script>
 
-<style scoped>
-.v-menu_wrap {
+<style lang="scss" scoped>
+.menu_wrap {
   position: fixed;
   z-index: 100;
   width: 100%;
   color: var(--c-light-gray);
-  background-color: color-mod(var(--c-black) a(80%));
+  background-color: var(--c-black-a90);
   padding: 1rem 0;
   backdrop-filter: saturate(180%) blur(5px);
 }
+
 .v-menu_controls {
   display: flex;
   justify-content: space-between;
 }
-.v-menu_left-list,
-.v-menu_right-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-basis: 36%;
-  @media (max-width: 770px) {
-    justify-content: center;
-  }
-  & a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    line-height: 2rem;
-    transition: color .3s;
-    &:hover,
-    &:focus {
-      color: var(--c-white);
-    }
-  }
-}
-.v-menu_label {
+
+.menu-label {
   & > a {
     display: block;
     font-size: 3rem;
@@ -81,7 +63,31 @@ export default {
     line-height: 3rem;
     white-space: nowrap;
     color: var(--c-white);
-    transition: all .3s;
+    transition: all 0.3s;
+  }
+}
+
+.menu_left-list,
+.menu_right-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 36%;
+
+  @media (max-width: 770px) {
+    justify-content: center;
+  }
+
+  & a {
+    font-size: 2rem;
+    text-transform: uppercase;
+    line-height: 2rem;
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus {
+      color: var(--c-white);
+    }
   }
 }
 </style>

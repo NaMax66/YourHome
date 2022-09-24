@@ -27,10 +27,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .v-footer_background {
     background-color: var(--c-black);
   }
+
   .v-footer-info {
     font-size: 1.8rem;
     color: var(--c-white);
@@ -38,30 +39,36 @@ export default {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0;
+
     @media (max-width: 600px) {
       padding: 1rem 0;
     }
+
     & p {
       flex-basis: 30%;
+
       @media (max-width: 600px) {
         flex-basis: 45%;
         margin-right: 1rem;
       }
     }
   }
+
   .v-sprite {
     height: 4rem;
     width: 4rem;
-    transition: all .3s;
+    transition: all 0.3s;
     fill: var(--c-white);
 
     &:hover {
       fill: var(--c-light-gray);
     }
   }
+
   .v-footer_social-link {
     display: inline-block;
     height: 100%;
+
     &:not(:last-child) {
       margin-right: 3rem;
     }
