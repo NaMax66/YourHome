@@ -5,9 +5,11 @@
         <p class="v-location_info_txt">
           The residential area is located in the north of Birmingham city. It is away from street noise, with a feeling of comfort and peace. You and your family will have all the conditions for a quiet life. At the same time, the entire city infrastructure is at arm's length. Within walking distance are shops, schools and kindergartens, hospitals, as well as other important infrastructure.
         </p>
-        <v-button table-button link="https://goo.gl/maps/fZ6zSzxPbNBP2GSf6">
-          Find the area on Google Maps
-        </v-button>
+        <a target="_blank" href="https://goo.gl/maps/fZ6zSzxPbNBP2GSf6">
+          <v-button>
+            Find the area on Google Maps
+          </v-button>
+        </a>
       </div>
     </div>
   </div>
