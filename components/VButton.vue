@@ -1,103 +1,93 @@
 <template>
-  <component
-    :is="component"
+  <button
     class="v-button"
-    :class="{main_action_btn: mainActionBtn, table_btn: tableButton, empty: empty}"
-    :[href]="link"
-    :target="link ? '_blank': null"
+    :class="classes"
     @click="$emit('click')"
   >
     <slot />
-  </component>
+  </button>
 </template>
 
 <script>
 export default {
   name: 'VButton',
+
   props: {
-    link: {
+    size: {
       type: String,
-      default: null
+      default: 'l',
+      validator (v) {
+        return ['l', 'xl'].includes(v)
+      }
     },
-    mainActionBtn: {
-      type: Boolean,
-      default: false
-    },
-    tableButton: {
-      type: Boolean,
-      default: false
-    },
-    empty: {
+
+    isEmpty: {
       type: Boolean,
       default: false
     }
   },
+
   computed: {
-    href () {
-      return this.link ? 'href' : null
-    },
-    component () {
-      let componentName = 'button'
-      if (this.link) {
-        componentName = 'a'
+    classes () {
+      return {
+        [`v-button--${this.size}`]: true,
+        'v-button--empty': this.isEmpty
       }
-      return componentName
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+@import "assets/mediaMixin.scss";
+
 .v-button {
-  font-family: var(--f-header);
   display: inline-block;
   cursor: pointer;
+  color: var(--c-white);
+  background-color: var(--c-white-a20);
+  border: 1px solid var(--c-white);
+  border-radius: 3px;
+  outline: none;
+  transition: all 0.2s;
 
-  &.main_action_btn {
+  &:hover,
+  &:active {
+    background-color: var(--c-white);
+    color: var(--c-black);
+  }
+
+  &--xl {
     font-size: 3rem;
     padding: 1rem 2.5rem;
-    color: var(--c-white);
-    background-color: var(--c-white-a20);
-    border: 1px solid var(--c-white);
-    border-radius: 3px;
-    outline: none;
-    transition: all 0.4s;
 
-    &:hover,
-    &:active {
-      background-color: var(--c-white);
-      color: var(--c-black);
-    }
-
-    @media (max-width: 800px) {
+    @include devices(tablet) {
       font-size: 2rem;
       padding: 1rem 2rem;
     }
 
-    @media (max-width: 380px) {
+    @include devices(mobile) {
       font-size: 1.6rem;
+      padding: 0.8rem 1.6rem;
     }
   }
 
-  &.table_btn {
-    font-family: var(--f-main);
+  &--l {
     font-size: 2rem;
     padding: 1rem 2rem;
-    color: var(--c-white);
-    background-color: var(--c-white-a20);
-    border: 1px solid var(--c-white);
-    border-radius: 3px;
-    outline: none;
-    transition: all 0.4s;
 
-    &:hover,
-    &:active {
-      background-color: var(--c-white);
-      color: var(--c-black);
+    @include devices(tablet) {
+      font-size: 1.8rem;
+      padding: 0.8rem 1.6rem;
+    }
+
+    @include devices(mobile) {
+      font-size: 1.4rem;
+      padding: 0.6rem 1.2rem;
     }
   }
 
-  &.empty {
+  &--empty {
     background: transparent;
     border: none;
   }

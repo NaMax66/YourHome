@@ -1,12 +1,17 @@
 <template>
   <div class="v-modal_background" @click.self="$emit('close')">
     <div class="v-modal_content_wrap">
-      <v-button class="v-modal_close-btn" empty @click="$emit('close')">
+      <v-button class="v-modal_close-btn" is-empty @click="$emit('close')">
         <v-sprite icon="cross" />
       </v-button>
       <div class="v-modal_content">
         <slot v-if="!isSuccessShown" name="info" />
-        <v-button v-if="!isSuccessShown" class="v-modal_action_btn" table-button @click="$emit('submit')">
+        <v-button
+          v-if="!isSuccessShown"
+          class="v-modal_action_btn"
+          table-button
+          @click="$emit('submit')"
+        >
           <slot name="button" />
         </v-button>
         <div v-if="isSuccessShown">

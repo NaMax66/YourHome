@@ -18,8 +18,8 @@
       <h2 class="v-main-video_header2">
         in the heart of England
       </h2>
-      <v-button main-action-btn @click="openModal">
-        book your viewing
+      <v-button size="xl" @click="openModal">
+        <span class="font-accent">book your viewing</span>
       </v-button>
     </div>
     <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
