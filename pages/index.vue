@@ -38,7 +38,7 @@
 <script>
 import info from '../assets/info'
 import visualData from '../assets/visualData'
-import VMainVideo from '../components/VMainVideo'
+import VMainVideo from '../components/MainVideo'
 import VInfoSlider from '../components/InfoSlider'
 import VVisualChoice from '../components/VisualChoice'
 import VFilter from '../components/VFilter'
