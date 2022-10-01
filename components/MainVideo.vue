@@ -1,7 +1,7 @@
 <template>
-  <header class="v-main-video_wrap">
+  <header class="main-video-wrap">
     <video
-      class="v-main-video"
+      class="main-video"
       loop
       autoplay
       poster="main.png"
@@ -11,31 +11,42 @@
       <source src="video.mp4">
       <source src="video.webm">
     </video>
-    <div class="v-main-video_info wrapper">
-      <h1 class="v-main-video_header">
+    <div class="main-video__info wrapper">
+      <h1 class="main-video__header">
         Robust real estate
       </h1>
-      <h2 class="v-main-video_header2">
+      <h2 class="main-video__header2">
         in the heart of England
       </h2>
       <v-button size="xl" @click="openModal">
         <span class="font-accent">book your viewing</span>
       </v-button>
     </div>
-    <v-modal v-show="isModalOpen" :is-success-shown="isSuccessShown" @close="closeModal" @submit="submitModal">
+    <v-modal
+      v-show="isModalOpen"
+      :is-success-shown="isSuccessShown"
+      @close="closeModal"
+      @submit="submitModal"
+    >
       <template #info>
-        <p class="v-main-video_modal_info">
+        <p class="main-video_modal__info">
           Please, enter your name and phone<br>
           so we could contact you
         </p>
-        <input type="text" placeholder="Your name" class="v-main-video_modal_input">
-        <input type="tel" pattern="[0-9]*" placeholder="Your phone" novalidate class="v-main-video_modal_input">
+        <input type="text" placeholder="Your name" class="main-video__input">
+        <input
+          type="tel"
+          pattern="[0-9]*"
+          placeholder="Your phone"
+          novalidate
+          class="main-video__input"
+        >
       </template>
       <template #button>
         book
       </template>
       <template #thanks>
-        <p class="v-main-video_modal_info">
+        <p class="main-video_modal__info">
           Thank you. We will call you soon!
         </p>
       </template>
@@ -47,15 +58,18 @@
 import VButton from './VButton'
 import VModal from './VModal'
 export default {
-  name: 'VMainVideo',
+  name: 'MainVideo',
+
   components: {
     VModal,
     VButton
   },
+
   data: () => ({
     isModalOpen: false,
     isSuccessShown: false
   }),
+
   methods: {
     closeModal () {
       this.isModalOpen = false
@@ -76,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-main-video_wrap {
+  .main-video-wrap {
     position: relative;
     height: 85vh;
     display: flex;
@@ -87,7 +101,7 @@ export default {
     overflow: hidden;
   }
 
-  .v-main-video {
+  .main-video {
     z-index: -1;
     width: 100%;
     height: 100%;
@@ -97,14 +111,14 @@ export default {
     left: 0;
   }
 
-  .v-main-video_info {
+  .main-video__info {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .v-main-video_header,
-  .v-main-video_header2 {
+  .main-video__header,
+  .main-video__header2 {
     white-space: nowrap;
     font-family: var(--f-header);
     font-weight: normal;
@@ -112,7 +126,7 @@ export default {
     font-size: calc(30px + (80 - 30) * ((100vw - 320px) / (1920 - 320)));
   }
 
-  .v-main-video_header2 {
+  .main-video__header2 {
     font-size: calc(20px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
     margin-top: 2rem;
   }
@@ -125,13 +139,13 @@ export default {
     }
   }
 
-  .v-main-video_modal_info {
+  .main-video_modal__info {
     font-size: 2.5rem;
     line-height: 3.2rem;
     margin-bottom: 2rem;
   }
 
-  .v-main-video_modal_input {
+  .main-video__input {
     height: 4rem;
     font-size: 2rem;
     line-height: 2rem;
