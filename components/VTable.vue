@@ -12,7 +12,7 @@
         <tr v-for="row in body" :key="row.id" class="v-table_body_row" @click="$emit('buy', row)">
           <td v-for="item in head" :key="item.id" class="v-table_body_cell">
             {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
-            <v-button v-if="item.isButton && screenWidth >= 600" table-button>
+            <v-button v-if="item.isButton && screenWidth >= 600" is-empty>
               Buy
             </v-button>
           </td>

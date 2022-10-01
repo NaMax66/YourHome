@@ -1,23 +1,23 @@
 <template>
-  <div class="v-feedback_background">
+  <div class="v-feedback">
     <div class="wrapper">
-      <div class="v-feedback_controls">
-        <input type="text" placeholder="Your name" class="v-feedback_modal_input">
+      <div class="v-feedback__controls">
+        <input type="text" placeholder="Your name" class="v-feedback__input">
         <input
           type="tel"
           pattern="[0-9]*"
           placeholder="Your phone"
           novalidate
-          class="v-feedback_modal_input"
+          class="v-feedback__input"
         >
-        <v-button class="v-feedback_action-btn" table-button @click="handleSubmit">
+        <v-button class="v-feedback__action" is-empty @click="handleSubmit">
           contact us
         </v-button>
       </div>
     </div>
     <v-modal v-show="isModalOpen" :is-success-shown="true" @close="closeModal">
       <template #thanks>
-        <p class="v-feedback_modal_info">
+        <p class="v-feedback__sent">
           Thank you. We will call you soon!
         </p>
       </template>
@@ -49,15 +49,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-feedback_background {
-    background-color: var(--c-black);
+.v-feedback {
+  background-color: var(--c-black);
 
-    @media (max-width: 420px) {
-      display: none;
-    }
+  &__controls {
+    display: flex;
+    align-items: center;
   }
 
-  .v-feedback_modal_input {
+  &__input {
     height: 4rem;
     font-size: 2rem;
     line-height: 2rem;
@@ -72,18 +72,14 @@ export default {
     }
   }
 
-  .v-feedback_action-btn {
+  &__action {
     margin-left: auto;
   }
 
-  .v-feedback_controls {
-    display: flex;
-    align-items: center;
-  }
-
-  .v-feedback_modal_info {
+  &__sent {
     font-size: 2.5rem;
     line-height: 3.2rem;
     margin-bottom: 2rem;
   }
+}
 </style>

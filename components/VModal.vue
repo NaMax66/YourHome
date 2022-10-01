@@ -9,7 +9,7 @@
         <v-button
           v-if="!isSuccessShown"
           class="v-modal_action_btn"
-          table-button
+          is-empty
           @click="$emit('submit')"
         >
           <slot name="button" />
@@ -81,19 +81,19 @@ export default {
   }
 
   .v-sprite {
-    width: 2rem;
-    height: 2rem;
-    fill: var(--c-white);
-
-    &:hover {
-      fill: var(--c-light-gray);
-    }
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: currentColor;
   }
 
   .v-modal_close-btn {
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 2rem;
     right: 2rem;
+    padding: 1rem;
   }
 
   .v-modal_content {
