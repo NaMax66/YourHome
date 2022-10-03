@@ -129,6 +129,7 @@ export default {
 <style lang="scss" scoped>
   @import 'swiper/swiper.min.css';
   @import 'swiper/modules/navigation/navigation.min.css';
+  @import "assets/mediaMixin.scss";
 
   .slider-background {
     &.light {
@@ -146,7 +147,7 @@ export default {
     &.rtl {
       flex-direction: row-reverse;
 
-      @media (max-width: 900px) {
+      @include devices(tablet) {
         flex-direction: column-reverse;
       }
     }
@@ -157,23 +158,9 @@ export default {
 
     &.light {
       color: var(--c-black);
-
-      @media (max-width: 900px) {
-        & .swiper-button-next,
-        & .swiper-button-prev {
-          color: var(--c-black);
-        }
-      }
-
-      @media (max-width: 640px) {
-        & .swiper-button-next,
-        & .swiper-button-prev {
-          color: var(--c-white);
-        }
-      }
     }
 
-    @media (max-width: 900px) {
+    @include devices(tablet) {
       flex-direction: column-reverse;
     }
   }
@@ -182,7 +169,7 @@ export default {
     width: 50%;
     padding-right: 5rem;
 
-    @media (max-width: 900px) {
+    @include devices(tablet) {
       width: 90%;
       padding-right: 0;
       padding-top: 4rem;
@@ -201,7 +188,7 @@ export default {
       padding-right: 0;
       padding-left: 5rem;
 
-      @media (max-width: 900px) {
+      @include devices(tablet) {
         width: 90%;
         padding-left: 0;
         padding-top: 4rem;
@@ -223,7 +210,7 @@ export default {
     position: relative;
     width: 50%;
 
-    @media (max-width: 900px) {
+    @include devices(tablet) {
       width: 100%;
     }
   }
