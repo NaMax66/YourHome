@@ -62,12 +62,17 @@ export default {
 }
 
 .v-table_table {
+  position: relative;
   border-spacing: 0 1rem;
   width: 100%;
 }
 
 .v-table_head_row {
+  position: sticky;
+  top: 0;
   font-size: 2rem;
+  padding: 0.5rem 0;
+  background-color: var(--c-white);
 
   @media (max-width: 600px) {
     font-size: 1.5rem;
@@ -109,6 +114,7 @@ export default {
 }
 
 .v-table_body_cell {
+  white-space: nowrap;
   padding: 2rem 3rem;
 }
 

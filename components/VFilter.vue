@@ -272,6 +272,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "assets/mediaMixin.scss";
+
   .filter-background {
     background-color: var(--c-white);
   }
@@ -281,7 +283,7 @@ export default {
     align-items: flex-start;
     height: 100%;
 
-    @media (max-width: 820px) {
+    @include devices(tablet) {
       flex-direction: column-reverse;
     }
   }
@@ -289,12 +291,13 @@ export default {
   .filter-list {
     width: 50%;
     margin-right: 3rem;
+    height: 500px;
 
-    @media (max-width: 1400px) {
+    @include devices(desctop) {
       width: auto;
     }
 
-    @media (max-width: 400px) {
+    @include devices(mobile) {
       width: 100%;
       margin-right: 0;
     }
@@ -308,7 +311,7 @@ export default {
     font-size: 3rem;
     font-family: var(--f-header);
 
-    @media (max-width: 600px) {
+    @include devices(tablet) {
       font-size: 2.4rem;
       width: 100%;
     }
@@ -325,7 +328,7 @@ export default {
     margin-top: 4.2rem;
     margin-bottom: 0.9rem;
 
-    @media (max-width: 820px) {
+    @include devices(tablet) {
       margin-top: 0;
       width: 100%;
       max-width: 51rem;
@@ -346,7 +349,7 @@ export default {
   .area {
     margin-top: 5rem;
 
-    @media (max-width: 820px) {
+    @include devices(tablet) {
       margin-top: 1rem;
     }
   }
