@@ -38,5 +38,11 @@ export default {
 
   build: {
     postcss: null
+  },
+
+  server: {
+    port: process.env.APP_PORT,
+    host: process.env.APP_IP,
+    timing: false
   }
 }
