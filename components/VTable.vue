@@ -59,8 +59,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "assets/mediaMixin.scss";
-@import "assets/scrollbar.scss";
+@import "../assets/mixins/media";
+@import "../assets/mixins/scrollbar";
 
 $horizontal-padding: 2rem;
 

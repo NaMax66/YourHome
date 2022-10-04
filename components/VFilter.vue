@@ -277,7 +277,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "assets/mediaMixin.scss";
+@import "../assets/mixins/media";
 
 $tablet-max-width: 52rem;
 

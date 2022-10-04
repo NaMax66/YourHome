@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "assets/mediaMixin.scss";
+@import "../assets/mixins/media";
 
 .v-button {
   display: inline-block;
