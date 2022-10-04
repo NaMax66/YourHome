@@ -90,6 +90,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/mixins/media";
+
   .main-video-wrap {
     position: relative;
     height: 85vh;
@@ -134,7 +136,7 @@ export default {
   .v-button {
     margin-top: 7rem;
 
-    @media (max-width: 800px) {
+    @include devices(tablet) {
       margin-top: 4rem;
     }
   }

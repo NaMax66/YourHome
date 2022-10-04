@@ -1,5 +1,11 @@
 // todo add global
 @mixin devices ($breakpoint) {
+  @if $breakpoint == desctop {
+    @media only screen and (max-width: 960px) {
+      @content;
+    }
+  }
+
   @if $breakpoint == tablet {
     @media only screen and (max-width: 680px) {
       @content;
