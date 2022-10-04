@@ -2,13 +2,18 @@
   <div class="filter-background">
     <div class="wrapper">
       <div class="filter-wrap">
-        <div v-if="houses && houses.length" class="filter-list">
-          <v-table :head="tableHead" :body="houses" @buy="handleBuy" />
-        </div>
-        <div v-else class="placeholder">
-          <h2>
-            No matching
-          </h2>
+        <div class="filter-list">
+          <v-table
+            v-if="houses && houses.length"
+            :head="tableHead"
+            :body="houses"
+            @buy="handleBuy"
+          />
+          <div v-else class="placeholder">
+            <h2>
+              No matching
+            </h2>
+          </div>
         </div>
         <div class="filter-controls">
           <div class="checkbox-wrap">
@@ -274,146 +279,145 @@ export default {
 <style lang="scss" scoped>
 @import "assets/mediaMixin.scss";
 
-  .filter-background {
-    background-color: var(--c-white);
-  }
+$tablet-max-width: 52rem;
 
-  .filter-wrap {
-    display: flex;
-    align-items: flex-start;
-    height: 100%;
+.filter-background {
+  background-color: var(--c-white);
+}
 
-    @include devices(tablet) {
-      flex-direction: column-reverse;
-    }
-  }
+.filter-wrap {
+  display: flex;
+  align-items: flex-start;
+  height: 100%;
 
-  .filter-list {
-    width: 50%;
-    margin-right: 3rem;
-    height: 500px;
-
-    @include devices(desctop) {
-      width: auto;
-    }
-
-    @include devices(mobile) {
-      width: 100%;
-      margin-right: 0;
-    }
-  }
-
-  .placeholder {
-    width: 50%;
-    margin-top: 3rem;
-    height: 9rem;
-    text-align: center;
-    font-size: 3rem;
-    font-family: var(--f-header);
-
-    @include devices(tablet) {
-      font-size: 2.4rem;
-      width: 100%;
-    }
-  }
-
-  .filter-controls {
-    width: 30rem;
-    height: auto;
-    position: sticky;
-    top: 6rem;
-    border-radius: 3px;
-    border: 1px solid var(--c-black);
-    padding: 2rem;
-    margin-top: 4.2rem;
-    margin-bottom: 0.9rem;
-
-    @include devices(tablet) {
-      margin-top: 0;
-      width: 100%;
-      max-width: 51rem;
-      position: relative;
-      margin-bottom: 9rem;
-    }
-  }
-
-  .price {
-    margin-top: 5rem;
-    margin-bottom: 3rem;
-
-    @media (max-width: 820px) {
-      margin-top: 1rem;
-    }
-  }
-
-  .area {
-    margin-top: 5rem;
-
-    @include devices(tablet) {
-      margin-top: 1rem;
-    }
-  }
-
-  .price-header,
-  .area-header,
-  .bedrooms-header {
-    margin-top: 1rem;
-    font-size: 1.8rem;
-  }
-
-  .checkbox-item {
-    display: inline-flex;
-    justify-content: center;
+  @include devices(tablet) {
+    flex-direction: column-reverse;
     align-items: center;
-    font-size: 1.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: var(--c-black);
-    border: 1px solid var(--c-black);
-    border-radius: 3px;
-    width: 5rem;
-    height: 5rem;
-    margin-right: 1rem;
-    transition: all 0.3s;
-
-    &:hover {
-      opacity: 0.8;
-    }
   }
+}
 
-  .checkbox-input {
-    display: none;
+.filter-list {
+  width: 50%;
+  margin-right: 3rem;
+  height: 50rem;
+
+  @include devices(tablet) {
+    width: 100%;
+    max-width: $tablet-max-width;
+    height: 34rem;
+    margin-right: 0;
   }
+}
 
-  .checkbox-input:checked {
-    & + .checkbox-item {
-      background-color: var(--c-black);
-      color: var(--c-white);
-    }
+.placeholder {
+  margin-top: 3rem;
+  height: 9rem;
+  text-align: center;
+  font-size: 3rem;
+  font-family: var(--f-header);
+
+  @include devices(tablet) {
+    font-size: 2.4rem;
+    width: 100%;
   }
+}
 
-  .modal-info {
-    font-size: 2.5rem;
-    line-height: 3.2rem;
-    margin-bottom: 2rem;
+.filter-controls {
+  width: 30rem;
+  height: auto;
+  position: sticky;
+  top: 6rem;
+  border-radius: 3px;
+  border: 1px solid var(--c-black);
+  padding: 2rem;
+  margin-bottom: 0.9rem;
+
+  @include devices(tablet) {
+    margin-top: 0;
+    width: 100%;
+    max-width: $tablet-max-width;
+    position: relative;
+    margin-bottom: 9rem;
   }
+}
 
-  .modal-input {
-    height: 4rem;
-    font-size: 2rem;
-    line-height: 2rem;
-    border: none;
-    border-radius: 3px;
-    margin-bottom: 2rem;
-    padding-left: 1rem;
+.price {
+  margin-top: 5rem;
+  margin-bottom: 3rem;
 
-    &:last-child {
-      margin-bottom: 4rem;
-    }
+  @media (max-width: 820px) {
+    margin-top: 1rem;
   }
+}
 
-  .modal-header {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
+.area {
+  margin-top: 5rem;
+
+  @include devices(tablet) {
+    margin-top: 1rem;
   }
+}
+
+.price-header,
+.area-header,
+.bedrooms-header {
+  margin-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.checkbox-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--c-black);
+  border: 1px solid var(--c-black);
+  border-radius: 3px;
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+  transition: all 0.3s;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.checkbox-input:checked {
+  & + .checkbox-item {
+    background-color: var(--c-black);
+    color: var(--c-white);
+  }
+}
+
+.modal-info {
+  font-size: 2.5rem;
+  line-height: 3.2rem;
+  margin-bottom: 2rem;
+}
+
+.modal-input {
+  height: 4rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+
+  &:last-child {
+    margin-bottom: 4rem;
+  }
+}
+
+.modal-header {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
 </style>

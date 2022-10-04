@@ -17,7 +17,7 @@
         >
           <td v-for="item in head" :key="item.id" class="table-body__cell">
             {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
-            <v-button v-if="item.isButton && screenWidth >= 600" class="table-body__action" is-empty>
+            <v-button v-if="item.isButton" class="table-body__action" is-empty>
               Buy
             </v-button>
           </td>
@@ -29,11 +29,12 @@
 
 <script>
 import VButton from './VButton'
-import { screenWidth } from '@/assets/mixins'
 
 export default {
   name: 'VTable',
+
   components: { VButton },
+
   filters: {
     getNiceNumber (value) {
       if (typeof value === 'number') {
@@ -42,12 +43,13 @@ export default {
       return value
     }
   },
-  mixins: [screenWidth],
+
   props: {
     head: {
       type: Array,
       required: true
     },
+
     body: {
       type: Array,
       required: true
@@ -58,14 +60,19 @@ export default {
 
 <style lang="scss" scoped>
 @import "assets/mediaMixin.scss";
+@import "assets/scrollbar.scss";
+
+$horizontal-padding: 2rem;
 
 .v-table {
+  @include scrollbar;
+
   height: 100%;
   overflow: auto;
 
   &__table {
     position: relative;
-    border-spacing: 0 1rem;
+    border-spacing: 0;
     width: 100%;
   }
 
@@ -77,8 +84,9 @@ export default {
     position: sticky;
     top: 0;
     font-size: 2rem;
-    padding: 0.5rem 0;
-    background-color: var(--c-white);
+    padding: 1rem $horizontal-padding;
+    text-align: center;
+    background-color: var(--c-light-gray);
 
     @include devices(tablet) {
       font-size: 1.5rem;
@@ -114,6 +122,10 @@ export default {
     color: var(--c-white);
     background-color: var(--c-black);
 
+    &:nth-child(odd) {
+      background-color: var(--c-black-a90);
+    }
+
     &:hover {
       #{$parent}__action {
         visibility: visible;
@@ -124,7 +136,8 @@ export default {
 
   &__cell {
     white-space: nowrap;
-    padding: 1.5rem 2rem;
+    text-align: center;
+    padding: 1.5rem $horizontal-padding;
   }
 }
 </style>
