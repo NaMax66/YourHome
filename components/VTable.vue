@@ -1,18 +1,23 @@
 <template>
-  <div class="v-table_wrap">
-    <table class="v-table_table">
+  <div class="v-table">
+    <table class="v-table__table">
       <thead>
         <tr>
-          <th v-for="item in head" :key="item.id" class="v-table_head_row">
+          <th v-for="item in head" :key="item.id" class="v-table__header">
             {{ item.title }}
           </th>
         </tr>
       </thead>
-      <tbody class="v-table_body">
-        <tr v-for="row in body" :key="row.id" class="v-table_body_row" @click="$emit('buy', row)">
-          <td v-for="item in head" :key="item.id" class="v-table_body_cell">
+      <tbody class="table-body">
+        <tr
+          v-for="row in body"
+          :key="row.id"
+          class="table-body__row"
+          @click="$emit('buy', row)"
+        >
+          <td v-for="item in head" :key="item.id" class="table-body__cell">
             {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
-            <v-button v-if="item.isButton && screenWidth >= 600" is-empty>
+            <v-button v-if="item.isButton && screenWidth >= 600" class="table-body__action" is-empty>
               Buy
             </v-button>
           </td>
@@ -23,8 +28,8 @@
 </template>
 
 <script>
-import { screenWidth } from '../assets/mixins'
 import VButton from './VButton'
+import { screenWidth } from '@/assets/mixins'
 
 export default {
   name: 'VTable',
@@ -52,74 +57,74 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v-table_wrap {
+@import "assets/mediaMixin.scss";
+
+.v-table {
   height: 100%;
   overflow: auto;
 
-  @media (max-width: 400px) {
+  &__table {
+    position: relative;
+    border-spacing: 0 1rem;
     width: 100%;
   }
-}
 
-.v-table_table {
-  position: relative;
-  border-spacing: 0 1rem;
-  width: 100%;
-}
-
-.v-table_head_row {
-  position: sticky;
-  top: 0;
-  font-size: 2rem;
-  padding: 0.5rem 0;
-  background-color: var(--c-white);
-
-  @media (max-width: 600px) {
-    font-size: 1.5rem;
+  @include devices(mobile) {
+    width: 100%;
   }
 
-  @media (max-width: 400px) {
-    font-size: 1rem;
-  }
-}
+  &__header {
+    position: sticky;
+    top: 0;
+    font-size: 2rem;
+    padding: 0.5rem 0;
+    background-color: var(--c-white);
 
-.v-table_body {
-  width: 100%;
-}
-
-.v-table_body_row {
-  font-size: 2.5rem;
-
-  @media (max-width: 600px) {
-    font-size: 1.8rem;
-
-    & .v-table_body_cell:last-child {
-      display: none;
+    @include devices(tablet) {
+      font-size: 1.5rem;
     }
-  }
 
-  @media (max-width: 400px) {
-    font-size: 1.4rem;
-  }
-
-  color: var(--c-white);
-  background-color: var(--c-black);
-
-  &:hover {
-    & .v-button {
-      visibility: visible;
-      opacity: 1;
+    @include devices(mobile) {
+      font-size: 1rem;
     }
   }
 }
 
-.v-table_body_cell {
-  white-space: nowrap;
-  padding: 2rem 3rem;
-}
+.table-body {
+  $parent: &;
 
-.v-button {
-  visibility: hidden;
-  opacity: 0;
+  width: 100%;
+
+  &__action {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  &__row {
+    font-size: 2rem;
+
+    @include devices(tablet) {
+      font-size: 1.8rem;
+    }
+
+    @include devices(mobile) {
+      font-size: 1.4rem;
+    }
+
+    color: var(--c-white);
+    background-color: var(--c-black);
+
+    &:hover {
+      #{$parent}__action {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__cell {
+    white-space: nowrap;
+    padding: 1.5rem 2rem;
+  }
 }
 </style>
