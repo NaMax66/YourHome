@@ -1,29 +1,34 @@
 <template>
-  <div class="menu_wrap">
-    <div class="wrapper v-menu_controls">
-      <ul class="menu_left-list">
+  <div class="v-header">
+    <div class="wrapper menu-actions">
+      <ul class="menu-actions__left">
         <li v-if="screenWidth > 930">
-          <a :href="`#${blockIds.neighbourhood.id}`">{{ blockIds.neighbourhood.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.neighbourhood.id}`">{{ blockIds.neighbourhood.name }}</a>
         </li>
         <li v-if="screenWidth >= 770">
-          <a :href="`#${blockIds.facilities.id}`">{{ blockIds.facilities.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.facilities.id}`">{{ blockIds.facilities.name }}</a>
         </li>
         <li v-if="screenWidth > 440">
-          <a :href="`#${blockIds.interior.id}`">{{ blockIds.interior.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.interior.id}`">{{ blockIds.interior.name }}</a>
         </li>
       </ul>
-      <div class="menu-label">
-        <a href="https://www.growyourhouse.uk/" title="company's website" target="_blank">GrowHouse Co.</a>
+      <div>
+        <a
+          class="menu-label"
+          href="https://www.growyourhouse.uk/"
+          title="company's website"
+          target="_blank"
+        >GrowHouse Co.</a>
       </div>
-      <ul class="menu_right-list">
+      <ul class="menu-actions__right">
         <li v-if="screenWidth >= 770">
-          <a :href="`#${blockIds.houseList.id}`">{{ blockIds.houseList.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.houseList.id}`">{{ blockIds.houseList.name }}</a>
         </li>
         <li v-if="screenWidth > 440">
-          <a :href="`#${blockIds.visualChoice.id}`">{{ blockIds.visualChoice.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.visualChoice.id}`">{{ blockIds.visualChoice.name }}</a>
         </li>
         <li v-if="screenWidth > 930">
-          <a :href="`#${blockIds.location.id}`">{{ blockIds.location.name }}</a>
+          <a class="block-ref" :href="`#${blockIds.location.id}`">{{ blockIds.location.name }}</a>
         </li>
       </ul>
     </div>
@@ -46,7 +51,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.menu_wrap {
+@import "assets/styles/mixins/media";
+
+.v-header {
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -56,44 +63,42 @@ export default {
   backdrop-filter: saturate(180%) blur(5px);
 }
 
-.v-menu_controls {
+.menu-actions {
   display: flex;
   justify-content: space-between;
+
+  &__left,
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 36%;
+
+    @include devices(desctop) {
+      justify-content: center;
+    }
+  }
+}
+
+.block-ref {
+  font-size: 2rem;
+  text-transform: uppercase;
+  line-height: 2rem;
+  transition: color 0.3s;
+
+  &:hover,
+  &:focus {
+    color: var(--c-white);
+  }
 }
 
 .menu-label {
-  & > a {
-    display: block;
-    font-size: 3rem;
-    margin: 0 5rem;
-    line-height: 3rem;
-    white-space: nowrap;
-    color: var(--c-white);
-    transition: all 0.3s;
-  }
-}
-
-.menu_left-list,
-.menu_right-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-basis: 36%;
-
-  @media (max-width: 770px) {
-    justify-content: center;
-  }
-
-  & a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    line-height: 2rem;
-    transition: color 0.3s;
-
-    &:hover,
-    &:focus {
-      color: var(--c-white);
-    }
-  }
+  display: block;
+  font-size: 3rem;
+  margin: 0 5rem;
+  line-height: 3rem;
+  white-space: nowrap;
+  color: var(--c-white);
+  transition: all 0.3s;
 }
 </style>
