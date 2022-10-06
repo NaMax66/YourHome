@@ -129,7 +129,7 @@ export default {
 <style lang="scss" scoped>
   @import 'swiper/swiper.min.css';
   @import 'swiper/modules/navigation/navigation.min.css';
-  @import "../assets/mixins/media";
+  @import "../assets/styles/mixins/media";
 
   .slider-background {
     &.light {

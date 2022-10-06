@@ -1,4 +1,4 @@
-import { throttle } from './utils'
+import throttle from 'lodash.throttle'
 
 export const screenWidth = {
   data () {
@@ -15,8 +15,7 @@ export const screenWidth = {
   },
   methods: {
     setScreenWidth () {
-      const width = window.innerWidth
-      this.screenWidth = width
+      this.screenWidth = window.innerWidth
     }
   }
 }

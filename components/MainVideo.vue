@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/mixins/media";
+@import "../assets/styles/mixins/media";
 
   .main-video-wrap {
     position: relative;

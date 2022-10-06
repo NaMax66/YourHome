@@ -3,13 +3,13 @@
     <div class="wrapper v-menu_controls">
       <ul class="menu_left-list">
         <li v-if="screenWidth > 930">
-          <a href="#neighbourhood">neighbourhood</a>
+          <a :href="`#${blockIds.neighbourhood.id}`">{{ blockIds.neighbourhood.name }}</a>
         </li>
         <li v-if="screenWidth >= 770">
-          <a href="#facilities">facilities</a>
+          <a :href="`#${blockIds.facilities.id}`">{{ blockIds.facilities.name }}</a>
         </li>
         <li v-if="screenWidth > 440">
-          <a href="#interior">interior</a>
+          <a :href="`#${blockIds.interior.id}`">{{ blockIds.interior.name }}</a>
         </li>
       </ul>
       <div class="menu-label">
@@ -17,13 +17,13 @@
       </div>
       <ul class="menu_right-list">
         <li v-if="screenWidth >= 770">
-          <a href="#house_list">house list</a>
+          <a :href="`#${blockIds.houseList.id}`">{{ blockIds.houseList.name }}</a>
         </li>
         <li v-if="screenWidth > 440">
-          <a href="#visual_choice">visual choice</a>
+          <a :href="`#${blockIds.visualChoice.id}`">{{ blockIds.visualChoice.name }}</a>
         </li>
         <li v-if="screenWidth > 930">
-          <a href="#location">location</a>
+          <a :href="`#${blockIds.location.id}`">{{ blockIds.location.name }}</a>
         </li>
       </ul>
     </div>
@@ -32,10 +32,16 @@
 
 <script>
 import { screenWidth } from '~/assets/mixins'
+import blockIds from '~/models/blockIds'
 
 export default {
   name: 'VHeader',
-  mixins: [screenWidth]
+
+  mixins: [screenWidth],
+
+  data: () => ({
+    blockIds
+  })
 }
 </script>
 

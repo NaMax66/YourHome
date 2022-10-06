@@ -36,8 +36,8 @@
 </template>
 
 <script>
-import info from '../assets/info'
-import visualData from '../assets/visualData'
+import info from '../models/slides'
+import visualData from '../models/visualData'
 import VMainVideo from '../components/MainVideo'
 import VInfoSlider from '../components/InfoSlider'
 import VVisualChoice from '../components/VisualChoice'
