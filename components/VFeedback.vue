@@ -16,7 +16,7 @@
       </div>
     </div>
     <v-modal v-show="isModalOpen" :is-success-shown="true" @close="closeModal">
-      <template #thanks>
+      <template #message>
         <p class="v-feedback__sent">
           Thank you. We will call you soon!
         </p>

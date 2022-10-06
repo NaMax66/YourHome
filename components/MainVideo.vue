@@ -45,7 +45,7 @@
       <template #button>
         book
       </template>
-      <template #thanks>
+      <template #message>
         <p class="main-video_modal__info">
           Thank you. We will call you soon!
         </p>

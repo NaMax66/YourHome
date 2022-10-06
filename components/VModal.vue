@@ -1,21 +1,21 @@
 <template>
-  <div class="v-modal_background" @click.self="$emit('close')">
-    <div class="v-modal_content_wrap">
-      <v-button class="v-modal_close-btn" is-empty @click="$emit('close')">
+  <div class="v-modal" @click.self="$emit('close')">
+    <div class="v-modal__wrap">
+      <v-button class="close-btn" is-empty @click="$emit('close')">
         <v-sprite icon="cross" />
       </v-button>
-      <div class="v-modal_content">
+      <div class="v-modal__content">
         <slot v-if="!isSuccessShown" name="info" />
         <v-button
           v-if="!isSuccessShown"
-          class="v-modal_action_btn"
+          class="action-btn"
           is-empty
           @click="$emit('submit')"
         >
           <slot name="button" />
         </v-button>
         <div v-if="isSuccessShown">
-          <slot name="thanks" />
+          <slot name="message" />
         </div>
       </div>
     </div>
@@ -27,7 +27,9 @@ import VButton from './VButton'
 import VSprite from './VSprite'
 export default {
   name: 'VModal',
+
   components: { VSprite, VButton },
+
   props: {
     isSuccessShown: {
       type: Boolean,
@@ -38,7 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-modal_background {
+@import "assets/styles/mixins/media";
+  .v-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -46,13 +49,9 @@ export default {
     height: 100vh;
     background-color: var(--c-black-a90);
     z-index: 200;
-
-    @media (max-width: 700px) {
-      height: 110vh;
-    }
   }
 
-  .v-modal_content_wrap {
+  .v-modal__wrap {
     position: relative;
     width: 30%;
     margin: 0 auto;
@@ -63,19 +62,15 @@ export default {
     padding: 2rem;
     border-radius: 3px;
 
-    @media (max-width: 1500px) {
-      width: 40%;
-    }
-
-    @media (max-width: 900px) {
+    @include devices(desctop) {
       width: 50%;
     }
 
-    @media (max-width: 700px) {
+    @include devices(tablet) {
       width: 60%;
     }
 
-    @media (max-width: 580px) {
+    @include devices(mobile) {
       width: 90%;
     }
   }
@@ -86,7 +81,7 @@ export default {
     fill: currentColor;
   }
 
-  .v-modal_close-btn {
+  .close-btn {
     position: absolute;
     display: flex;
     align-items: center;
@@ -96,13 +91,13 @@ export default {
     padding: 1rem;
   }
 
-  .v-modal_content {
+  .v-modal__content {
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
   }
 
-  .v-modal_action_btn {
+  .action-btn {
     align-self: center;
     margin-top: 2rem;
   }

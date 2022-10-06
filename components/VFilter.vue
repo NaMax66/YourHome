@@ -105,7 +105,7 @@
       <template #button>
         Submit
       </template>
-      <template #thanks>
+      <template #message>
         <p class="modal-info">
           Thank you. We will call you soon!
         </p>
