@@ -1,68 +1,68 @@
 <template>
-  <div class="visual-choice__background">
-    <div class="wrapper v-visual-choice_info_wrap">
-      <div v-if="currentSlide" class="v-visual-choice_info">
-        <div class="v-visual-choice_info_first">
-          <h2 class="v-visual-choice_info_primary_header">
+  <div class="visual-choice">
+    <div class="wrapper info-wrap">
+      <div v-if="currentSlide" class="content">
+        <div class="content__first">
+          <h2 class="content__primary-header">
             No. {{ currentSlide.number }}
           </h2>
-          <h2 class="v-visual-choice_info_primary_header">
+          <h2 class="content__primary-header">
             price: {{ currentSlide.price.toLocaleString('en') }} £
           </h2>
         </div>
-        <div class="v-visual-choice_info_second">
-          <h2 class="v-visual-choice_info_secondary_header">
+        <div class="content__second">
+          <h2 class="content__secondary-header">
             {{ currentSlide.bedroom }} bedrooms
           </h2>
-          <h2 class="v-visual-choice_info_secondary_header">
+          <h2 class="content__secondary-header">
             total area: {{ currentSlide.totalArea }} m²
           </h2>
         </div>
-        <div class="v-visual-choice_info_layout_wrap">
+        <div class="content__layout-wrap">
           <img
-            class="v-visual-choice_info_layout"
+            class="content__layout"
             :src="`../img/layout/${currentSlide.planImg}`"
             alt=""
           >
         </div>
       </div>
     </div>
-    <div class="v-visual-choice_info_plan_wrap">
-      <div class="v-visual-choice_plan_mobile_info">
-        <div class="v-visual-choice_plan_mobile_info_left">
-          <h2 class="v-visual-choice_plan_mobile_header">
+    <div class="content__plan-wrap">
+      <div class="mobile-info__content">
+        <div class="mobile-info__left">
+          <h2 class="plan-mobile__header">
             No. {{ currentSlide.number }}
           </h2>
-          <h2 class="v-visual-choice_plan_mobile_header">
+          <h2 class="plan-mobile__header">
             price: {{ currentSlide.price.toLocaleString('en') }} £
           </h2>
-          <h2 class="v-visual-choice_plan_mobile_header">
+          <h2 class="plan-mobile__header">
             {{ currentSlide.bedroom }} bedrooms
           </h2>
-          <h2 class="v-visual-choice_plan_mobile_header">
+          <h2 class="plan-mobile__header">
             total area: {{ currentSlide.totalArea }} m²
           </h2>
         </div>
-        <div class="v-visual-choice_plan_mobile_info_right">
+        <div class="mobile-info__right">
           <img
-            class="v-visual-choice_plan_mobile_info_right_img"
+            class="mobile-info__right-img"
             :src="`../img/layout/${currentSlide.planImg}`"
-            alt=""
+            alt="room plan"
           >
         </div>
       </div>
-      <div class="v-visual-choice_plan_img_wrap">
-        <img class="v-visual-choice_info_plan_img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
+      <div class="interactive-plan">
+        <img class="interactive-plan__img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
         <svg
-          class="v-visual-choice_info_plan_view_box"
+          class="interactive-plan__schema"
           :viewBox="visualData.viewBox"
         >
           <!-- eslint-disable vue/no-v-html -->
           <a
             v-for="item in visualData.houses"
             :key="item.id"
-            class="v-visual-choice_info_plan_item"
-            :class="{active: currentSlide.id === item.id, fixed: isCurrentSlideFixed && currentSlide.id === item.id}"
+            class="interactive-plan__item"
+            :class="getPlanItemClasses(item)"
             @click.prevent="toggleFixSlide(item)"
             @mouseover="setCurrentSlide(item)"
             v-html="item.path"
@@ -76,28 +76,40 @@
 <script>
 export default {
   name: 'VisualChoice',
+
   props: {
     visualData: {
       type: Object,
       required: true
     }
   },
+
   data: () => ({
     isCurrentSlideFixed: false,
     currentSlide: null
   }),
+
   created () {
     if (this.visualData.houses && this.visualData.houses.length) {
       this.setCurrentSlide(this.visualData.houses[0])
     }
   },
+
   methods: {
+    getPlanItemClasses (item) {
+      return {
+        'interactive-plan__item--active': this.currentSlide.id === item.id,
+        'interactive-plan__item--fixed': this.isCurrentSlideFixed && this.currentSlide.id === item.id
+      }
+    },
+
     setCurrentSlide (item) {
       if (this.isCurrentSlideFixed) {
         return
       }
       this.currentSlide = item
     },
+
     toggleFixSlide (item) {
       if (item.id === this.currentSlide.id) {
         this.isCurrentSlideFixed = !this.isCurrentSlideFixed
@@ -110,12 +122,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.visual-choice__background {
+@import "assets/styles/mixins/media";
+
+.visual-choice {
   position: relative;
   background-color: var(--c-white);
 }
 
-.v-visual-choice_info_wrap {
+.info-wrap {
   display: flex;
   position: absolute;
   width: 100%;
@@ -129,7 +143,7 @@ export default {
   }
 }
 
-.v-visual-choice_info {
+.content {
   padding-top: 6rem;
   width: 50%;
   height: 100%;
@@ -139,7 +153,7 @@ export default {
   }
 }
 
-.v-visual-choice_info_plan_wrap {
+.content__plan-wrap {
   display: flex;
   flex-direction: row-reverse;
   width: 100%;
@@ -149,19 +163,7 @@ export default {
   }
 }
 
-.v-visual-choice_plan_img_wrap {
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-
-  @media (max-width: 750px) {
-    width: 100%;
-    background-position: center;
-  }
-}
-
-.v-visual-choice_plan_mobile_info {
+.mobile-info__content {
   display: none;
 
   @media (max-width: 750px) {
@@ -175,8 +177,8 @@ export default {
   }
 }
 
-.v-visual-choice_plan_mobile_info_left,
-.v-visual-choice_plan_mobile_info_right {
+.mobile-info__left,
+.mobile-info__right {
   width: 50%;
   margin: 0 2rem;
   display: flex;
@@ -184,7 +186,7 @@ export default {
   justify-content: center;
 }
 
-.v-visual-choice_plan_mobile_info_left {
+.mobile-info__left {
   @media (max-width: 420px) {
     width: 90%;
     text-align: center;
@@ -192,7 +194,7 @@ export default {
   }
 }
 
-.v-visual-choice_plan_mobile_info_right {
+.mobile-info__right {
   @media (max-width: 420px) {
     height: 18rem;
     width: 90%;
@@ -200,7 +202,7 @@ export default {
   }
 }
 
-.v-visual-choice_plan_mobile_info_right_img {
+.mobile-info__right-img {
   max-height: 25rem;
 
   @media (max-width: 420px) {
@@ -208,7 +210,7 @@ export default {
   }
 }
 
-.v-visual-choice_plan_mobile_header {
+.plan-mobile__header {
   font-family: var(--f-header);
   font-size: 2.5rem;
   line-height: 3rem;
@@ -224,40 +226,52 @@ export default {
   }
 }
 
-.v-visual-choice_info_plan_img {
-  width: 100%;
-  height: auto;
-  margin-bottom: -3px;
-}
+.interactive-plan {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
 
-.v-visual-choice_info_plan_view_box {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-}
-
-.v-visual-choice_info_plan_item {
-  fill: transparent;
-  transition: all 0.2s;
-
-  &.active,
-  &:hover {
-    fill: var(--c-white-a50);
+  @include devices(tablet) {
+    width: 100%;
+    background-position: center;
   }
 
-  &.fixed {
-    fill: var(--c-white-a80);
+  &__img {
+    width: 100%;
+    height: auto;
+    margin-bottom: -3px;
+  }
+
+  &__schema {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+  }
+
+  &__item {
+    fill: transparent;
+    transition: all 0.2s;
+
+    &--active,
+    &:hover {
+      fill: var(--c-white-a50);
+    }
+
+    &--fixed {
+      fill: var(--c-white-a80) !important;
+    }
   }
 }
 
-.v-visual-choice_info_layout_wrap {
+.content__layout-wrap {
   margin-top: 2rem;
   margin-right: 5rem;
 }
 
-.v-visual-choice_info_layout {
+.content__layout {
   width: 100%;
   max-height: 100%;
 
@@ -282,14 +296,14 @@ export default {
   }
 }
 
-.v-visual-choice_info_first,
-.v-visual-choice_info_second {
+.content__first,
+.content__second {
   display: flex;
   justify-content: space-between;
 }
 
-.v-visual-choice_info_primary_header,
-.v-visual-choice_info_secondary_header {
+.content__primary-header,
+.content__secondary-header {
   font-family: var(--f-header);
   font-size: 3rem;
   line-height: 3.4rem;
@@ -301,7 +315,7 @@ export default {
   }
 }
 
-.v-visual-choice_info_secondary_header {
+.content__secondary-header {
   font-size: 2.2rem;
 }
 </style>
