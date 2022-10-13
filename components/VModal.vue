@@ -62,7 +62,7 @@ export default {
     padding: 2rem;
     border-radius: 3px;
 
-    @include devices(desctop) {
+    @include devices(desktop) {
       width: 50%;
     }
 

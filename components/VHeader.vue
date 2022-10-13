@@ -74,7 +74,7 @@ export default {
     align-items: center;
     flex-basis: 36%;
 
-    @include devices(desctop) {
+    @include devices(desktop) {
       justify-content: center;
     }
   }

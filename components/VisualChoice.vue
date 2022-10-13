@@ -1,58 +1,32 @@
 <template>
   <div class="visual-choice">
-    <div class="wrapper info-wrap">
-      <div v-if="currentSlide" class="content">
-        <div class="content__first">
-          <h2 class="content__primary-header">
+    <div class="wrapper d-flex flex-tablet-column-reverse pt-3 pb-3">
+      <div v-if="currentSlide" class="details">
+        <div class="details__first">
+          <h2 class="details__primary-header">
             No. {{ currentSlide.number }}
           </h2>
-          <h2 class="content__primary-header">
+          <h2 class="details__primary-header">
             price: {{ currentSlide.price.toLocaleString('en') }} £
           </h2>
         </div>
-        <div class="content__second">
-          <h2 class="content__secondary-header">
+        <div class="details__second">
+          <h2 class="details__secondary-header">
             {{ currentSlide.bedroom }} bedrooms
           </h2>
-          <h2 class="content__secondary-header">
+          <h2 class="details__secondary-header">
             total area: {{ currentSlide.totalArea }} m²
           </h2>
         </div>
-        <div class="content__layout-wrap">
+        <div class="details__img">
           <img
-            class="content__layout"
             :src="`../img/layout/${currentSlide.planImg}`"
-            alt=""
-          >
-        </div>
-      </div>
-    </div>
-    <div class="content__plan-wrap">
-      <div class="mobile-info__content">
-        <div class="mobile-info__left">
-          <h2 class="plan-mobile__header">
-            No. {{ currentSlide.number }}
-          </h2>
-          <h2 class="plan-mobile__header">
-            price: {{ currentSlide.price.toLocaleString('en') }} £
-          </h2>
-          <h2 class="plan-mobile__header">
-            {{ currentSlide.bedroom }} bedrooms
-          </h2>
-          <h2 class="plan-mobile__header">
-            total area: {{ currentSlide.totalArea }} m²
-          </h2>
-        </div>
-        <div class="mobile-info__right">
-          <img
-            class="mobile-info__right-img"
-            :src="`../img/layout/${currentSlide.planImg}`"
-            alt="room plan"
+            :alt="currentSlide.totalArea"
           >
         </div>
       </div>
       <div class="interactive-plan">
-        <img class="interactive-plan__img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="plan">
+        <img class="interactive-plan__img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="general plan">
         <svg
           class="interactive-plan__schema"
           :viewBox="visualData.viewBox"
@@ -90,7 +64,7 @@ export default {
   }),
 
   created () {
-    if (this.visualData.houses && this.visualData.houses.length) {
+    if (this.visualData?.houses?.length) {
       this.setCurrentSlide(this.visualData.houses[0])
     }
   },
@@ -125,104 +99,72 @@ export default {
 @import "assets/styles/mixins/media";
 
 .visual-choice {
-  position: relative;
   background-color: var(--c-white);
 }
 
-.info-wrap {
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  @media (max-width: 750px) {
-    display: none;
-  }
-}
-
-.content {
-  padding-top: 6rem;
+.details {
   width: 50%;
-  height: 100%;
 
-  @media (max-width: 1320px) {
-    padding-top: 3rem;
+  @include devices(tablet) {
+    margin-top: 2rem;
+    width: 100%;
   }
-}
 
-.content__plan-wrap {
-  display: flex;
-  flex-direction: row-reverse;
-  width: 100%;
+  &__img {
+    margin-top: 2rem;
+    margin-right: 5rem;
+    height: 40rem;
 
-  @media (max-width: 750px) {
-    flex-direction: column;
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+
+    @include devices(desktop) {
+      display: flex;
+      justify-content: center;
+      margin-right: 2rem;
+      height: 28rem;
+    }
+
+    @include devices(tablet) {
+      margin-right: 0;
+      margin-top: 1rem;
+    }
   }
-}
 
-.mobile-info__content {
-  display: none;
-
-  @media (max-width: 750px) {
+  &__first,
+  &__second {
     display: flex;
-    padding: 5rem 0 2rem;
+    justify-content: space-between;
+
+    @include devices(tablet) {
+      text-align: center;
+    }
   }
 
-  @media (max-width: 420px) {
-    flex-direction: column;
-    padding: 3rem 0 1rem;
-  }
-}
+  &__primary-header {
+    font-family: var(--f-header);
+    font-size: 3rem;
+    line-height: 3.4rem;
+    width: 50%;
 
-.mobile-info__left,
-.mobile-info__right {
-  width: 50%;
-  margin: 0 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mobile-info__left {
-  @media (max-width: 420px) {
-    width: 90%;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-}
-
-.mobile-info__right {
-  @media (max-width: 420px) {
-    height: 18rem;
-    width: 90%;
-    margin-bottom: 2rem;
-  }
-}
-
-.mobile-info__right-img {
-  max-height: 25rem;
-
-  @media (max-width: 420px) {
-    max-height: 20rem;
-  }
-}
-
-.plan-mobile__header {
-  font-family: var(--f-header);
-  font-size: 2.5rem;
-  line-height: 3rem;
-
-  @media (max-width: 600px) {
-    font-size: 2rem;
-    line-height: 2.5rem;
+    @include devices(desktop) {
+      font-size: 2rem;
+      line-height: 2.6rem;
+    }
   }
 
-  @media (max-width: 420px) {
-    font-size: 1.8rem;
-    line-height: 2.2rem;
+  &__secondary-header {
+    font-family: var(--f-header);
+    font-size: 2.2rem;
+    line-height: 2.8rem;
+    width: 50%;
+
+    @include devices(desktop) {
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+    }
   }
 }
 
@@ -264,58 +206,5 @@ export default {
       fill: var(--c-white-a80) !important;
     }
   }
-}
-
-.content__layout-wrap {
-  margin-top: 2rem;
-  margin-right: 5rem;
-}
-
-.content__layout {
-  width: 100%;
-  max-height: 100%;
-
-  @media (max-width: 1620px) {
-    max-height: 40rem;
-  }
-
-  @media (max-width: 1520px) {
-    max-height: 36rem;
-  }
-
-  @media (max-width: 1420px) {
-    max-height: 32rem;
-  }
-
-  @media (max-width: 1320px) {
-    max-height: 28rem;
-  }
-
-  @media (max-width: 900px) {
-    max-height: 22rem;
-  }
-}
-
-.content__first,
-.content__second {
-  display: flex;
-  justify-content: space-between;
-}
-
-.content__primary-header,
-.content__secondary-header {
-  font-family: var(--f-header);
-  font-size: 3rem;
-  line-height: 3.4rem;
-  width: 50%;
-
-  @media (max-width: 1320px) {
-    font-size: 2.5rem;
-    line-height: 3rem;
-  }
-}
-
-.content__secondary-header {
-  font-size: 2.2rem;
 }
 </style>
