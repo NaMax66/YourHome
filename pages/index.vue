@@ -1,49 +1,51 @@
 <template>
   <div>
-    <v-main-video />
-    <v-info-slider
-      id="neighbourhood"
+    <main-video />
+    <info-slider
+      :id="blockIds.neighbourhood.id"
       class="pt-10 pb-8"
       theme="light"
       direction="ltr"
-      :slides="neighbourhoodSlides"
+      :slides="slides.neighbourhood"
     />
-    <v-info-slider
-      id="facilities"
+    <info-slider
+      :id="blockIds.facilities.id"
       class="pt-10 pb-8"
       theme="dark"
       direction="rtl"
-      :slides="facilitiesSlides"
+      :slides="slides.facilities"
     />
-    <div id="visual_choice">
+    <div :id="blockIds.visualChoice.id">
       <v-visual-choice :visual-data="visualData" />
     </div>
-    <v-info-slider
-      id="interior"
+    <info-slider
+      :id="blockIds.interior.id"
       class="pb-8 pt-8"
       theme="dark"
       direction="rtl"
-      :slides="interiorSlides"
+      :slides="slides.interior"
     />
-    <div id="house_list">
+    <div :id="blockIds.houseList.id">
       <v-filter class="pb-8 pt-8" :filter-data="visualData" />
     </div>
     <v-feedback />
-    <div id="location">
+    <div :id="blockIds.location.id">
       <v-location />
     </div>
   </div>
 </template>
 
 <script>
-import info from '../assets/info'
-import visualData from '../assets/visualData'
-import VMainVideo from '../components/MainVideo'
-import VInfoSlider from '../components/InfoSlider'
-import VVisualChoice from '../components/VisualChoice'
-import VFilter from '../components/VFilter'
-import VLocation from '../components/VLocation'
-import VFeedback from '../components/VFeedback'
+import MainVideo from '~/components/MainVideo'
+import InfoSlider from '~/components/InfoSlider'
+import VVisualChoice from '~/components/VisualChoice'
+import VFilter from '~/components/VFilter'
+import VLocation from '~/components/VLocation'
+import VFeedback from '~/components/VFeedback'
+
+import slides from '~/models/slides'
+import visualData from '~/models/visualData'
+import blockIds from '~/models/blockIds'
 
 export default {
   name: 'IndexPage',
@@ -52,23 +54,15 @@ export default {
     VFeedback,
     VLocation,
     VVisualChoice,
-    VInfoSlider,
-    VMainVideo,
+    InfoSlider,
+    MainVideo,
     VFilter
   },
-  computed: {
-    neighbourhoodSlides () {
-      return info.neighbourhood
-    },
-    facilitiesSlides () {
-      return info.facilities
-    },
-    interiorSlides () {
-      return info.interior
-    },
-    visualData () {
-      return visualData
-    }
-  }
+
+  data: () => ({
+    blockIds,
+    visualData,
+    slides
+  })
 }
 </script>

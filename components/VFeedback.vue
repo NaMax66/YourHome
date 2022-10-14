@@ -16,7 +16,7 @@
       </div>
     </div>
     <v-modal v-show="isModalOpen" :is-success-shown="true" @close="closeModal">
-      <template #thanks>
+      <template #message>
         <p class="v-feedback__sent">
           Thank you. We will call you soon!
         </p>
@@ -30,10 +30,13 @@ import VButton from './VButton'
 import VModal from './VModal'
 export default {
   name: 'VFeedback',
+
   components: { VModal, VButton },
+
   data: () => ({
     isModalOpen: false
   }),
+
   methods: {
     handleSubmit () {
       this.isModalOpen = true
@@ -41,6 +44,7 @@ export default {
         this.isModalOpen = false
       }, 4000)
     },
+
     closeModal () {
       this.isModalOpen = false
     }

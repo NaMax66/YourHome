@@ -1,16 +1,16 @@
 <template>
-  <div class="v-footer_background">
+  <div class="v-footer">
     <div class="wrapper">
       <div class="v-footer-info">
         <p>&copy; This is a sample website by <br> Max Naidovich</p>
-        <div class="v-footer_social">
-          <a class="v-footer_social-link" href="https://t.me/namax66" target="_blank">
+        <div class="social-links">
+          <a class="social-link" href="https://t.me/namax66" target="_blank">
             <v-sprite icon="telegram" />
           </a>
-          <a class="v-footer_social-link" href="https://github.com/NaMax66" target="_blank">
+          <a class="social-link" href="https://github.com/NaMax66" target="_blank">
             <v-sprite icon="github" />
           </a>
-          <a class="v-footer_social-link" href="https://www.linkedin.com/in/max-naydovich" target="_blank">
+          <a class="social-link" href="https://www.linkedin.com/in/max-naydovich" target="_blank">
             <v-sprite icon="linkedin" />
           </a>
         </div>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-footer_background {
+  .v-footer {
     background-color: var(--c-black);
   }
 
@@ -65,7 +65,7 @@ export default {
     }
   }
 
-  .v-footer_social-link {
+  .social-link {
     display: inline-block;
     height: 100%;
 

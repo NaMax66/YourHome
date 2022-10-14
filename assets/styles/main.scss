@@ -1,3 +1,5 @@
+@import "atomic";
+
 :root {
   --f-main: "Lato", sans-serif;
   --f-header: "Cinzel", serif;
@@ -15,28 +17,28 @@
 @font-face {
   font-family: "Lato";
   font-display: swap;
-  src: url("../static/fonts/Lato-Regular.ttf") format("woff");
+  src: url("static/fonts/Lato-Regular.ttf") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "Lato";
   font-display: swap;
-  src: url("../static/fonts/Lato-Bold.ttf") format("woff");
+  src: url("static/fonts/Lato-Bold.ttf") format("woff");
   font-style: normal;
   font-weight: bold;
 }
 @font-face {
   font-family: "Cinzel";
   font-display: swap;
-  src: url("../static/fonts/Cinzel-Regular.ttf") format("woff");
+  src: url("static/fonts/Cinzel-Regular.ttf") format("woff");
   font-style: normal;
   font-weight: normal;
 }
 @font-face {
   font-family: "Cinzel";
   font-display: swap;
-  src: url("../static/fonts/Cinzel-Bold.ttf") format("woff");
+  src: url("static/fonts/Cinzel-Bold.ttf") format("woff");
   font-style: normal;
   font-weight: bold;
 }
@@ -70,16 +72,4 @@ a {
 
 .font-accent {
   font-family: var(--f-header) !important;
-}
-
-.pt-8 {
-  padding-top: 8rem !important;
-}
-
-.pt-10 {
-  padding-top: 10rem !important;
-}
-
-.pb-8 {
-  padding-bottom: 8rem !important;
 }

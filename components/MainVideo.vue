@@ -45,7 +45,7 @@
       <template #button>
         book
       </template>
-      <template #thanks>
+      <template #message>
         <p class="main-video_modal__info">
           Thank you. We will call you soon!
         </p>
@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/mixins/media";
+@import "../assets/styles/mixins/media";
 
   .main-video-wrap {
     position: relative;

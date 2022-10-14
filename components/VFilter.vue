@@ -105,7 +105,7 @@
       <template #button>
         Submit
       </template>
-      <template #thanks>
+      <template #message>
         <p class="modal-info">
           Thank you. We will call you soon!
         </p>
@@ -277,7 +277,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/mixins/media";
+@import "../assets/styles/mixins/media";
 
 $tablet-max-width: 52rem;
 

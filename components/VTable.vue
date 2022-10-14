@@ -16,10 +16,12 @@
           @click="$emit('buy', row)"
         >
           <td v-for="item in head" :key="item.id" class="table-body__cell">
-            {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
             <v-button v-if="item.isButton" class="table-body__action" is-empty>
               Buy
             </v-button>
+            <span v-else>
+              {{ row[item.objectKey] | getNiceNumber }} {{ item.units }}
+            </span>
           </td>
         </tr>
       </tbody>
@@ -37,10 +39,7 @@ export default {
 
   filters: {
     getNiceNumber (value) {
-      if (typeof value === 'number') {
-        value = value.toLocaleString('en')
-      }
-      return value
+      return (+value).toLocaleString('en')
     }
   },
 
@@ -59,8 +58,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/mixins/media";
-@import "../assets/mixins/scrollbar";
+@import "../assets/styles/mixins/media";
+@import "../assets/styles/mixins/scrollbar";
 
 $horizontal-padding: 2rem;
 
@@ -106,6 +105,11 @@ $horizontal-padding: 2rem;
   &__action {
     visibility: hidden;
     opacity: 0;
+
+    @include devices(tablet) {
+      visibility: visible;
+      opacity: 1;
+    }
   }
 
   &__row {
