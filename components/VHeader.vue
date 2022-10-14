@@ -55,7 +55,7 @@ export default {
 
 .v-header {
   position: fixed;
-  z-index: 100;
+  z-index: var(--z-idx-over);
   width: 100%;
   color: var(--c-light-gray);
   background-color: var(--c-black-a90);

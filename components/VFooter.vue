@@ -28,49 +28,51 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .v-footer {
-    background-color: var(--c-black);
+@import "assets/styles/mixins/media";
+
+.v-footer {
+  background-color: var(--c-black);
+}
+
+.v-footer-info {
+  font-size: 1.8rem;
+  color: var(--c-white);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+
+  @include devices(tablet) {
+    padding: 1rem 0;
   }
 
-  .v-footer-info {
-    font-size: 1.8rem;
-    color: var(--c-white);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 0;
+  & p {
+    flex-basis: 30%;
 
-    @media (max-width: 600px) {
-      padding: 1rem 0;
-    }
-
-    & p {
-      flex-basis: 30%;
-
-      @media (max-width: 600px) {
-        flex-basis: 45%;
-        margin-right: 1rem;
-      }
+    @include devices(tablet) {
+      flex-basis: 45%;
+      margin-right: 1rem;
     }
   }
+}
 
-  .v-sprite {
-    height: 4rem;
-    width: 4rem;
-    transition: all 0.3s;
-    fill: var(--c-white);
+.v-sprite {
+  height: 4rem;
+  width: 4rem;
+  transition: all 0.3s;
+  fill: var(--c-white);
 
-    &:hover {
-      fill: var(--c-light-gray);
-    }
+  &:hover {
+    fill: var(--c-light-gray);
   }
+}
 
-  .social-link {
-    display: inline-block;
-    height: 100%;
+.social-link {
+  display: inline-block;
+  height: 100%;
 
-    &:not(:last-child) {
-      margin-right: 3rem;
-    }
+  &:not(:last-child) {
+    margin-right: 3rem;
   }
+}
 </style>

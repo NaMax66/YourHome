@@ -39,7 +39,7 @@
 import MainVideo from '~/components/MainVideo'
 import InfoSlider from '~/components/InfoSlider'
 import VVisualChoice from '~/components/VisualChoice'
-import VFilter from '~/components/VFilter'
+import VFilter from '~/components/FlatFilter'
 import VLocation from '~/components/VLocation'
 import VFeedback from '~/components/VFeedback'
 
