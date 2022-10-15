@@ -127,108 +127,108 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import 'swiper/swiper.min.css';
-  @import 'swiper/modules/navigation/navigation.min.css';
-  @import "../assets/styles/mixins/media";
+@import 'swiper/swiper.min.css';
+@import 'swiper/modules/navigation/navigation.min.css';
+@import "../assets/styles/mixins/media";
 
-  .slider-background {
-    &.light {
-      background-color: var(--c-white);
-    }
-
-    &.dark {
-      background-color: var(--c-black);
-    }
+.slider-background {
+  &.light {
+    background-color: var(--c-white);
   }
 
-  .slider-wrap {
-    display: flex;
+  &.dark {
+    background-color: var(--c-black);
+  }
+}
 
-    &.rtl {
-      flex-direction: row-reverse;
+.slider-wrap {
+  display: flex;
 
-      @include devices(tablet) {
-        flex-direction: column-reverse;
-      }
-    }
-
-    &.dark {
-      color: var(--c-light-gray);
-    }
-
-    &.light {
-      color: var(--c-black);
-    }
+  &.rtl {
+    flex-direction: row-reverse;
 
     @include devices(tablet) {
       flex-direction: column-reverse;
     }
   }
 
-  .slider-info {
-    width: 50%;
-    padding-right: 5rem;
+  &.dark {
+    color: var(--c-light-gray);
+  }
+
+  &.light {
+    color: var(--c-black);
+  }
+
+  @include devices(tablet) {
+    flex-direction: column-reverse;
+  }
+}
+
+.slider-info {
+  width: 50%;
+  padding-right: 5rem;
+
+  @include devices(tablet) {
+    width: 90%;
+    padding-right: 0;
+    padding-top: 4rem;
+  }
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s;
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.rtl {
+    padding-right: 0;
+    padding-left: 5rem;
 
     @include devices(tablet) {
       width: 90%;
-      padding-right: 0;
+      padding-left: 0;
       padding-top: 4rem;
     }
-
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.1s;
-
-    &--visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &.rtl {
-      padding-right: 0;
-      padding-left: 5rem;
-
-      @include devices(tablet) {
-        width: 90%;
-        padding-left: 0;
-        padding-top: 4rem;
-      }
-    }
-
-    & h2 {
-      font-size: 3.8rem;
-    }
-
-    & p {
-      margin-top: 2rem;
-      font-size: 3rem;
-      line-height: 4rem;
-    }
   }
 
-  .slider-swiper {
-    position: relative;
-    width: 50%;
-
-    @include devices(tablet) {
-      width: 100%;
-    }
+  & h2 {
+    font-size: 3.8rem;
   }
 
-  .swiper {
+  & p {
+    margin-top: 2rem;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+}
+
+.slider-swiper {
+  position: relative;
+  width: 50%;
+
+  @include devices(tablet) {
     width: 100%;
-    max-height: 60rem;
-    max-width: 70rem;
-
-    & img {
-      width: 100%;
-      height: auto;
-      border-radius: 3px;
-    }
   }
+}
 
-  .swiper-button-next,
-  .swiper-button-prev {
-    color: var(--c-white);
+.swiper {
+  width: 100%;
+  max-height: 60rem;
+  max-width: 70rem;
+
+  & img {
+    width: 100%;
+    height: auto;
+    border-radius: 3px;
   }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--c-white);
+}
 </style>

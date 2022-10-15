@@ -52,25 +52,29 @@
             </h3>
           </div>
           <div class="price">
-            <vue-slider-component
-              v-if="priceRangeOptions"
-              v-model="priceRange"
-              v-bind="priceRangeOptions"
-              :value="priceRangeOptions.value"
-              @dragging="filterHouses"
-            />
+            <client-only>
+              <vue-slider-component
+                v-if="priceRangeOptions"
+                v-model="priceRange"
+                v-bind="priceRangeOptions"
+                :value="priceRangeOptions.value"
+                @dragging="filterHouses"
+              />
+            </client-only>
             <h3 class="price-header">
               Price, £
             </h3>
           </div>
           <div class="area">
-            <vue-slider-component
-              v-if="areaRangeOptions"
-              v-model="areaRange"
-              v-bind="areaRangeOptions"
-              :value="areaRangeOptions.value"
-              @dragging="filterHouses"
-            />
+            <client-only>
+              <vue-slider-component
+                v-if="areaRangeOptions"
+                v-model="areaRange"
+                v-bind="areaRangeOptions"
+                :value="areaRangeOptions.value"
+                @dragging="filterHouses"
+              />
+            </client-only>
             <h3 class="area-header">
               Total area, m²
             </h3>
@@ -124,18 +128,21 @@ if (process.client) {
   require('vue-slider-component/theme/antd.css')
 }
 export default {
-  name: 'VFilter',
+  name: 'FlatFilter',
+
   components: {
     VTable,
     VModal,
     ...components
   },
+
   props: {
     filterData: {
       type: Object,
       required: true
     }
   },
+
   data: () => ({
     isModalOpen: false,
     isSuccessShown: false,
@@ -175,15 +182,18 @@ export default {
     areaRangeOptions: null,
     currentHouse: null
   }),
+
   watch: {
     checkedBedrooms () {
       this.filterHouses()
     }
   },
+
   created () {
     this.houses = this.filterData.houses
     this.initFilterRange()
   },
+
   methods: {
     filterByBedrooms (arr, key) {
       let filteredArray = []
@@ -345,7 +355,7 @@ $tablet-max-width: 52rem;
   margin-top: 5rem;
   margin-bottom: 3rem;
 
-  @media (max-width: 820px) {
+  @include devices(tablet) {
     margin-top: 1rem;
   }
 }

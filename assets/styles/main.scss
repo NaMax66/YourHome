@@ -1,4 +1,5 @@
 @import "atomic";
+@import "mixins/media";
 
 :root {
   --f-main: "Lato", sans-serif;
@@ -13,6 +14,11 @@
   --c-black-a50: rgba(33, 33, 33, 0.5);
   --c-black-a90: rgba(33, 33, 33, 0.9);
   --c-orange: #f56a3f;
+
+  --z-idx-under: -1;
+  --z-idx-main: 1;
+  --z-idx-over: 2;
+  --z-idx-super: 3;
 }
 @font-face {
   font-family: "Lato";
@@ -68,6 +74,14 @@ a {
   max-width: 140rem;
   margin: 0 auto;
   padding: 0 2rem;
+
+  @include devices(tablet) {
+    padding: 0 1rem;
+  }
+
+  @include devices(mobile) {
+    padding: 0 0.5rem;
+  }
 }
 
 .font-accent {
