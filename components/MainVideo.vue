@@ -2,9 +2,10 @@
   <header class="main-video-wrap">
     <picture class="video-stub">
       <source srcset="main.webp" type="image/webp">
-      <img class="video-stub__img" src="main.jpg" alt="beautiful houses and green trees">
+      <img fetchpriority="high" class="video-stub__img" src="main.jpg" alt="beautiful houses and green trees">
     </picture>
     <video
+      fetchpriority="low"
       class="main-video"
       :class="{'main-video--show-smooth': isVideoLoaded}"
       loop
