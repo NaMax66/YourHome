@@ -27,7 +27,7 @@
             >
               <picture>
                 <source :srcset="`img/${slide.img}.webp`" type="image/webp">
-                <img :src="`img/fallback/${slide.img}.jpg`" :alt="slide.header">
+                <img loading="lazy" :src="`img/fallback/${slide.img}.jpg`" :alt="slide.header">
               </picture>
             </div>
           </div>

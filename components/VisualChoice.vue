@@ -20,6 +20,7 @@
         </div>
         <div class="details__img">
           <img
+            loading="lazy"
             :src="`../img/layout/${currentSlide.planImg}`"
             :alt="currentSlide.totalArea"
           >
@@ -28,7 +29,7 @@
       <div class="interactive-plan">
         <picture>
           <source srcset="img/plan.webp" type="image/webp">
-          <img class="interactive-plan__img" src="img/fallback/plan.jpg" alt="general plan">
+          <img fetchpriority="low" class="interactive-plan__img" src="img/fallback/plan.jpg" alt="general plan">
         </picture>
         <svg
           class="interactive-plan__schema"

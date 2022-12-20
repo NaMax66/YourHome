@@ -2,7 +2,7 @@
   <div class="v-location">
     <picture>
       <source srcset="img/birmingham.webp">
-      <img class="v-location__background" src="img/fallback/birmingham.jpg" alt="birmingham">
+      <img loading="lazy" class="v-location__background" src="img/fallback/birmingham.jpg" alt="birmingham">
     </picture>
     <div class="wrapper v-location-info-wrap">
       <div class="v-location-info">
