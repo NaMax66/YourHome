@@ -1,12 +1,17 @@
 <template>
   <header class="main-video-wrap">
+    <picture class="video-stub">
+      <source srcset="main.webp" type="image/webp">
+      <img class="video-stub__img" src="main.jpg" alt="beautiful houses and green trees">
+    </picture>
     <video
       class="main-video"
+      :class="{'main-video--show-smooth': isVideoLoaded}"
       loop
       autoplay
-      poster="main.png"
       muted="muted"
       alt="video"
+      @loadeddata="isVideoLoaded = true"
     >
       <source src="video.mp4">
       <source src="video.webm">
@@ -67,7 +72,8 @@ export default {
 
   data: () => ({
     isModalOpen: false,
-    isSuccessShown: false
+    isSuccessShown: false,
+    isVideoLoaded: false
   }),
 
   methods: {
@@ -103,6 +109,7 @@ export default {
   overflow: hidden;
 }
 
+.video-stub,
 .main-video {
   z-index: var(--z-idx-under);
   width: 100%;
@@ -111,6 +118,25 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.video-stub {
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.main-video {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &--show-smooth {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .main-video__info {

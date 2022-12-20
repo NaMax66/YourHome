@@ -25,11 +25,10 @@
               :key="slide.id"
               class="swiper-slide"
             >
-              <img
-                class="img-class"
-                :src="`img/${slide.img}`"
-                alt=""
-              >
+              <picture>
+                <source :srcset="`img/${slide.img}.webp`" type="image/webp">
+                <img :src="`img/fallback/${slide.img}.jpg`" :alt="slide.header">
+              </picture>
             </div>
           </div>
           <div class="swiper-button-prev" />

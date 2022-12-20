@@ -1,5 +1,9 @@
 <template>
   <div class="v-location">
+    <picture>
+      <source srcset="img/birmingham.webp">
+      <img class="v-location__background" src="img/fallback/birmingham.jpg" alt="birmingham">
+    </picture>
     <div class="wrapper v-location-info-wrap">
       <div class="v-location-info">
         <p class="v-location-info__txt">
@@ -30,10 +34,18 @@ export default {
 @import "assets/styles/mixins/media";
 
 .v-location {
-  background-image: url("/img/sarah-doffman-u44HcmdG0Oo-unsplash.jpg");
-  background-size: cover;
-  background-position: center;
+  position: relative;
   height: 60rem;
+
+  &__background {
+    z-index: var(--z-idx-under);
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .v-location-info-wrap {
