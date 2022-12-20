@@ -2,7 +2,7 @@
   <header class="main-video-wrap">
     <picture class="video-stub">
       <source srcset="main.webp" type="image/webp">
-      <img src="main.jpg" alt="beautiful houses and green trees">
+      <img class="video-stub__img" src="main.jpg" alt="beautiful houses and green trees">
     </picture>
     <video
       class="main-video"
@@ -120,6 +120,14 @@ export default {
   left: 0;
 }
 
+.video-stub {
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
 .main-video {
   visibility: hidden;
   opacity: 0;
@@ -128,13 +136,6 @@ export default {
   &--show-smooth {
     visibility: visible;
     opacity: 1;
-  }
-}
-
-.video-stub {
-  img {
-    max-width: 100%;
-    min-height: 100%;
   }
 }
 

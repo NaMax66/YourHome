@@ -26,7 +26,7 @@
         </div>
       </div>
       <div class="interactive-plan">
-        <picture class="">
+        <picture>
           <source srcset="img/plan.webp" type="image/webp">
           <img class="interactive-plan__img" src="img/fallback/plan.jpg" alt="general plan">
         </picture>

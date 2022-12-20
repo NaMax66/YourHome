@@ -36,10 +36,9 @@ export default {
 .v-location {
   position: relative;
   height: 60rem;
-  z-index: 1;
 
   &__background {
-    z-index: -1;
+    z-index: var(--z-idx-under);
     object-fit: cover;
     position: absolute;
     top: 0;
