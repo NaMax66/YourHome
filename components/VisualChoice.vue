@@ -26,7 +26,10 @@
         </div>
       </div>
       <div class="interactive-plan">
-        <img class="interactive-plan__img" src="../static/img/chuttersnap-awL_YCtPGv4-unsplash.jpg" alt="general plan">
+        <picture class="">
+          <source srcset="img/plan.webp" type="image/webp">
+          <img class="interactive-plan__img" src="img/fallback/plan.jpg" alt="general plan">
+        </picture>
         <svg
           class="interactive-plan__schema"
           :viewBox="visualData.viewBox"
