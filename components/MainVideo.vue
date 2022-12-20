@@ -14,7 +14,7 @@
       @loadeddata="isVideoLoaded = true"
     >
       <source src="video.mp4">
-      <source src="video.webp">
+      <source src="video.webm">
     </video>
     <div class="main-video__info wrapper">
       <h1 class="main-video__header">
