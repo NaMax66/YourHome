@@ -34,6 +34,7 @@
           class="interactive-plan__schema"
           :viewBox="visualData.viewBox"
         >
+
           <!-- eslint-disable vue/no-v-html -->
           <a
             v-for="item in visualData.houses"
